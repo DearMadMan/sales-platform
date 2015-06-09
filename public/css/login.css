@@ -1,0 +1,22 @@
+body{
+    background: url('../images/bg.jpg');
+    padding-top: 150px;
+}
+
+#login div{
+    background: none;
+}
+#login .panel-heading,#login .panel-body{
+    background: rgba(255,255,255,.1);
+}
+
+#login div{
+    color:#f0f0f0;
+}
+.message{
+    text-align: center;
+    height: 40px;
+    line-height: 20px;
+    padding: 10px 0;
+    color:#666;
+}

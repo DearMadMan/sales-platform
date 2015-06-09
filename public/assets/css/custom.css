@@ -1,0 +1,29 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+body {
+    font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+
+a {
+}
+
+.footer-text{
+    width: 100%;
+}
+
+.form-group .pd-15{
+    padding: 0 15px;
+}
+
+.skin-white .sidebar-menu.fixed .sidebar-menu-inner{
+    background: #fff;
+}
+.sub-span{
+    text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
+    max-width: 200px;
+
+}
