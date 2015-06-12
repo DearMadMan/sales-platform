@@ -11,4 +11,6 @@ class WechatConfig extends Model
     public function manager(){
         return $this->belongsTo('App\WechatManager','manager_id','id');
     }
+
+
 }

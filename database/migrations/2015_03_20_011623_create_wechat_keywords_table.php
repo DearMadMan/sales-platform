@@ -18,9 +18,9 @@ class CreateWechatKeywordsTable extends Migration {
 			$table->string('name')->default('');
 			$table->string('keyword')->default('');
 			$table->integer('type')->default(0);
-			$table->text('contents')->default('');
+			$table->text('contents');
 			$table->integer('count')->default(0);
-			$table->boolean('status')->default('');
+			$table->boolean('status')->default(true);
 			$table->integer('manager_id')->unsigned()->default(0);
 
 			//$table->timestamps();

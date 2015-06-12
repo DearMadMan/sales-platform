@@ -997,7 +997,7 @@ var public_vars = public_vars || {};
 				var $this = $(el),
 					stylesheets = attrDefault($this, 'stylesheet-url', '')
 				
-				$(".wysihtml5").wysihtml5({
+				$this.wysihtml5({
 					size: 'white',
 					stylesheets: stylesheets.split(','),
 					"html": attrDefault($this, 'html', true),

@@ -94,15 +94,7 @@ class WechatMenuController extends Controller
      */
     public function show ($id)
     {
-        /* 一级菜单 删除该菜单下所有子菜单  */
-        $wechatMenu = new WechatMenu();
-
-        if ($wechatMenu->isFirstMenu ($id)) {
-            /* 删除当前菜单及其子菜单 */
-            $wechatMenu->DeleteFromFirstId ($id);
-        } else {
-            $wechatMenu->destroy ($id);
-        }
+        return redirect ('manager/wechat-menu');
     }
 
     /**
@@ -163,6 +155,7 @@ class WechatMenuController extends Controller
      */
     public function destroy ($id)
     {
+
         /* 一级菜单 删除该菜单下所有子菜单  */
 
         $wechatMenu = new WechatMenu(Auth::user ()->manager_id);

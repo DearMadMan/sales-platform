@@ -173,6 +173,7 @@ class ManagerController extends Controller
      */
     public function postSystem (WechatConfigUpdate $request)
     {
+
         $user = $request->user ();
         /* check User */
         if ( ! $user->isManager ()) {
@@ -195,6 +196,7 @@ class ManagerController extends Controller
         $config['token'] = Input::get ('token');
         $config['app_id'] = Input::get ('app_id');
         $config['app_secret'] = Input::get ('app_secret');
+        $config['subscribe'] = Input::get ('subscribe');
         $config = json_encode ($config);
         if (empty($wechatConfig)) {
             $wechatConfig = new WechatConfig();
@@ -210,6 +212,37 @@ class ManagerController extends Controller
 
 
     /**
+     * [get fans list]
+     * @return $this
+     */
+    public function getFansList ()
+    {
+        $breadcrumb_title = '粉丝列表';
+        $breadcrumb = [
+            ['url' => 'manager/fans-list' , 'title' => '微信中心' , 'is_active' => 0] ,
+            ['url' => '' , 'title' => '粉丝列表' , 'is_active' => 1]
+        ];
+
+        return view ('manager.fans_list')
+            ->with ('breadcrumb_title' , $breadcrumb_title)
+            ->with ('breadcrumb' , $breadcrumb);
+    }
+
+
+    function getSubscribe(){
+        $breadcrumb_title = '关注回复';
+        $breadcrumb = [
+            ['url' => 'manager/fans-list' , 'title' => '微信中心' , 'is_active' => 0] ,
+            ['url' => '' , 'title' => '关注回复' , 'is_active' => 1]
+        ];
+
+        return view ('manager.subscribe')
+            ->with ('breadcrumb_title' , $breadcrumb_title)
+            ->with ('breadcrumb' , $breadcrumb);
+    }
+
+
+    /**
      * [Set WechatMenu to Wechat]
      * @return string
      */
@@ -221,15 +254,14 @@ class ManagerController extends Controller
             ->orderBy ('index' , 'desc')
             ->get ();
 
-       $wechat_configs=WechatConfig::where('manager_id',$user->manager_id)
-           ->first();
+        $wechat_configs = WechatConfig::where ('manager_id' , $user->manager_id)
+            ->first ();
 
-        $configs=json_decode($wechat_configs->configs);
-        $app_id=$configs->app_id;
-        $app_secret=$configs->app_secret;
+        $configs = json_decode ($wechat_configs->configs);
+        $app_id = $configs->app_id;
+        $app_secret = $configs->app_secret;
 
-        $menu=new Menu($app_id,$app_secret);
-
+        $wechat_menu = new Menu($app_id , $app_secret);
 
 
         $target = [];
@@ -242,22 +274,27 @@ class ManagerController extends Controller
 
                 /* 二级菜单 */
                 $buttons = [];
-                    foreach ($menu_list as $button) {
+                foreach ($menu_list as $button) {
 
                     if ($button->parent_id == $menu['id']) {
 
-                        $buttons[]=new MenuItem($button['name'] , $button['menu_type'] , $button['value']);
+                        $buttons[] = new MenuItem($button['name'] , $button['menu_type'] , $button['value']);
 
                     }
                 }
-                $item->buttons($buttons);
-                $target[]=$item;
+                $item->buttons ($buttons);
+                $target[] = $item;
             }
         }
-    dd($menu);
-       $menu->set($target); // 失败会抛出异常
 
-        return '菜单设置成功！';
+        if ( ! empty($target)) {
+            $wechat_menu->set ($target); // 失败会抛出异常
+        } else {
+            $wechat_menu->delete ();
+        }
+
+        return redirect ('manager/wechat-menu')
+            ->with ('tips' , '菜单设置成功！');
 
     }
 

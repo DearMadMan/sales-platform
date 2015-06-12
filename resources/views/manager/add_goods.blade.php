@@ -166,7 +166,7 @@
                 <div class="panel-title">商品相册</div>
             </div>
             <div class="panel-body">
-                <form action="data/upload-file.php" class="dropzone dz-clickable"><div class="dz-default dz-message"><span>1Drop files here to upload</span></div></form>
+                <form action="{{url("tool")}}" class="dropzone dz-clickable"><div class="dz-default dz-message"><span></span></div></form>
             </div>
         </div>
     </div>

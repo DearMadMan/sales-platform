@@ -26,6 +26,7 @@ class WechatMenuStore extends Request {
 			"parent_id"=>"required|numeric",
 			"name"=>"required",
 			"menu_type"=>"required",
+			"value"=>"required",
 			"index"=>"numeric"
 
 		];

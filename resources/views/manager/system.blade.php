@@ -151,7 +151,16 @@
 
                         {{-- 系统相关 --}}
                         <div class="tab-pane" id="system">
+                            <!-- Subscribe -->
+                               <div class="form-group">
+                                   <label class="col-sm-2 control-label" for="subscribe">关注回复：</label>
 
+                                   <div class="col-sm-10">
+                                       <input type="checkbox" id="subscribe" name="subscribe" @if($config->subscribe)
+                                              checked=""
+                                              @endif class="iswitch iswitch-turquoise">
+                                   </div>
+                               </div>
                         </div>
                     </div>
 

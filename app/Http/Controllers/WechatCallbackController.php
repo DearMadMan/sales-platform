@@ -16,6 +16,7 @@ class WechatCallbackController extends Controller
 
     public function index ($manager_id)
     {
+        dd(Input::all()->toArray());
         $wechat = $this->init ($manager_id);
         $wechat->on ('message' , function ($message) {
             return Message::make ('text')->content ('您好！' . $message->FromUserName);

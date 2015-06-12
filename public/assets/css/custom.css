@@ -27,3 +27,29 @@ a {
     max-width: 200px;
 
 }
+
+.mg-t-10{
+    margin-top: 10px;
+}
+.mg-t-20{
+    margin-top: 20px;
+}
+
+.fz-18{
+    font-size: 18px;
+    line-height: 18px;
+}
+.fz-16{
+    font-size: 16px;
+    line-height: 16px;
+}
+.fz-14{
+    font-size: 14px;
+    line-height: 14px;
+}
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}

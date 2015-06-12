@@ -30,7 +30,7 @@ class CreateGoodsTable extends Migration {
 			$table->integer('shipping_free')->default(0);
 			$table->integer('is_on_sale')->default(1);
 			$table->integer('base_sold_count')->default(0);
-			$table->boolean('is_delete')->default('');
+			$table->boolean('is_delete')->default(false);
 			$table->integer('manager_id')->unsigned()->default(0);
 
 			//$table->timestamps();

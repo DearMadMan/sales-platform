@@ -17,8 +17,8 @@ class CreateArticlesTable extends Migration {
 			$table->increments('id');
 			$table->integer('type_id')->unsigned()->default(0);
 			$table->string('title')->default('');
-			$table->text('content')->default('');
-			$table->boolean('is_show')->default('');
+			$table->text('content');
+			$table->boolean('is_show')->default(true);
 			$table->string('out_link')->default('');
 			$table->string('desciption')->default('');
 			$table->integer('manager_id')->unsigned()->default(0);

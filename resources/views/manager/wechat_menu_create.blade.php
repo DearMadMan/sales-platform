@@ -30,7 +30,11 @@
                           @else
                           action="{{url('manager/wechat-menu').'/'.$menu->id}}"
                           @endif
-                          method="{{$method}}">
+                                  @if($method!="get")
+                          method="post">
+                    @else
+                            method="get">
+                                      @endif
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="manager_id" value="{{ Auth::user()->manager_id  }}">
                         <input type="hidden" name="_method" value="{{$method}}"/>

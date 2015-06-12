@@ -295,7 +295,7 @@
             var insertLinkModal = toolbar.find('.bootstrap-wysihtml5-insert-link-modal');
             var urlInput = insertLinkModal.find('.bootstrap-wysihtml5-insert-link-url');
             var targetInput = insertLinkModal.find('.bootstrap-wysihtml5-insert-link-target');
-            var insertButton = insertLinkModal.find('a.btn-primary');
+            var insertButton = insertLinkModal.find('a.btn-info');
             var initialValue = urlInput.val();
             var caretBookmark;
 

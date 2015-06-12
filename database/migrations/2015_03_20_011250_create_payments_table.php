@@ -17,13 +17,13 @@ class CreatePaymentsTable extends Migration {
 			$table->increments('id');
 			$table->string('pay_code')->default('');
 			$table->string('pay_name')->default('');
-			$table->decimal('pay_fee')->default('');
-			$table->text('pay_desc')->default('');
-			$table->text('pay_config')->default('');
-			$table->boolean('enabled')->default('');
-			$table->boolean('is_online')->default('');
-			$table->boolean('is_cod')->default('');
-			$table->integer('manager_id')->unsigned()->default('');
+			$table->decimal('pay_fee')->default(0);
+			$table->text('pay_desc');
+			$table->text('pay_config');
+			$table->boolean('enabled')->default(false);
+			$table->boolean('is_online')->default(false);
+			$table->boolean('is_cod')->default(false);
+			$table->integer('manager_id')->unsigned()->default(0);
 
 			//$table->timestamps();
 		});

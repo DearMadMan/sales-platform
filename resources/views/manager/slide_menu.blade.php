@@ -57,12 +57,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="dashboard-2.html">
+                        <a href="{{url('manager/pay-type')}}">
                             <span class="title">支付方式</span>
                         </a>
                     </li>
                     <li>
-                        <a href="dashboard-2.html">
+                            <a href="{{url('manager/shipping-type')}}">
                             <span class="title">配送方式</span>
                         </a>
                     </li>
@@ -133,7 +133,7 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/fans-list')}}">
                             <span class="{{url('manager/wechat-menu')}}">粉丝管理</span>
                         </a>
                     </li>
@@ -143,71 +143,71 @@
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/subscribe')}}">
                             <span class="title">关注回复</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/keyword')}}">
                             <span class="title">关键词</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/fans-ranking')}}">
                             <span class="title">粉丝排行</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/shipping-notify')}}">
                             <span class="title">发货提醒</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/paid-notify')}}">
                             <span class="title">付款提醒</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/order-notify')}}">
                             <span class="title">订单提醒</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/oauth-list')}}">
                             <span class="title">微信OAuth</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="mailbox-main.html">
+                <a href="{{url('manager/article-list')}}">
                     <i class="fa-mortar-board"></i>
                     <span class="title">文章中心</span>
                   {{--  <span class="label label-success pull-right">3</span>--}}
                 </a>
                 <ul>
                     <li>
-                        <a href="mailbox-main.html">
+                        <a href="{{url('manager/article-list')}}">
                             <span class="title">文章列表</span>
                         </a>
                     </li>
                     <li>
-                        <a href="mailbox-compose.html">
+                        <a href="{{url('manager/add-article')}}">
                             <span class="title">添加文章</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/article-type-list')}}">
                             <span class="title">文章分类</span>
                         </a>
                     </li>
                     <li>
-                        <a href="ui-other-elements.html">
+                        <a href="{{url('manager/add-article-type-list')}}">
                             <span class="title">添加分类</span>
                         </a>
                     </li>
                     <li>
-                        <a href="mailbox-message.html">
+                        <a href="{{url('manager/article-recycle')}}">
                             <span class="title">文章回收站</span>
                         </a>
                     </li>

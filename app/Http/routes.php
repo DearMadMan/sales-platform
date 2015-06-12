@@ -15,20 +15,26 @@
     |
     */
 
-    Route::get('test',function(){
+    Route::get ('test' , function () {
 
-        return session('captcha');
+        return session ('captcha');
     });
 
-    Route::get('/',function(){
-        $server=new Server("wx51bbebf779eec25f","zzz" );
-        dd($server);
-        return view('404');
+    Route::get ('/' , function () {
+
+        $notify = new \App\WechatNotify();
+
+        dd ($notify);
+
+        $server = new Server("wx51bbebf779eec25f" , "zzz");
+        dd ($server);
+
+        return view ('404');
     });
 
 
-    Route::get("404",function(){
-        return view('404');
+    Route::get ("404" , function () {
+        return view ('404');
     });
 //    Route::get('callback',function(){
 //        $server=new Server("xxx","zzzz" );
@@ -42,9 +48,9 @@
         'manager/user' => 'Manager\UserController'
     ]);
     /* 微信菜单 */
-    Route::resource( 'manager/wechat-menu','Manager\WechatMenuController');
+    Route::resource ('manager/wechat-menu' , 'Manager\WechatMenuController');
 
     Route::Controllers ([
-        'tool' => 'ToolController',
-        'manager'=>'Manager\ManagerController'
+        'tool'    => 'ToolController' ,
+        'manager' => 'Manager\ManagerController'
     ]);
