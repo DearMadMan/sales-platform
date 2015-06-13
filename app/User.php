@@ -1,4 +1,6 @@
-<?php namespace App;
+<?php
+
+namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -43,6 +45,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function  isManager(){
 		return $this->user_type_id > 1;
 	}
+
 
 
 }

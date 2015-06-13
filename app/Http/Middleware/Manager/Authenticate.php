@@ -1,26 +1,27 @@
-<?php namespace App\Http\Middleware\Manager;
+<?php
+    namespace App\Http\Middleware\Manager;
 
-use Closure;
+    use Closure;
 
-class Authenticate
-{
-
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
-     * @return mixed
-     */
-    public function handle ($request , Closure $next)
+    class Authenticate
     {
 
-        if ( ! $request->user () || ! $request->user ()->user_type_id > 2) {
+        /**
+         * Handle an incoming request.
+         *
+         * @param  \Illuminate\Http\Request $request
+         * @param  \Closure $next
+         * @return mixed
+         */
+        public function handle ($request , Closure $next)
+        {
 
-            return redirect ('manager/login');
+            if ( ! $request->user () || ! $request->user ()->user_type_id > 2) {
+
+                return redirect ('manager/login');
+            }
+
+            return $next($request);
         }
 
-        return $next($request);
     }
-
-}
