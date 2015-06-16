@@ -7,6 +7,7 @@ use App\Http\Requests\Manager\WechatConfigUpdate;
 use App\Http\Requests\Manager\WechatNotifyUpdate;
 use App\ImageMd5;
 use App\WechatConfig;
+use App\WechatKeyword;
 use App\WechatManager;
 use App\WechatMenu;
 use App\WechatNotify;
@@ -250,33 +251,31 @@ class ManagerController extends Controller
 
         /* get NotifyInfo with Subscribe */
 
-        $user=Auth::user();
-        $wechat_notify=new WechatNotify();
-        $text_model=$wechat_notify->where('manager_id',$user->manager_id)
-            ->where('event',"subscribe")
-            ->where('type','text')
+        $user = Auth::user();
+        $wechat_notify = new WechatNotify();
+        $text_model = $wechat_notify->where('manager_id', $user->manager_id)
+            ->where('event', "subscribe")
+            ->where('type', 'text')
             ->first();
-        if(empty($text_model))
-        {
-            $text_model=new WechatNotify();
-            $text_model->contents="";
-            $text_model->enabled=false;
+        if (empty($text_model)) {
+            $text_model = new WechatNotify();
+            $text_model->contents = "";
+            $text_model->enabled = false;
         }
 
-        $text_image_model=$wechat_notify->where('manager_id',$user->manager_id)
-            ->where('event',"subscribe")
-            ->where('type','text-image')
+        $text_image_model = $wechat_notify->where('manager_id', $user->manager_id)
+            ->where('event', "subscribe")
+            ->where('type', 'text-image')
             ->first();
-        if(!$text_image_model)
-        {
-            $text_image_model=new WechatNotify();
+        if (!$text_image_model) {
+            $text_image_model = new WechatNotify();
         }
 
         return view('manager.subscribe')
             ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb)
-            ->with('text_model',$text_model)
-            ->with('text_image_model',$text_image_model);
+            ->with('text_model', $text_model)
+            ->with('text_image_model', $text_image_model);
     }
 
 
@@ -368,11 +367,10 @@ class ManagerController extends Controller
                 ->where("type", "text")
                 ->where("event", "subscribe")
                 ->first();
-            if(empty($wechat_notify))
-            {
-                $wechat_notify=new WechatNotify();
-                $wechat_notify->event="subscribe";
-                $wechat_notify->manager_id=$user->manager_id;
+            if (empty($wechat_notify)) {
+                $wechat_notify = new WechatNotify();
+                $wechat_notify->event = "subscribe";
+                $wechat_notify->manager_id = $user->manager_id;
             }
             $wechat_notify->enabled = true;
             $wechat_notify->contents = $all['contents'];
@@ -398,16 +396,35 @@ class ManagerController extends Controller
     }
 
 
-    public function getKeyword(){
-        $breadcrumb_title = '关键词';
-        $breadcrumb = [
-            ['url' => 'manager/fans-list', 'title' => '微信中心', 'is_active' => 0],
-            ['url' => '', 'title' => '关键词', 'is_active' => 1]
-        ];
+    /**
+     * [get Keywords lists]
+     * @param Request $request
+     * @param WechatKeyWordController $controller
+     * @return $this
+     */
+    public function getKeyword(Request $request,WechatKeyWordController $controller)
+    {
+       return $controller->lists($request);
+    }
 
-        return view('manager.keyword')
-            ->with('breadcrumb_title', $breadcrumb_title)
-            ->with('breadcrumb', $breadcrumb);
+    public function getAddKeyword(WechatKeyWordController $controller){
+        return $controller->create();
+    }
+
+
+    public function getKeywordEdit(Request $request,WechatKeyWordController $controller,$id){
+            return $controller->show($request,$id);
+    }
+
+    public function anyKeywordUpdate(Request $request)
+    {
+        if ($request->isMethod("get")) {
+
+        } elseif ($request->isMethod('post')) {
+
+        } else {
+
+        }
     }
 
 

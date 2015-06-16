@@ -16,7 +16,7 @@ class CreateImageMd5sTable extends Migration
             $table->increments('id');
             $table->string('date_dir')->comment("上传时间目录名");
             $table->string('file_name')->comment("文件名");
-            
+
         });
     }
 

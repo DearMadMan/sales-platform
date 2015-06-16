@@ -17,6 +17,7 @@ class CreateWechatKeywordArticlesTable extends Migration {
 			$table->increments('id');
 			$table->integer('keyword_id')->unsigned()->default(0);
 			$table->integer('article_id')->unsigned()->default(0);
+			$table->integer('index')->unsigned()->default(0);
 			$table->integer('manager_id')->unsigned()->default(0);
 
 			//$table->timestamps();

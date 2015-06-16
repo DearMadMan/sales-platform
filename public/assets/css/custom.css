@@ -53,3 +53,30 @@ a {
 .green{
     color: green;
 }
+
+.search-btn{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+.pos-r{
+    position: relative;
+}
+.pos-a{
+    position: absolute;
+}
+.search-select{
+    width: 100%;
+    min-height: 200px;
+
+}
+
+.search-c-btn{
+    position: absolute;
+    top:90px;
+    left: -20px;
+}
+.search-c-btn .btn{
+    margin-bottom: 0;
+}
