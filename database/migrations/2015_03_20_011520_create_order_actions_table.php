@@ -17,10 +17,10 @@ class CreateOrderActionsTable extends Migration {
 			$table->increments('id');
 			$table->integer('order_id')->unsigned()->default(0);
 			$table->integer('user_id')->unsigned()->default(0);
-			$table->integer('order_status')->default(0);
-			$table->integer('shipping_status')->default(0);
-			$table->integer('pay_status')->default(0);
-			$table->string('note')->default('');
+			$table->integer('order_status')->default(0)->comment("订单状态");
+			$table->integer('shipping_status')->default(0)->comment("货运状态");
+			$table->integer('pay_status')->default(0)->comment("支付状态");
+			$table->string('note')->default('')->comment("备注");
 
 			$table->timestamps();
 		});

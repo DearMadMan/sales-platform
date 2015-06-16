@@ -14,8 +14,8 @@ class CreateWechatConfigKeysTable extends Migration
     {
         Schema::create('wechat_config_keys', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("key");
-            $table->string("default_value");
+            $table->string("key")->comment("配置信息关键字");
+            $table->string("default_value")->default("")->comment("默认值");
         });
     }
 

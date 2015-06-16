@@ -15,12 +15,12 @@ class CreateWechatManagersTable extends Migration {
 		Schema::create('wechat_managers', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name')->default('');
+			$table->string('name')->default('')->comment("姓名");
 			$table->integer('user_id')->unsigned()->default(0);
-			$table->string('wechat')->unique()->default('');
-			$table->string('phone')->default('');
-			$table->string('email')->unique()->default('');
-			$table->string('qq')->default('');
+			$table->string('wechat')->unique()->default('')->comment("微信名");
+			$table->string('phone')->default('')->comment("手机号");
+			$table->string('email')->unique()->default('')->comment("邮箱");
+			$table->string('qq')->default('')->comment("QQ");
 			//$table->timestamps();
 		});
 	}

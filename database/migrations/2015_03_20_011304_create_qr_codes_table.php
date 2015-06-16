@@ -16,14 +16,14 @@ class CreateQrCodesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->default(0);
-			$table->integer('scene_id')->unsigned()->default(0);
-			$table->string('action_name')->default('');
+			$table->integer('scene_id')->unsigned()->default(0)->comment("场景ID");
+			$table->string('action_name')->default('')->comment("行为名称");
 			$table->string('scene_str')->default('');
 			$table->string('ticket')->default('');
-			$table->string('qr_path')->default('');
-			$table->integer('subscribe')->default(0);
-			$table->integer('scan')->default(0);
-			$table->integer('subset')->default(0);
+			$table->string('qr_path')->default('')->comment("二维码地址");
+			$table->integer('subscribe')->default(0)->comment("扫码关注者数量");
+			$table->integer('scan')->default(0)->comment("扫描次数");
+			$table->integer('subset')->default(0)->comment("当前推荐者ID");
 			$table->string('fixed_path')->default('');
 
 			$table->timestamps();

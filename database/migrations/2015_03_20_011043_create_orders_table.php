@@ -26,7 +26,7 @@ class CreateOrdersTable extends Migration {
 			$table->string('consignee')->default('');
 			$table->string('city')->default('');
 			$table->string('province')->default('');
-			$table->string('area')->default('');
+			$table->string('area')->default('')->comment("区域");
 			$table->string('phone')->default('');
 			$table->string('address')->default('');
 			$table->integer('shipping_id')->unsigned()->default(0);

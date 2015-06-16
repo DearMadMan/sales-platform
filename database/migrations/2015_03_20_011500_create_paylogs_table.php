@@ -18,7 +18,7 @@ class CreatePaylogsTable extends Migration {
 			$table->integer('order_id')->unsigned()->default(0);
 			$table->string('pay_time')->default('');
 			$table->decimal('order_amount')->default(0);
-			$table->boolean('is_paid')->default(false);
+			$table->boolean('is_paid')->default(false)->comment("支付状态");
 			$table->timestamps();
 		});
 	}

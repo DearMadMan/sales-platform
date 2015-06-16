@@ -17,10 +17,10 @@ class CreateWechatKeywordsTable extends Migration {
 			$table->increments('id');
 			$table->string('key')->default('')->comment("关键字");
 			$table->integer('type')->default(0)->comment("文本或图文");
-			$table->text('contents');
-			$table->integer('count')->default(0);
-			$table->boolean('status')->default(true);
-			$table->integer('manager_id')->unsigned()->default(0);
+			$table->text('contents')->comment("文本内容");
+			$table->integer('count')->default(0)->comment("访问次数");
+			$table->boolean('status')->default(true)->comment("启用状态");
+			$table->integer('manager_id')->unsigned()->default(0)->comment("所属者ID");
 
 			//$table->timestamps();
 		});

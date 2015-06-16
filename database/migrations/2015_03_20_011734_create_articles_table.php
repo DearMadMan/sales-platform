@@ -15,12 +15,12 @@ class CreateArticlesTable extends Migration {
 		Schema::create('articles', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('type_id')->unsigned()->default(0);
-			$table->string('title')->default('');
-			$table->text('content');
-			$table->boolean('is_show')->default(true);
-			$table->string('out_link')->default('');
-			$table->string('desciption')->default('');
+			$table->integer('type_id')->unsigned()->default(0)->comment("文章分类");
+			$table->string('title')->default('')->comment("标题");
+			$table->text('content')->comment("文章内容");
+			$table->boolean('is_show')->default(true)->comment("显示状态");
+			$table->string('out_link')->default('')->comment("导向链接");
+			$table->string('desciption')->default('')->comment("简要描述");
 			$table->integer('manager_id')->unsigned()->default(0);
 
 			$table->timestamps();

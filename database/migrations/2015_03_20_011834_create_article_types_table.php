@@ -15,8 +15,8 @@ class CreateArticleTypesTable extends Migration {
 		Schema::create('article_types', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('type_name')->default('');
-			$table->string('desc')->default('');
+			$table->string('type_name')->default('')->comment("文章类型名称");
+			$table->string('desc')->default('')->comment("简要描述");
 			$table->integer('parent_id')->unsigned()->default(0);
 			$table->integer('index')->default(0);
 			$table->integer('manager_id')->unsigned()->default(0);

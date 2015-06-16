@@ -15,14 +15,14 @@ class CreateAddressesTable extends Migration {
 		Schema::create('addresses', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('consignee')->default('');
-			$table->string('province')->default('');
-			$table->string('city')->default('');
-			$table->string('area')->default('');
-			$table->string('address')->default('');
-			$table->string('phone')->default('');
-			$table->string('zipcode')->default('');
-			$table->integer('user_id')->unsigned()->default(0);
+			$table->string('consignee')->default('')->comment("收货人姓名");
+			$table->string('province')->default('')->comment("省份");
+			$table->string('city')->default('')->comment("市");
+			$table->string('area')->default('')->comment("区");
+			$table->string('address')->default('')->comment("详细地址");
+			$table->string('phone')->default('')->comment("手机号");
+			$table->string('zipcode')->default('')->comment("邮编");
+			$table->integer('user_id')->unsigned()->default(0)->comment("用户ID");
 
 			//$table->timestamps();
 		});
