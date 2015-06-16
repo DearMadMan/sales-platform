@@ -16,12 +16,12 @@
         public function handle ($request , Closure $next)
         {
 
-            if ( ! $request->user () || ! $request->user ()->user_type_id > 2) {
-
-                return redirect ('manager/login');
+            $user = $request->user ();
+            if ($user && $user->isManager () || $request->is ('manager/login')) {
+                return $next($request);
             }
 
-            return $next($request);
+            return redirect ('manager/login');
         }
 
     }

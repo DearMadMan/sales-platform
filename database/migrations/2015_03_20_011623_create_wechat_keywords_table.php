@@ -15,9 +15,8 @@ class CreateWechatKeywordsTable extends Migration {
 		Schema::create('wechat_keywords', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name')->default('');
-			$table->string('keyword')->default('');
-			$table->integer('type')->default(0);
+			$table->string('key')->default('')->comment("关键字");
+			$table->integer('type')->default(0)->comment("文本或图文");
 			$table->text('contents');
 			$table->integer('count')->default(0);
 			$table->boolean('status')->default(true);

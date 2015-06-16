@@ -13,7 +13,8 @@
     "laravel/framework": "5.1.*",
     "overtrue/laravel-lang": "dev-master",
     "overtrue/wechat": "2.0.*",
-    "dearmadman/captcha": "dev-master"
+    "dearmadman/captcha": "dev-master",
+    "barryvdh/laravel-ide-helper": "^2.0@dev"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
@@ -41,6 +42,7 @@
     ],
     "post-update-cmd": [
       "php artisan clear-compiled",
+      "php artisan ide-helper:generate",
       "php artisan optimize"
     ],
     "post-root-package-install": [

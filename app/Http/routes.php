@@ -15,6 +15,9 @@
     |
     */
 
+    /* post 独立路由 */
+    Route::post('manager/upload-images','Manager\UploadController@UploadImages');  /* 独立路由 需要在之前定义*/
+
     Route::get ('test' , function () {
 
         return session ('captcha');
@@ -22,9 +25,10 @@
 
     Route::get ('/' , function () {
 
-        $notify = new \App\WechatNotify();
-
-        dd ($notify);
+        $w=\App\WechatNotify::find(8);
+        $str=$w->contents;
+        $str=str_replace('\n',"\n",$str);
+        return $str;
 
         $server = new Server("wx51bbebf779eec25f" , "zzz");
         dd ($server);
@@ -42,16 +46,17 @@
 //        return $server->serve();
 //    });
 
-    Route::any ('callback' , "WechatCallbackController@index");
+    Route::any ('callback/{manager_id}' , "WechatCallbackController@index");
 
     Route::resources ([
         'manager/user' => 'Manager\UserController'
     ]);
     /* 微信菜单 */
     Route::resource ('manager/wechat-menu' , 'Manager\WechatMenuController');
-
     Route::Controllers ([
         'tool'    => 'ToolController' ,
         'manager' => 'Manager\ManagerController'
     ]);
+
+
 

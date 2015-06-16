@@ -29,7 +29,6 @@ class ShareConfig
                 $wechatConfig = new WechatConfig;
             }
             $Config = json_decode ($wechatConfig->configs);
-
             $WechatConfigKey = new WechatConfigKey();
             $Config = $WechatConfigKey->checkConfigs ($Config);
             View::share ('config' , $Config);

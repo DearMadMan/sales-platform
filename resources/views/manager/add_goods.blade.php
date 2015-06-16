@@ -52,7 +52,7 @@
 
                 {{-- 商品基本信息 --}}
                 <form class="form-horizontal" action="" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="manager_id" value="{{ Auth::user()->manager_id  }}">
 
                     <div class="form-group">
@@ -166,7 +166,7 @@
                 <div class="panel-title">商品相册</div>
             </div>
             <div class="panel-body">
-                <form action="{{url("tool")}}" class="dropzone dz-clickable"><div class="dz-default dz-message"><span></span></div></form>
+                <form action="{{url("manager/upload-images")}}" class="dropzone dz-clickable"><div class="dz-default dz-message"><span></span></div></form>
             </div>
         </div>
     </div>

@@ -43,7 +43,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	public function  isManager(){
-		return $this->user_type_id > 1;
+		return $this->user_type_id == 3;
 	}
 
 
