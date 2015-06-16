@@ -17,6 +17,7 @@
 
     /* post 独立路由 */
     Route::post('manager/upload-images','Manager\UploadController@UploadImages');  /* 独立路由 需要在之前定义*/
+    Route::post('manager/keyword/search','Manager\WechatKeywordController@Search');  /* 独立路由 需要在之前定义*/
 
     Route::get ('test' , function () {
 
@@ -53,6 +54,7 @@
     ]);
     /* 微信菜单 */
     Route::resource ('manager/wechat-menu' , 'Manager\WechatMenuController');
+    Route::resource ('manager/keyword' , 'Manager\WechatKeywordController');
     Route::Controllers ([
         'tool'    => 'ToolController' ,
         'manager' => 'Manager\ManagerController'

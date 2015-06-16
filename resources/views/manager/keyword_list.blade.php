@@ -16,9 +16,14 @@
         <div class="col-sm-12">
 
             <div class="panel panel-default">
+                @if(session("tips"))
+                    <div class="alert alert-success">
+                        {{session("tips")}}
+                    </div>
+                @endif
                 <div class="panel-heading">
                     <div class="panel-title">关键词列表</div>
-                    <div class="pull-right"><a class="btn btn-info" href="{{url("manager/add-keyword")}}">新增</a></div>
+                    <div class="pull-right"><a class="btn btn-info" href="{{url("manager/keyword/create")}}">新增</a></div>
                 </div>
                 <div class="panel-body">
 
@@ -55,7 +60,7 @@
                                 <input type="checkbox" checked="" class="iswitch iswitch-turquoise">
                             </td>
                             <td>
-                                <a href="{{url("manager/keyword-edit")}}/{{$v->id}}" class="btn btn-secondary btn-sm btn-icon icon-left">
+                                <a href="{{url("manager/keyword")}}/{{$v->id}}" class="btn btn-secondary btn-sm btn-icon icon-left">
                                     Edit
                                 </a>
 

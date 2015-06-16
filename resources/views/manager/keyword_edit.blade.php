@@ -96,10 +96,10 @@
                         <div class="tab-pane active" id="text">
 
                             <form class="horizontal" action="" method="post">
+                                <input name="_method" value="put" type="hidden"/>
                                 <input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
-
+                                <input name="type" value="0" type="hidden"/>
                                 <div class="form-group">
-                                    <input name="type" value="0" type="hidden"/>
                                     <textarea class="form-control wysihtml5"
                                               data-stylesheet-url="{{url()}}/assets/js/wysihtml5/lib/css/wysiwyg-color.css"
                                               name="contents">{{$keyword->contents}}</textarea>
@@ -123,11 +123,12 @@
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
                                 <input name="type" value="1" type="hidden"/>
+                                <input name="_method" value="put" type="hidden"/>
 
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" placeholder="Search..." name="s"/>
-                                        <button  class="btn-unstyled search-btn">
+                                        <input type="text" class="form-control" id="search" placeholder="Search..." name="s"/>
+                                        <button type="button" id="search_btn"  class="btn-unstyled search-btn">
                                             <i class="linecons-search"></i>
                                         </button>
                                     </div>
@@ -145,18 +146,17 @@
                                                 搜索到的文章：
                                             </div>
                                             <div class="panel-body">
-                                                <select multiple class="search-select" name="select_article" id="selected">
-
+                                                <select multiple class="search-select" name="selected" id="selected">
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
                                        <div class="col-sm-6 col-sm-offset-3 search-c-btn">
-                                           <p> <btton class="btn btn-info"> Add </btton> </p>
-                                           <p> <btton class="btn btn-danger"> Remove </btton> </p>
-                                           <p> <btton class="btn btn-info"> Add All </btton> </p>
-                                           <p> <btton class="btn btn-danger"> Remove All </btton> </p>
+                                           <p> <btton class="btn btn-info" id="add_btn"> Add </btton> </p>
+                                           <p> <btton class="btn btn-danger" id="remove_btn" > Remove </btton> </p>
+                                           <p> <btton class="btn btn-info" id="add_all_btn"> Add All </btton> </p>
+                                           <p> <btton class="btn btn-danger" id="remove_all_btn"> Remove All </btton> </p>
                                        </div>
                                     </div>
                                     <div class="col-sm-5">
@@ -165,7 +165,7 @@
                                                 已选文章:
                                             </div>
                                             <div class="panel-body">
-                                                <select multiple class="search-select" name="select_article" id="selected">
+                                                <select multiple class="search-select" name="picked" id="picked">
                                                 </select>
                                             </div>
                                         </div>
@@ -208,6 +208,7 @@
     <script src="{{url()}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
     <script src="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
     <script src="{{url()}}/assets/js/dropzone/dropzone.min.js"></script>
+    <script src="{{url()}}/js/select_keyword.js"></script>
 
 
 @stop

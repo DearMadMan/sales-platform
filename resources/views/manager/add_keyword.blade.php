@@ -25,7 +25,7 @@
                 <div class="panel-body">
 
                     {{-- 商品基本信息 --}}
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="{{url("manager/keyword")}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">

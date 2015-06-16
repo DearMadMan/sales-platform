@@ -395,39 +395,6 @@ class ManagerController extends Controller
 
     }
 
-
-    /**
-     * [get Keywords lists]
-     * @param Request $request
-     * @param WechatKeyWordController $controller
-     * @return $this
-     */
-    public function getKeyword(Request $request,WechatKeyWordController $controller)
-    {
-       return $controller->lists($request);
-    }
-
-    public function getAddKeyword(WechatKeyWordController $controller){
-        return $controller->create();
-    }
-
-
-    public function getKeywordEdit(Request $request,WechatKeyWordController $controller,$id){
-            return $controller->show($request,$id);
-    }
-
-    public function anyKeywordUpdate(Request $request)
-    {
-        if ($request->isMethod("get")) {
-
-        } elseif ($request->isMethod('post')) {
-
-        } else {
-
-        }
-    }
-
-
     /**
      * [Set WechatMenu to Wechat]
      * @return string
