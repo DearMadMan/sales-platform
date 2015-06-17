@@ -1,7 +1,8 @@
 <?php
     use App\Article;
     use App\User;
-    use Dearmadman\Captcha\Captcha;
+use App\WechatKeyword;
+use Dearmadman\Captcha\Captcha;
     use Overtrue\Wechat\Server;
 
     /*
@@ -26,14 +27,9 @@
 
     Route::get ('/' , function () {
 
-        $w=\App\WechatNotify::find(8);
-        $str=$w->contents;
-        $str=str_replace('\n',"\n",$str);
-        return $str;
-
-        $server = new Server("wx51bbebf779eec25f" , "zzz");
-        dd ($server);
-
+        $keyword = WechatKeyword::where(["key" => 'bbb', "manager_id"=>1])
+            ->first();
+        dd($keyword);
         return view ('404');
     });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Article;
 use App\WechatKeyword;
+use App\WechatKeywordArticle;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,13 +28,23 @@ class WechatKeyWordController extends Controller
         $keyword = $keyword->where('manager_id', $request->user()->manager_id)
             ->where('id', $id)
             ->first();
+
         if (!$keyword) {
             return redirect("404");
+        }
+        $keyword_articles=WechatKeywordArticle::firstOrNew(["keyword_id"=>$keyword->id]);
+        $articles=false;
+        if(!empty($keyword_articles->article_ids))
+        {
+            $arr=explode(',',$keyword_articles->article_ids);
+            $articles=Article::whereIn("id",$arr)
+                ->get();
         }
         return view('manager.keyword_edit')
             ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb)
-            ->with("keyword", $keyword);
+            ->with("keyword", $keyword)
+            ->with("articles",$articles);
     }
 
     public function index(Request $request)
@@ -72,6 +83,26 @@ class WechatKeyWordController extends Controller
         if ($type) {
         /*image model*/
             $keyword->type=1;
+            $ids=$request->input("ids");
+            if(!empty($ids)){
+                $ids=trim($ids,',');
+                $ids_arr=explode(',',$ids);
+                $articles=Article::whereIn('id',$ids_arr)
+                    ->where('manager_id',"<>",$request->user()->manager_id)
+                    ->get();
+                if(!empty($articles->toArray()))
+                {
+                    dd($articles->toArray());
+                    return redirect('404');
+                }
+
+                $keyword_article=WechatKeywordArticle::firstOrNew(['keyword_id'=>$id]);
+                $keyword_article->article_ids=$ids;
+                $keyword_article->manager_id=$request->user()->manager_id;
+                $keyword_article->save();
+
+
+            }
         }
         else
         {

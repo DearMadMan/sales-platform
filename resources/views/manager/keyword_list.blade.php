@@ -57,7 +57,11 @@
                                 @endif
                             </td>
                             <td>
-                                <input type="checkbox" checked="" class="iswitch iswitch-turquoise">
+                                <input type="checkbox"
+                                       @if($v->status)
+                                           checked
+                                           @endif
+                                       class="iswitch iswitch-turquoise">
                             </td>
                             <td>
                                 <a href="{{url("manager/keyword")}}/{{$v->id}}" class="btn btn-secondary btn-sm btn-icon icon-left">

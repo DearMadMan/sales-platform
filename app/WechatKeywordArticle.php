@@ -8,4 +8,5 @@ class WechatKeywordArticle extends Model
     //
 
     public $timestamps = false;
+    protected $fillable =['keyword_id'];
 }

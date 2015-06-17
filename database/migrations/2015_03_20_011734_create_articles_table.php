@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration {
 			$table->increments('id');
 			$table->integer('type_id')->unsigned()->default(0)->comment("文章分类");
 			$table->string('title')->default('')->comment("标题");
+			$table->string('pic_url')->default('')->comment("文章图片链接");
 			$table->text('content')->comment("文章内容");
 			$table->boolean('is_show')->default(true)->comment("显示状态");
 			$table->string('out_link')->default('')->comment("导向链接");

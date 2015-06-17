@@ -166,8 +166,14 @@
                                             </div>
                                             <div class="panel-body">
                                                 <select multiple class="search-select" name="picked" id="picked">
+                                                    @if($articles)
+                                                    @foreach($articles as $v)
+                                                        <option value="{{$v->id}}">{{$v->title}}</option>
+                                                        @endforeach
+                                                        @endif
                                                 </select>
                                             </div>
+                                            <input name="ids" id="ids" value="" type="hidden"/>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +181,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2">
-                                        <button type="submit" class="btn btn-gray btn-single">更新</button>
+                                        <button type="submit" id="update" class="btn btn-gray btn-single">更新</button>
                                         <button type="reset" class="btn btn-info btn-single pull-right">重置</button>
                                     </div>
                                 </div>

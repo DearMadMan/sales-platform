@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\WechatKeyword;
+use App\WechatKeywordArticle;
 use App\WechatNotify;
 use Illuminate\Http\Request;
 
@@ -50,4 +53,47 @@ class WechatEventController extends Controller
         }
         return false;
     }
+
+    public function keyword($message)
+    {
+        $key = $message->Content;
+        $keyword = WechatKeyword::where(["key" => $key, "manager_id"=>$this->manager_id])
+            ->first();
+        if ($keyword) {
+            if ($keyword->type) {
+                /* image-text model */
+                $keyword_articles = WechatKeywordArticle::where("keyword_id", $keyword->id)->first();
+                if ($keyword_articles) {
+                    $articles = Article::whereIn("id", explode(',',$keyword_articles->article_ids))->get();
+                    if (!$articles->isEmpty()) {
+                        $news = Message::make('news')->items(function () use ($articles) {
+                            $arr = [];
+                            foreach ($articles as $v) {
+                                        $arr[]=Message::make("news_item")->title($v->title)->url($v->out_link)->picUrl($v->pic_url);
+                            }
+                            return $arr;
+                        });
+                        return $news;
+                    }
+                    else
+                    {
+                        return "Article is Empty!";
+                    }
+                }
+                else
+                {
+                    return "Keyword article relationship is empty!";
+                }
+            } else {
+                return Message::make('text')->content($keyword->contents);
+            }
+        }
+        else
+        {
+            return $key.":".$this->manager_id;
+        }
+        return false;
+    }
+
+
 }
