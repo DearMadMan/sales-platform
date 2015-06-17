@@ -41,7 +41,7 @@ class WechatEventController extends Controller
                         return array(
                             Message::make('news_item')->title($this->temp_obj->title)
                                 ->description($this->temp_obj->contents)
-                                ->picUrl("http://ddd.tunnel.mobi/" . $this->temp_obj->image_url)
+                                ->picUrl(config("image.domain") . $this->temp_obj->image_url)
                                 ->url($this->temp_obj->url),
                         );
 
@@ -57,40 +57,37 @@ class WechatEventController extends Controller
     public function keyword($message)
     {
         $key = $message->Content;
-        $keyword = WechatKeyword::where(["key" => $key, "manager_id"=>$this->manager_id])
+        $keyword = WechatKeyword::where(["key" => $key, "manager_id" => $this->manager_id])
             ->first();
         if ($keyword) {
             if ($keyword->type) {
                 /* image-text model */
                 $keyword_articles = WechatKeywordArticle::where("keyword_id", $keyword->id)->first();
                 if ($keyword_articles) {
-                    $articles = Article::whereIn("id", explode(',',$keyword_articles->article_ids))->get();
+                    $articles = Article::whereIn("id", explode(',', $keyword_articles->article_ids))->get();
                     if (!$articles->isEmpty()) {
                         $news = Message::make('news')->items(function () use ($articles) {
                             $arr = [];
                             foreach ($articles as $v) {
-                                        $arr[]=Message::make("news_item")->title($v->title)->url($v->out_link)->picUrl($v->pic_url);
+                                $arr[] = Message::make("news_item")
+                                    ->title($v->title)
+                                    ->url($v->out_link)
+                                    ->picUrl(config("image.domain").$v->pic_url);
                             }
                             return $arr;
                         });
                         return $news;
-                    }
-                    else
-                    {
+                    } else {
                         return "Article is Empty!";
                     }
-                }
-                else
-                {
+                } else {
                     return "Keyword article relationship is empty!";
                 }
             } else {
                 return Message::make('text')->content($keyword->contents);
             }
-        }
-        else
-        {
-            return $key.":".$this->manager_id;
+        } else {
+            return $key . ":" . $this->manager_id;
         }
         return false;
     }

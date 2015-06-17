@@ -7,5 +7,6 @@
  */
 
 return [
+    'domain'=>'http://ddd.tunnel.mobi/',
     'storage_path'=>"uploads/"
 ];
