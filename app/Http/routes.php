@@ -51,6 +51,10 @@ use Dearmadman\Captcha\Captcha;
     /* 微信菜单 */
     Route::resource ('manager/wechat-menu' , 'Manager\WechatMenuController');
     Route::resource ('manager/keyword' , 'Manager\WechatKeywordController');
+    Route::resources([
+        'manager/article'=>'Manager\ArticleController',
+        'manager/article-type'=>'Manager\ArticleTypeController'
+    ]);
     Route::Controllers ([
         'tool'    => 'ToolController' ,
         'manager' => 'Manager\ManagerController'

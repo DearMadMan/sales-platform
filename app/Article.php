@@ -8,4 +8,8 @@ class Article extends Model {
     public function manager(){
       return  $this->belongsTo('App\WechatManager','manager_id','id');
     }
+
+    public function type(){
+        return $this->belongsTo('App\ArticleType',"type_id","id");
+    }
 }

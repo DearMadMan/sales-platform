@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Manager;
 
+use App\Breadcrumb;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -22,21 +23,21 @@ class WechatMenuController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Breadcrumb $breadcrumb
      * @return Response
      */
-    public function index ()
+    public function index (Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '菜单管理';
-        $breadcrumb = [
-            ['url' => 'manager/user-list' , 'title' => '微信中心' , 'is_active' => 0] ,
-            ['url' => '' , 'title' => '菜单管理' , 'is_active' => 1]
-        ];
+
+        $breadcrumb->setBreadcrumbs('菜单管理',[
+            [ 'manager/user-list' ,  '微信中心' ,  0] ,
+            ['' , '菜单管理' , 1]
+        ]);
         $wechat_menu = new WechatMenu( Auth::user ()->manager_id);
         $menu_list = $wechat_menu->getMenuList ();
 
         return view ('manager.wechat_menu')
             ->with ('menu_list' , $menu_list)
-            ->with ('breadcrumb_title' , $breadcrumb_title)
             ->with ('breadcrumb' , $breadcrumb);
     }
 

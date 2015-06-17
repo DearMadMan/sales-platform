@@ -2,7 +2,7 @@
 <div class="page-title">
 
     <div class="title-env">
-        <h1 class="title">{{$breadcrumb_title}}</h1>
+        <h1 class="title">{{$breadcrumb->title}}</h1>
     </div>
 
     <div class="breadcrumb-env">
@@ -11,7 +11,7 @@
             <li>
                 <a href="{{url('manager')}}"><i class="fa-home"></i>控制面板</a>
             </li>
-           @foreach($breadcrumb as $k => $v)
+           @foreach($breadcrumb->lists as $k => $v)
                 @if($v['is_active'])
                     <li  class="active">
 

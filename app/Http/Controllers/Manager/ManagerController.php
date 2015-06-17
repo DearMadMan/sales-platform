@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Manager;
 
+use App\Breadcrumb;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -88,36 +89,33 @@ class ManagerController extends Controller
 
     /**
      * [商品列表]
+     * @param Breadcrumb $breadcrumb
      * @return \Illuminate\View\View
      */
-    public function getGoodsList()
+    public function getGoodsList(Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '商品回收站';
-        $breadcrumb = [
-            ['url' => 'manager/goods-list', 'title' => '商品管理', 'is_active' => 0],
-            ['url' => '', 'title' => '商品列表', 'is_active' => 1]
-        ];
-
+        $breadcrumb->setBreadcrumbs('商品列表', [
+            ['manager/goods-list', '商品管理', 0],
+            ['', '商品列表', 1]
+        ]);
         return view('manager.goods_list')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb);
     }
 
 
     /**
      * [商品回收站]
+     * @param Breadcrumb $breadcrumb
      * @return \Illuminate\View\View
      */
-    public function getGoodsRecycle()
+    public function getGoodsRecycle(Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '商品回收站';
-        $breadcrumb = [
-            ['url' => 'manager/goods-list', 'title' => '商品管理', 'is_active' => 0],
-            ['url' => 'manager/good-recycle', 'title' => '商品回收站', 'is_active' => 1]
-        ];
-
+        $breadcrumb_title = '';
+        $breadcrumb->setBreadcrumbs('商品回收站', [
+            ['manager/goods-list', '商品管理', 0],
+            ['manager/good-recycle', '商品回收站', 1]
+        ]);
         return view('manager.goods_list')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb);
     }
 
@@ -126,16 +124,15 @@ class ManagerController extends Controller
      * [商品分类]
      * @return \Illuminate\View\View
      */
-    public function getGoodTypes()
+    public function getGoodTypes(Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '商品分类';
-        $breadcrumb = [
-            ['url' => 'manager/goods-list', 'title' => '商品管理', 'is_active' => 0],
-            ['url' => 'manager/good-types', 'title' => '商品分类', 'is_active' => 1]
-        ];
+        $breadcrumb->setBreadcrumbs('商品分类', [
+            ['manager/goods-list', '商品管理', 0],
+            ['manager/good-types', '商品分类', 1]
+        ]);
+
 
         return view('manager.goods_type')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb);
     }
 
@@ -143,16 +140,15 @@ class ManagerController extends Controller
      * [新增商品分类]
      * @return $this
      */
-    public function getAddGoodType()
+    public function getAddGoodType(Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '添加分类';
-        $breadcrumb = [
-            ['url' => 'manager/goods-list', 'title' => '商品管理', 'is_active' => 0],
-            ['url' => '', 'title' => '添加分类', 'is_active' => 1]
-        ];
+
+        $breadcrumb->setBreadcrumbs('添加分类', [
+            ['manager/goods-list', '商品管理', 0],
+            ['', '添加分类', 1]
+        ]);
 
         return view('manager.add_good_type')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb);
     }
 
@@ -161,22 +157,21 @@ class ManagerController extends Controller
      * [get Manager Configs]
      * @return $this
      */
-    public function getSystem()
+    public function getSystem(Breadcrumb $breadcrumb)
     {
         $user = Auth::user();
-        $breadcrumb_title = '系统设置';
-        $breadcrumb = [
-            ['url' => '', 'title' => '系统设置', 'is_active' => 1]
-        ];
+        $breadcrumb->setBreadcrumbs('系统设置', [
+            ['', '系统设置', 1]
+        ]);
 
         return view('manager.system')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('user', $user)
             ->with('breadcrumb', $breadcrumb);
     }
 
     /**
      * [Update WechatConfigs]
+     * @param WechatConfigUpdate $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postSystem(WechatConfigUpdate $request)
@@ -221,18 +216,17 @@ class ManagerController extends Controller
 
     /**
      * [get fans list]
+     * @param Breadcrumb $breadcrumb
      * @return $this
      */
-    public function getFansList()
+    public function getFansList(Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '粉丝列表';
-        $breadcrumb = [
-            ['url' => 'manager/fans-list', 'title' => '微信中心', 'is_active' => 0],
-            ['url' => '', 'title' => '粉丝列表', 'is_active' => 1]
-        ];
+        $breadcrumb->setBreadcrumbs('粉丝列表', [
+            ['manager/fans-list', '微信中心', 0],
+            ['', '粉丝列表', 1]
+        ]);
 
         return view('manager.fans_list')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb);
     }
 
@@ -241,13 +235,12 @@ class ManagerController extends Controller
      * [get Subscribe event configs]
      * @return $this
      */
-    function getSubscribe()
+    function getSubscribe(Breadcrumb $breadcrumb)
     {
-        $breadcrumb_title = '关注回复';
-        $breadcrumb = [
-            ['url' => 'manager/fans-list', 'title' => '微信中心', 'is_active' => 0],
-            ['url' => '', 'title' => '关注回复', 'is_active' => 1]
-        ];
+        $breadcrumb->setBreadcrumbs('关注回复', [
+            ['manager/fans-list', '微信中心', 0],
+            ['', '关注回复', 1]
+        ]);
 
         /* get NotifyInfo with Subscribe */
 
@@ -272,7 +265,6 @@ class ManagerController extends Controller
         }
 
         return view('manager.subscribe')
-            ->with('breadcrumb_title', $breadcrumb_title)
             ->with('breadcrumb', $breadcrumb)
             ->with('text_model', $text_model)
             ->with('text_image_model', $text_image_model);

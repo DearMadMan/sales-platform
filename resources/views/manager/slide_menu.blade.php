@@ -180,34 +180,34 @@
                 </ul>
             </li>
             <li>
-                <a href="{{url('manager/article-list')}}">
+                <a href="{{url('manager/article')}}">
                     <i class="fa-mortar-board"></i>
                     <span class="title">文章中心</span>
                   {{--  <span class="label label-success pull-right">3</span>--}}
                 </a>
                 <ul>
                     <li>
-                        <a href="{{url('manager/article-list')}}">
+                        <a href="{{url('manager/article')}}">
                             <span class="title">文章列表</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/add-article')}}">
+                        <a href="{{url('manager/article/create')}}">
                             <span class="title">添加文章</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/article-type-list')}}">
+                        <a href="{{url('manager/article-type')}}">
                             <span class="title">文章分类</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/add-article-type-list')}}">
+                        <a href="{{url('manager/article-type/create')}}">
                             <span class="title">添加分类</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/article-recycle')}}">
+                        <a href="{{url('manager/article/recycle')}}">
                             <span class="title">文章回收站</span>
                         </a>
                     </li>
