@@ -57,7 +57,7 @@
 
                             <div class="col-sm-10">
                                 <select class="form-control " name="type_id" id="type_id">
-                                    @foreach($typs as $type)
+                                    @foreach($types as $type)
                                     <option value="{{$type->id}}">{{$type->type_name}}</option>
                                         @endforeach
                                 </select>

@@ -47,8 +47,7 @@ class ArticleController extends Controller
         ]);
 
         $types = new ArticleType();
-        $types->getTypes($request->user()->manager_id);
-
+       $types= $types->getTypes($request->user()->manager_id);
         return view('manager.add_article')
             ->with('breadcrumb', $breadcrumb)
             ->with('types', $types);
@@ -114,7 +113,7 @@ class ArticleController extends Controller
 
         if(!$article)
         {
-            return redirect($this->breadcrumbs_url);
+            return redirect($this->breadcrumbs_url) ;
         }
 
         $type = new ArticleType();
