@@ -9,15 +9,17 @@
 @section('content')
     @parent
     @include('manager.breadcrumb')
-
-
     <div class="row">
         <div class="col-sm-12">
 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-title">文章列表</div>
+                    <div class="pull-right">
+                        <a class="btn btn-info" href="{{url('manager/article/create')}}">新增</a>
+                    </div>
                 </div>
+
                 <div class="panel-body">
 
                     <table class="table table-bordered table-striped" >
@@ -58,7 +60,7 @@
                             </td>
                             <td>{{$v->created_at}}</td>
                             <td>
-                                <a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
+                                <a href="{{url("manager/article").'/'.$v->id.'/edit'}}" class="btn btn-secondary btn-sm btn-icon icon-left">
                                     Edit
                                 </a>
 
@@ -66,7 +68,7 @@
                                     Delete
                                 </a>
 
-                                <a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+                                <a href="{{url('manager/article/').'/'.$v->id}}" class="btn btn-info btn-sm btn-icon icon-left">
                                     Profile
                                 </a>
                             </td>
@@ -77,14 +79,7 @@
                     </table>
 
                     <ul class="pagination text-center">
-                        <li><a href="#"><i class="fa-angle-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li class="disabled"><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#"><i class="fa-angle-right"></i></a></li>
+                        {!! $articles->render() !!}
                     </ul>
 
 
@@ -104,10 +99,4 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="{{url()}}/assets/js/datatables/dataTables.bootstrap.js"></script>
-    <script src="{{url()}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
-    <script src="{{url()}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
-
-
 @stop

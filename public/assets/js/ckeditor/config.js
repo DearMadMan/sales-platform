@@ -6,7 +6,7 @@
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
-	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
+        // http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
@@ -39,4 +39,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// BootstrapCK Skin Options
 	config.skin = 'bootstrapck';
 	config.height = '350px';
+    config .filebrowserImageUploadUrl ="http://" +window. location.host +"/manager/upload-images-ckeditor?_token="+document.getElementById("_token").value;
+    config.image_previewText="";
 };

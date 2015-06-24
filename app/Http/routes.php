@@ -18,6 +18,7 @@ use Dearmadman\Captcha\Captcha;
 
     /* post 独立路由 */
     Route::post('manager/upload-images','Manager\UploadController@UploadImages');  /* 独立路由 需要在之前定义*/
+    Route::post('manager/upload-images-ckeditor','Manager\UploadController@UploadImagesCkeditor');  /* 独立路由 需要在之前定义*/
     Route::post('manager/keyword/search','Manager\WechatKeywordController@Search');  /* 独立路由 需要在之前定义*/
 
     Route::get ('test' , function () {
