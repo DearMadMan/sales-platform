@@ -26,8 +26,7 @@ use Dearmadman\Captcha\Captcha;
     Route::get('manager/article/{id}/restore','Manager\ArticleController@Restore')->where('id', '[0-9]+');;  /* 独立路由 需要在之前定义*/
 
     Route::get ('test' , function () {
-
-        return session ('captcha');
+            return session ('good');
     });
 
     Route::get ('/' , function () {

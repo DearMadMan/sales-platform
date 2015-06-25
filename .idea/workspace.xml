@@ -4,12 +4,9 @@
     <list default="true" id="0855094d-c361-487e-8d88-44aa3a2c6925" name="Default" comment="">
       <change type="DELETED" beforePath="I:\web\wechat\.idea\codeStyleSettings.xml" afterPath="" />
       <change type="DELETED" beforePath="I:\web\wechat\resources\views\manager\add_keywrod.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Good.php" afterPath="$PROJECT_DIR$/app/Good.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GoodType.php" afterPath="$PROJECT_DIR$/app/GoodType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MOVED" beforePath="I:\web\wechat\README.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="wechat.iws" />
@@ -38,18 +35,38 @@
       <file leaf-file-name="GoodController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-46.851852" vertical-offset="621" max-vertical-offset="2829">
-              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+            <state vertical-scroll-proportion="-9.37037" vertical-offset="1035" max-vertical-offset="2829">
+              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_goods.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add_goods.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6174957" vertical-offset="4776" max-vertical-offset="5497">
-              <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.263158" vertical-offset="942" max-vertical-offset="5520">
+              <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.23670669" vertical-offset="414" max-vertical-offset="1656">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.962963" vertical-offset="1234" max-vertical-offset="1886">
+              <caret line="67" column="44" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -61,18 +78,6 @@
             <state vertical-scroll-proportion="-13.074074" vertical-offset="268" max-vertical-offset="851">
               <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoodTypeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.259259" vertical-offset="2553" max-vertical-offset="3289">
-              <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
-              <folding>
-                <element signature="e#48#65#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -127,15 +132,15 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/BaseManagerController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/article_type_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" />
         <option value="$PROJECT_DIR$/app/GoodType.php" />
         <option value="$PROJECT_DIR$/app/Good.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -621,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7204301" vertical-offset="0" max-vertical-offset="1978">
-          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/xenon-custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2888889" vertical-offset="4385" max-vertical-offset="44781">
@@ -729,13 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.397849" vertical-offset="41067" max-vertical-offset="271285">
-          <caret line="1515" column="9" selection-start-line="1515" selection-start-column="9" selection-end-line="1515" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/article_recycle_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28853047" vertical-offset="966" max-vertical-offset="2461">
@@ -811,14 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6123499" vertical-offset="977" max-vertical-offset="1679">
-          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/BaseManagerController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6878216" vertical-offset="289" max-vertical-offset="1334">
@@ -861,26 +844,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.851852" vertical-offset="621" max-vertical-offset="2829">
-          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/article_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43396226" vertical-offset="138" max-vertical-offset="2461">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Good.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.074074" vertical-offset="268" max-vertical-offset="851">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -895,7 +862,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.259259" vertical-offset="2553" max-vertical-offset="3289">
+        <state vertical-scroll-proportion="0.19725558" vertical-offset="2553" max-vertical-offset="3289">
           <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
           <folding>
             <element signature="e#48#65#0#PHP" expanded="true" />
@@ -903,10 +870,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.37037" vertical-offset="1035" max-vertical-offset="2829">
+          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Good.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.074074" vertical-offset="268" max-vertical-offset="851">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.962963" vertical-offset="1234" max-vertical-offset="1886">
+          <caret line="67" column="44" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6174957" vertical-offset="4776" max-vertical-offset="5497">
-          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.263158" vertical-offset="942" max-vertical-offset="5520">
+          <caret line="54" column="60" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34819898" vertical-offset="244747" max-vertical-offset="271285">
+          <caret line="10652" column="31" selection-start-line="10652" selection-start-column="31" selection-end-line="10652" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23670669" vertical-offset="414" max-vertical-offset="1656">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding />
         </state>
       </provider>

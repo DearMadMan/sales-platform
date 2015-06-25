@@ -52,7 +52,7 @@
                 <div class="panel-body">
 
                     {{-- 商品基本信息 --}}
-                    <form class="form-horizontal" action="" method="post">
+                    <form id="form"  class="form-horizontal" @if($method=='post') action="{{url('manager/good')}}" @else action="{{url('manager/good').'/'.$good->id}}" @endif method="post">
                         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                         <input name="_method" value="{{$method}}" type="hidden"/>
 
@@ -200,23 +200,23 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <textarea class="form-control wysihtml5"
+                        <textarea form="form"  class="form-control wysihtml5"
                                   data-stylesheet-url="{{url()}}/assets/js/wysihtml5/lib/css/wysiwyg-color.css"
                                   name="goods_desc" id="goods_desc"></textarea>
                     </div>
-
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <button type="submit" id="update" class="btn btn-gray btn-single" form="form">更新</button>
+                            <button type="reset" class="btn btn-info btn-single pull-right">重置</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="form-group">
-        <div class="col-sm-8 col-sm-offset-2">
-            <button type="submit" id="update" class="btn btn-gray btn-single">更新</button>
-            <button type="reset" class="btn btn-info btn-single pull-right">重置</button>
-        </div>
-    </div>
+
 
 
 @stop
