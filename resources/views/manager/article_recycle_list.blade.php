@@ -47,7 +47,7 @@
                                         <input type="checkbox" class="cbr">
                                     </td>
                                     <td>{{$v->id}}</td>
-                                    <td>{{$v->title}}</td>
+                                    <td>{{str_limit($v->title,30)}}</td>
 
                                     <td>@if($v->type)
                                             {{$v->type->type_name}}

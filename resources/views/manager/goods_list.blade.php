@@ -35,16 +35,16 @@
                     </tr>
                     </thead>
                     <tbody class="middle-align">
-
+                    @foreach($goods as $v)
                     <tr>
                         <td>
                             <input type="checkbox" class="cbr">
                         </td>
-                        <td>1</td>
-                        <td>Guerisson奇迹马油霜企划套组   Guerisson奇迹马油霜企划套组</td>
-                        <td>100</td>
+                        <td>{{$v->id}}</td>
+                        <td>{{str_limit($v->goods_name,30)}}</td>
+                        <td>{{$v->goods_number}}</td>
                         <td>
-                            <input type="checkbox" checked="" class="iswitch iswitch-turquoise">
+                            <input type="checkbox" @if($v->is_on_sale) checked @endif class="iswitch iswitch-turquoise">
                         </td>
                         <td>
                             <a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
@@ -60,19 +60,12 @@
                             </a>
                         </td>
                     </tr>
-
+                    @endforeach
                     </tbody>
                 </table>
 
                 <ul class="pagination text-center">
-                    <li><a href="#"><i class="fa-angle-left"></i></a></li>
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li class="disabled"><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#"><i class="fa-angle-right"></i></a></li>
+                    {!! $goods->render() !!}
                 </ul>
 
 

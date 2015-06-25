@@ -58,7 +58,9 @@ use Dearmadman\Captcha\Captcha;
     Route::resource ('manager/keyword' , 'Manager\WechatKeywordController');
     Route::resources([
         'manager/article'=>'Manager\ArticleController',
-        'manager/article-type'=>'Manager\ArticleTypeController'
+        'manager/article-type'=>'Manager\ArticleTypeController',
+        'manager/good'=>'Manager\GoodController',
+        'manager/good-type'=>'Manager\GoodTypeController'
     ]);
     Route::Controllers ([
         'tool'    => 'ToolController' ,

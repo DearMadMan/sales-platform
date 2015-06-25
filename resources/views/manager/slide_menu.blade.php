@@ -76,28 +76,28 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="{{url('manager/goods-list')}}">
+                        <a href="{{url('manager/good')}}">
                             <span class="title">商品列表</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{url('manager/add-goods')}}">
+                        <a href="{{url('manager/good/create')}}">
                             <span class="title">添加商品</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/goods-recycle')}}">
+                        <a href="{{url('manager/good/recycle')}}">
                             <span class="title">商品回收站</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/good-types')}}">
+                        <a href="{{url('manager/good-type')}}">
                             <span class="title">商品分类</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('manager/add-good-type')}}">
+                        <a href="{{url('manager/good-type/create')}}">
                             <span class="title">添加分类</span>
                         </a>
                     </li>
