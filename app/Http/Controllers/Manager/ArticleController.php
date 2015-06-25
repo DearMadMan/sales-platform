@@ -16,41 +16,66 @@ class ArticleController extends Controller
 {
     //
     protected $breadcrumbs_url = 'manager/article';
+    protected $breadcrumb = null;
 
     public function __construct()
     {
         $this->middleware('manager');
+        $this->breadcrumb = new Breadcrumb();
     }
 
-    public function index(Breadcrumb $breadcrumb, Article $articles, Request $request)
+    public function index(Article $articles, Request $request)
     {
 
-        $breadcrumb->setBreadcrumbs("文章列表", [
+        $this->breadcrumb->setBreadcrumbs("文章列表", [
             ['manager/article', '文章中心', 0],
-            ['', '文章列表', 1]
         ]);
         $user = $request->user();
         $articles = $articles->where([
-            'manager_id' => $user->manager_id
+            'manager_id' => $user->manager_id,
+            'is_delete'=>false
         ])->orderBy('id', 'desc')
             ->paginate(config("page.paginate"));
         return view('manager.article_list')
             ->with('articles', $articles)
-            ->with('breadcrumb', $breadcrumb);
+            ->with('breadcrumb', $this->breadcrumb);
     }
 
-    public function create(Request $request, Breadcrumb $breadcrumb)
+    public function create(Request $request)
     {
-        $breadcrumb->setBreadcrumbs('新增文章', [
+        $this->breadcrumb->setBreadcrumbs('新增文章', [
             [$this->breadcrumbs_url, '文章列表', 0],
-            ['', '新增文章', 1]
         ]);
 
         $types = new ArticleType();
-       $types= $types->getTypes($request->user()->manager_id);
+        $types = $types->getTypes($request->user()->manager_id);
         return view('manager.add_article')
-            ->with('breadcrumb', $breadcrumb)
+            ->with('breadcrumb', $this->breadcrumb)
             ->with('types', $types);
+    }
+
+    public function Recycle(Request $request)
+    {
+        $this->breadcrumb->setBreadcrumbs("文章回收站", [
+            ['manager/article', '文章中心', 0],
+        ]);
+        $article = new Article();
+        $articles = $article->getRecycles($request->user()->manager_id);
+        return view('manager.article_recycle_list')
+            ->with('articles', $articles)
+            ->with('breadcrumb', $this->breadcrumb);
+    }
+
+    public function Restore(Request $request,$id)
+    {
+        $article=new Article();
+        $good=$article->Restore($request->user()->manager_id,$id);
+        if($good)
+        {
+            return redirect('manager/article/recycle')->with('message','Restore Data Success!');
+        }
+        return redirect('manager/article/recycle')->with('message','Restore Data Failed!');
+
     }
 
     public function store(ArticleStoreRequest $request)
@@ -80,11 +105,10 @@ class ArticleController extends Controller
         return redirect($this->breadcrumbs_url);
     }
 
-    public function edit(Request $request, Breadcrumb $breadcrumb, $id)
+    public function edit(Request $request, $id)
     {
-        $breadcrumb->setBreadcrumbs('修改文章', [
+        $this->breadcrumb->setBreadcrumbs('修改文章', [
             [$this->breadcrumbs_url, '文章列表', 0],
-            ['', '修改文章', 1]
         ]);
         $article = new Article();
         $article = $article->where([
@@ -98,7 +122,7 @@ class ArticleController extends Controller
         $types = $types->getTypes($request->user()->manager_id);
 
         return view('manager.article_edit')
-            ->with('breadcrumb', $breadcrumb)
+            ->with('breadcrumb', $this->breadcrumb)
             ->with('article', $article)
             ->with('types', $types);
     }
@@ -111,9 +135,8 @@ class ArticleController extends Controller
             "manager_id" => $request->user()->manager_id
         ])->first();
 
-        if(!$article)
-        {
-            return redirect($this->breadcrumbs_url) ;
+        if (!$article) {
+            return redirect($this->breadcrumbs_url);
         }
 
         $type = new ArticleType();
@@ -143,11 +166,10 @@ class ArticleController extends Controller
         return redirect($this->breadcrumbs_url);
     }
 
-    public function show(Breadcrumb $breadcrumb, Request $request, $id)
+    public function show(Request $request, $id)
     {
-        $breadcrumb->setBreadcrumbs("文章展示", [
+        $this->breadcrumb->setBreadcrumbs("文章展示", [
             ['manager/article', '文章中心', 0],
-            ['', '文章展示', 1]
         ]);
 
         $article = new Article();
@@ -158,7 +180,7 @@ class ArticleController extends Controller
         if (!$article) {
             return redirect($this->breadcrumbs_url);
         }
-        return view('manager.article_show')->with('article', $article)->with('breadcrumb', $breadcrumb);;
+        return view('manager.article_show')->with('article', $article)->with('breadcrumb', $this->breadcrumb);;
     }
 
     public function destroy()

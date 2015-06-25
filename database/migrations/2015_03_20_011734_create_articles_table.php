@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration {
 			$table->string('pic_url')->default('')->comment("文章图片链接");
 			$table->text('content')->comment("文章内容");
 			$table->boolean('is_show')->default(true)->comment("显示状态");
+			$table->boolean('is_delete')->default(false)->comment("删除状态");
 			$table->string('out_link')->default('')->comment("导向链接");
 			$table->string('desciption')->default('')->comment("简要描述");
 			$table->integer('manager_id')->unsigned()->default(0);

@@ -29,7 +29,6 @@ class ArticleTypeController extends Controller
     {
         $this->breadcrumb->setBreadcrumbs("文章分类", [
             $this->breadcrumbs_main,
-            ['', '文章分类', 1]
         ]);
         $types=$articleType->getTypes($request->user()->manager_id,true);
         return view("manager.article_type_list")
@@ -47,7 +46,6 @@ class ArticleTypeController extends Controller
     {
         $this->breadcrumb->setBreadcrumbs('新的分类',[
             $this->breadcrumbs_main,
-            ['', '新的分类', 1]
         ]);
 
         return view('manager.add_article_type')
@@ -69,8 +67,7 @@ class ArticleTypeController extends Controller
         $type=new ArticleType();
         $row=$type->where(['manager_id'=>$manager_id,'type_name'=>$type_name])->first();
         if($row){
-            dd($request->all());
-            return redirect($this->breadcrumbs_url);
+            return redirect($this->breadcrumbs_url)->with('message',"ArticleType Already exist!");
         }
         $type->type_name=$type_name;
         $type->manager_id=$manager_id;
@@ -99,7 +96,6 @@ class ArticleTypeController extends Controller
     {
         $this->breadcrumb->setBreadcrumbs('更新分类',[
             $this->breadcrumbs_main,
-            ['','更新分类',0]
         ]);
         $type=new ArticleType();
         $row=$type->where(['id'=>$id,'manager_id'=>$request->user()->manager_id])->first();
@@ -119,10 +115,14 @@ class ArticleTypeController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(ArticletypeStore $request,$id)
     {
-        //
+        $type=new ArticleType();
+        $type->UpdateType($request,$id);
+        return redirect($this->breadcrumbs_url)->with('message',"Update Date Success!");
     }
+
+
 
     /**
      * Remove the specified resource from storage.

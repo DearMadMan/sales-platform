@@ -21,6 +21,10 @@ use Dearmadman\Captcha\Captcha;
     Route::post('manager/upload-images-ckeditor','Manager\UploadController@UploadImagesCkeditor');  /* 独立路由 需要在之前定义*/
     Route::post('manager/keyword/search','Manager\WechatKeywordController@Search');  /* 独立路由 需要在之前定义*/
 
+    /* get 独立路由 */
+    Route::get('manager/article/recycle','Manager\ArticleController@Recycle');  /* 独立路由 需要在之前定义*/
+    Route::get('manager/article/{id}/restore','Manager\ArticleController@Restore')->where('id', '[0-9]+');;  /* 独立路由 需要在之前定义*/
+
     Route::get ('test' , function () {
 
         return session ('captcha');

@@ -28,4 +28,23 @@ class ArticleType extends Model
         }
         return $types;
     }
+
+
+    public function UpdateType($request,$id){
+        $manager_id=$request->user()->manager_id;
+        $type=$this->isOwn($manager_id,$id);
+            if($type){
+                $type->type_name=$request->input('type_name');
+                $type->save();
+                return true;
+            }
+        return false;
+    }
+
+    public function isOwn($manager_id,$id){
+        $row=$this->where(['manager_id'=>$manager_id,"id"=>$id])->first();
+        return $row;
+    }
+
+
 }

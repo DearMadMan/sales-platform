@@ -15,6 +15,7 @@ class Breadcrumb extends Model
                     'url' => $v[0], 'title' => $v[1], 'is_active' => $v[2]
                 ];
             }
+        $this->lists[]=[ 'url' => '', 'title' => $title, 'is_active' => 1];
     }
     public function __get($key){
         if(property_exists($this,$key))

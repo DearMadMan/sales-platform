@@ -96,7 +96,6 @@ class ManagerController extends Controller
     {
         $breadcrumb->setBreadcrumbs('商品列表', [
             ['manager/goods-list', '商品管理', 0],
-            ['', '商品列表', 1]
         ]);
         return view('manager.goods_list')
             ->with('breadcrumb', $breadcrumb);
@@ -113,7 +112,6 @@ class ManagerController extends Controller
         $breadcrumb_title = '';
         $breadcrumb->setBreadcrumbs('商品回收站', [
             ['manager/goods-list', '商品管理', 0],
-            ['manager/good-recycle', '商品回收站', 1]
         ]);
         return view('manager.goods_list')
             ->with('breadcrumb', $breadcrumb);
@@ -128,7 +126,6 @@ class ManagerController extends Controller
     {
         $breadcrumb->setBreadcrumbs('商品分类', [
             ['manager/goods-list', '商品管理', 0],
-            ['manager/good-types', '商品分类', 1]
         ]);
 
 
@@ -145,7 +142,6 @@ class ManagerController extends Controller
 
         $breadcrumb->setBreadcrumbs('添加分类', [
             ['manager/goods-list', '商品管理', 0],
-            ['', '添加分类', 1]
         ]);
 
         return view('manager.add_good_type')
@@ -161,7 +157,6 @@ class ManagerController extends Controller
     {
         $user = Auth::user();
         $breadcrumb->setBreadcrumbs('系统设置', [
-            ['', '系统设置', 1]
         ]);
 
         return view('manager.system')
@@ -223,7 +218,6 @@ class ManagerController extends Controller
     {
         $breadcrumb->setBreadcrumbs('粉丝列表', [
             ['manager/fans-list', '微信中心', 0],
-            ['', '粉丝列表', 1]
         ]);
 
         return view('manager.fans_list')
@@ -239,7 +233,6 @@ class ManagerController extends Controller
     {
         $breadcrumb->setBreadcrumbs('关注回复', [
             ['manager/fans-list', '微信中心', 0],
-            ['', '关注回复', 1]
         ]);
 
         /* get NotifyInfo with Subscribe */
