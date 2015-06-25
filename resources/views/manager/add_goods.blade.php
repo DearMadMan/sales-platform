@@ -61,7 +61,7 @@
                             <label class="col-sm-2 control-label" for="goods_name">商品标题：</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="goods_name" id="goods_name"
+                                <input class="form-control" type="text" name="goods_name" value="{{$good->goods_name}}" id="goods_name"
                                        placeholder=" example: Guerisson奇迹马油霜企划套组"/>
                             </div>
 
@@ -74,7 +74,7 @@
                             <label class="col-sm-2 control-label" for="goods_sn">商品编号：</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="goods_sn" id="goods_sn"
+                                <input class="form-control" type="text" value="{{$good->goods_sn}}" name="goods_sn" id="goods_sn"
                                        placeholder=" example: ST000001"/>
                             </div>
 
@@ -83,13 +83,13 @@
                         <div class="form-group-separator"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" for="catgory_id">商品分类：</label>
+                            <label class="col-sm-2 control-label" for="type_id">商品分类：</label>
 
                             <div class="col-sm-10">
-                                <select class="form-control " name="catgory_id" id="catgory_id">
-                                    <option value="1">普通商品</option>
-                                    <option value="2">中等商品</option>
-                                    <option value="3">高级商品</option>
+                                <select class="form-control " name="type_id" id="type_id">
+                                   @foreach($types as $v)
+                                        <option @if($good->type_id==$v->id) selected @endif value="{{$v->id}}">{{$v->type_name}}</option>
+                                       @endforeach
                                 </select>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
 										<span class="input-group-addon">
 											<i class="linecons-money"></i>
 										</span>
-                                <input type="text" id="shop_price" name="shop_price" class="form-control"
+                                <input type="text" id="shop_price" name="shop_price" class="form-control" value="{{$good->shop_price}}"
                                        data-mask="fdecimal" placeholder=" example: 9.9" data-rad="." data-digits="2"
                                        maxlength="10">
                             </div>
@@ -120,7 +120,7 @@
 										<span class="input-group-addon">
 											<i class="linecons-money"></i>
 										</span>
-                                <input type="text" id="market_price" name="market_price" class="form-control"
+                                <input type="text" id="market_price" name="market_price" class="form-control" value="{{$good->market_price}}"
                                        data-mask="fdecimal" placeholder=" example: 9.9" data-rad="." data-digits="2"
                                        maxlength="10">
                             </div>
@@ -133,7 +133,7 @@
                             <label class="col-sm-2 control-label" for="goods_number">库存：</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" name="goods_number" id="goods_number"
+                                <input class="form-control" type="text" name="goods_number" id="goods_number" value="{{$good->goods_number}}"
                                        placeholder=" example: 99999"/>
                             </div>
 
@@ -155,7 +155,7 @@
                             <label class="col-sm-2 control-label" for="goods_img">是否包邮：</label>
 
                             <div class="col-sm-10">
-                                <input type="checkbox" name="shipping_free" class="iswitch iswitch-turquoise">
+                                <input type="checkbox" name="shipping_free" @if($good->shipping_free) checked @endif class="iswitch iswitch-turquoise">
                             </div>
                         </div>
 
@@ -165,7 +165,7 @@
                             <label class="col-sm-2 control-label" for="goods_img">上架销售：</label>
 
                             <div class="col-sm-10">
-                                <input type="checkbox" name="shipping_free" checked="" class="iswitch iswitch-pink  ">
+                                <input type="checkbox" name="shipping_free" @if($good->is_on_sale) checked  @endif class="iswitch iswitch-pink  ">
                             </div>
                         </div>
 
@@ -211,7 +211,12 @@
     </div>
 
 
-
+    <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-2">
+            <button type="submit" id="update" class="btn btn-gray btn-single">更新</button>
+            <button type="reset" class="btn btn-info btn-single pull-right">重置</button>
+        </div>
+    </div>
 
 
 @stop

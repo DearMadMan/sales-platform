@@ -17,7 +17,15 @@ class GoodType extends Model
         if ($paginate) {
             return $this->where(['manager_id' => $manager_id])->Paginate(config("page.paginate"));
         }
-        return $this->where('manager_id', $manager_id)->get();
+        $types=$this->where('manager_id', $manager_id)->get();
+        if($types->isEmpty()){
+            $types=new self();
+            $types->type_name="普通商品";
+            $types->parent_id=0;
+            $types->manager_id=$manager_id;
+            $types->save();
+        }
+        return $types;
     }
 
     public function getType($manager_id, $id)

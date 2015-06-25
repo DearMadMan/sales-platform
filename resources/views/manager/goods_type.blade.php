@@ -12,6 +12,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-title">分类列表</div>
+                    <div class="pull-right">
+                        <a class="btn btn-info" href="{{url('manager/good-type/create')}}">新增</a>
+                    </div>
                 </div>
                 <div class="panel-body">
                     @if(session('message'))

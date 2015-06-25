@@ -4,19 +4,12 @@
     <list default="true" id="0855094d-c361-487e-8d88-44aa3a2c6925" name="Default" comment="">
       <change type="DELETED" beforePath="I:\web\wechat\.idea\codeStyleSettings.xml" afterPath="" />
       <change type="DELETED" beforePath="I:\web\wechat\resources\views\manager\add_keywrod.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Good.php" afterPath="$PROJECT_DIR$/app/Good.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GoodType.php" afterPath="$PROJECT_DIR$/app/GoodType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/article_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/article_list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/article_recycle_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/article_recycle_list.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/slide_menu.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/slide_menu.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MOVED" beforePath="I:\web\wechat\README.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="wechat.iws" />
@@ -42,14 +35,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BaseManagerController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/BaseManagerController.php">
+      <file leaf-file-name="GoodController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.851851" vertical-offset="289" max-vertical-offset="1334">
-              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-              <folding>
-                <element signature="e#48#67#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-46.851852" vertical-offset="621" max-vertical-offset="2829">
+              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_goods.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.6174957" vertical-offset="4776" max-vertical-offset="5497">
+              <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Good.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Good.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.074074" vertical-offset="268" max-vertical-offset="851">
+              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,51 +68,11 @@
       <file leaf-file-name="GoodTypeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.444445" vertical-offset="1725" max-vertical-offset="3289">
-              <caret line="99" column="34" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
+            <state vertical-scroll-proportion="-4.259259" vertical-offset="2553" max-vertical-offset="3289">
+              <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
               <folding>
                 <element signature="e#48#65#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoodType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/GoodType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.888889" vertical-offset="1761" max-vertical-offset="5681">
-              <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_good_type.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.666667" vertical-offset="659" max-vertical-offset="1886">
-              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="goods_type.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/manager/goods_type.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43396226" vertical-offset="207" max-vertical-offset="1725">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="article_type_list.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/manager/article_type_list.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.37037" vertical-offset="391" max-vertical-offset="2162">
-              <caret line="28" column="26" selection-start-line="24" selection-start-column="19" selection-end-line="28" selection-end-column="26" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,20 +122,20 @@
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/article_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/article_recycle_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Good.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/slide_menu.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
-        <option value="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Manager/GoodTypeStore.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/BaseManagerController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php" />
-        <option value="$PROJECT_DIR$/app/GoodType.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/article_type_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" />
+        <option value="$PROJECT_DIR$/app/GoodType.php" />
+        <option value="$PROJECT_DIR$/app/Good.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
+        <option value="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
       </list>
     </option>
   </component>
@@ -808,53 +779,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Good.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37096775" vertical-offset="0" max-vertical-offset="621">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/manager/goods_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1265" max-vertical-offset="2277">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/manager/article_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1886" max-vertical-offset="2461">
-          <caret line="82" column="25" selection-start-line="80" selection-start-column="19" selection-end-line="82" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Manager/GoodTypeStore.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64493996" vertical-offset="245" max-vertical-offset="851">
           <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49056605" vertical-offset="2520" max-vertical-offset="5382">
-          <caret line="122" column="55" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40823328" vertical-offset="199" max-vertical-offset="2599">
-          <caret line="19" column="62" selection-start-line="18" selection-start-column="7" selection-end-line="19" selection-end-column="62" />
-          <folding>
-            <element signature="e#48#67#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,19 +819,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.444445" vertical-offset="1725" max-vertical-offset="3289">
-          <caret line="99" column="34" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
-          <folding>
-            <element signature="e#48#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/BaseManagerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.851851" vertical-offset="289" max-vertical-offset="1334">
+        <state vertical-scroll-proportion="0.6878216" vertical-offset="289" max-vertical-offset="1334">
           <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding>
             <element signature="e#48#67#0#PHP" expanded="true" />
@@ -910,34 +829,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/GoodType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.888889" vertical-offset="1761" max-vertical-offset="5681">
-          <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.666667" vertical-offset="659" max-vertical-offset="1886">
-          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/article_type_list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.37037" vertical-offset="391" max-vertical-offset="2162">
-          <caret line="28" column="26" selection-start-line="24" selection-start-column="19" selection-end-line="28" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.7495712" vertical-offset="0" max-vertical-offset="2162">
+          <caret line="19" column="26" selection-start-line="17" selection-start-column="18" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/GoodType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67066896" vertical-offset="69" max-vertical-offset="5865">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/goods_type.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43396226" vertical-offset="207" max-vertical-offset="1725">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.67066896" vertical-offset="138" max-vertical-offset="1794">
+          <caret line="23" column="26" selection-start-line="19" selection-start-column="18" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/goods_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.925926" vertical-offset="138" max-vertical-offset="2438">
+          <caret line="20" column="69" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-46.851852" vertical-offset="621" max-vertical-offset="2829">
+          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/article_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43396226" vertical-offset="138" max-vertical-offset="2461">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Good.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.074074" vertical-offset="268" max-vertical-offset="851">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/add_good_type.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44768438" vertical-offset="1004" max-vertical-offset="1886">
+          <caret line="53" column="30" selection-start-line="48" selection-start-column="24" selection-end-line="53" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodTypeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.259259" vertical-offset="2553" max-vertical-offset="3289">
+          <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
+          <folding>
+            <element signature="e#48#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6174957" vertical-offset="4776" max-vertical-offset="5497">
+          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
           <folding />
         </state>
       </provider>

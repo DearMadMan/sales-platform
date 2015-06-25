@@ -17,9 +17,16 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-title">商品列表</div>
+                <div class="pull-right">
+                    <a class="btn btn-info" href="{{url('manager/good/create')}}">新增</a>
+                </div>
             </div>
             <div class="panel-body">
-
+                @if(session('message'))
+                    <div class="alert alert-success">
+                        {{session('message')}}
+                    </div>
+                @endif
                 <table class="table table-bordered table-striped" >
                     <thead>
                     <tr>

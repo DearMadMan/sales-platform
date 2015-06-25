@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Breadcrumb;
 use App\Good;
+use App\GoodType;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -42,10 +43,14 @@ class GoodController extends BaseManagerController
      */
     public function create()
     {
+        $this->setBreadcrumb('添加新产品');
         $good=new Good();
+        $type=new GoodType();
+        $types=$type->getTypes($this->manager_id,false);
         return view('manager.add_goods')
             ->with('breadcrumb',$this->breadcrumb)
             ->with('method','post')
+            ->with("types",$types)
             ->with('good',$good);
     }
 
@@ -78,7 +83,19 @@ class GoodController extends BaseManagerController
      */
     public function edit($id)
     {
-        //
+        $this->setBreadcrumb('修改商品');
+        $good=new Good();
+        $res=$good->getGood($this->manager_id,$id);
+        $type=new GoodType();
+        $types=$type->getTypes($this->manager_id);
+        if(!$good)
+        {
+            return redirect($this->breadcrumbs_url)->with('message',"Whoops, looks like something went wrong.");
+        }
+        return view('manager.add_goods')
+            ->with('breadcrumb',$this->breadcrumb)
+            ->with('good',$good)
+            ->with('types',$types);
     }
 
     /**
