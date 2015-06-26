@@ -70,6 +70,8 @@ class UploadController extends Controller
                 $image_md5->date_dir = $data_dir;
                 $image_md5->file_name = $file_name;
                 $image_md5->save();
+                /* compress image */
+
             }
             return $target;
         }
