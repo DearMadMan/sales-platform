@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manager;
 use App\Breadcrumb;
 use App\Good;
 use App\GoodType;
+use App\Http\Requests\Manager\GoodStore;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -45,6 +46,7 @@ class GoodController extends BaseManagerController
     {
         $this->setBreadcrumb('添加新产品');
         $good=new Good();
+        $good->UnSetGalleries();
         $type=new GoodType();
         $types=$type->getTypes($this->manager_id,false);
         return view('manager.add_goods')
@@ -59,9 +61,15 @@ class GoodController extends BaseManagerController
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(GoodStore $request)
     {
-        dd($request->all());
+        $good=new Good();
+        $res=$good->GoodStore($request);
+        if(!$res){
+            return redirect($this->breadcrumbs_url)->with('message','Store Something Error!');
+
+        }
+        return redirect($this->breadcrumbs_url)->with('message','Store Good Success!');
     }
 
     /**

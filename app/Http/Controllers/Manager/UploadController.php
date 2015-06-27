@@ -19,7 +19,7 @@ class UploadController extends Controller
 
     public function UploadImages(Request $request)
     {
-        $target = $this->UploadImageHander($request, "file");
+        $target = $this->UploadImageHandler($request, "file");
         return $target ? $target : 'false';
     }
 
@@ -41,7 +41,7 @@ class UploadController extends Controller
             return 'true';
         }
 
-        $target = $this->UploadImageHander($request, "file");
+        $target = $this->UploadImageHandler($request, "file");
         $image_tool = ImageTool::GetInstance();
         if ($target) {
             /* compress image-gallery */
@@ -69,9 +69,36 @@ class UploadController extends Controller
         return 'GoodGallery false';
     }
 
+    public function CompressHandler($target)
+    {
+        $image_tool = ImageTool::GetInstance();
+        if ($target) {
+            /* compress image-gallery */
+            if (!file_exists($target)) {
+                return "file exists failed";
+            }
+            $configs = config('image.compress_config');
+            foreach ($configs as $k => $v) {
+                $arr = [
+                    'width' => $v['width'],
+                    'height' => $v['height'],
+                    'cover_img' => false,
+                    'jpeg_quality' => config('image.compress_rate')
+                ];
+                $image_tool->SetConfig($arr);
+                $res = $image_tool->GetImageFromString($target, $k);
+                if(!$res)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public function UploadImagesCkeditor(Request $request)
     {
-        $target = $this->UploadImageHander($request, "upload");
+        $target = $this->UploadImageHandler($request, "upload");
         if ($target) {
             return "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" . $request->input('CKEditorFuncNum') . ",'/" . $target . "','');</script>";
         }
@@ -79,7 +106,7 @@ class UploadController extends Controller
     }
 
 
-    public function UploadImageHander($request, $fileName)
+    public function UploadImageHandler($request, $fileName)
     {
         $file = $request->hasFile($fileName);
         if ($file) {

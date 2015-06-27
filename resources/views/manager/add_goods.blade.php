@@ -51,6 +51,18 @@
                 </div>
                 <div class="panel-body">
 
+                    @if(count($errors)>0)
+
+                        <div class="alert alert-danger">
+                            <strong>提示!</strong> 这里有一些输入错误.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     {{-- 商品基本信息 --}}
                     <form id="form"  class="form-horizontal" @if($method=='post') action="{{url('manager/good')}}" @else action="{{url('manager/good').'/'.$good->id}}" @endif method="post">
                         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
