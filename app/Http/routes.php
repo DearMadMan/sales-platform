@@ -18,6 +18,7 @@ use Dearmadman\Captcha\Captcha;
 
     /* post 独立路由 */
     Route::post('manager/upload-images','Manager\UploadController@UploadImages');  /* 独立路由 需要在之前定义*/
+    Route::post('manager/good-gallery','Manager\UploadController@GoodGallery');  /* 独立路由 需要在之前定义*/
     Route::post('manager/upload-images-ckeditor','Manager\UploadController@UploadImagesCkeditor');  /* 独立路由 需要在之前定义*/
     Route::post('manager/keyword/search','Manager\WechatKeywordController@Search');  /* 独立路由 需要在之前定义*/
 
@@ -26,7 +27,14 @@ use Dearmadman\Captcha\Captcha;
     Route::get('manager/article/{id}/restore','Manager\ArticleController@Restore')->where('id', '[0-9]+');;  /* 独立路由 需要在之前定义*/
 
     Route::get ('test' , function () {
-            return session ('good');
+            if(Input::get('clear'))
+            {
+                session()->forget('image_gallery');
+                session()->save();
+
+            }
+            dd(session ('image_gallery'));
+            return session ('image_gallery');
     });
 
     Route::get ('/' , function () {

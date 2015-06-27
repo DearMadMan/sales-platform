@@ -1034,6 +1034,37 @@ var public_vars = public_vars || {};
                         sending:function(file, xhr, formData) {
                             // Will send the filesize along with the file as POST data.
                             formData.append("_token", $("#_token").val());
+                        },
+                        addRemoveLinks:true,
+                        clickable:true,
+                        maxFiles:8,
+                        parallelUploads:1,
+                        acceptedFiles:'image/*',
+                        init: function() {
+                            this.on("error", function(file,errorMessage,xht) {
+                                var preview=$(file.previewElement);
+                                preview.find('span[data-dz-name]').text("Something Error!");
+                                preview.find('span[data-dz-errormessage]').text("Something Error!");
+                            });
+                            this.on("success",function(file,response){
+                                var preview=$(file.previewElement);
+                                preview.find('span[data-dz-name]').text(response);
+                            });
+                            this.on("removedfile",function(file){
+                                    var file_name=$(file.previewElement).find('span[data-dz-name]').text();
+                                $.ajax({
+                                    url:this.element.action,
+                                    type:'post',
+                                    data:{
+                                        _token:$("#_token").val(),
+                                        destroy:true,
+                                        file_name:file_name
+                                    },
+                                    success:function(){
+
+                                    }
+                                });
+                            });
                         }
                     });
 				}

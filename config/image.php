@@ -9,7 +9,7 @@
 return [
     'domain' => 'http://ddd.tunnel.mobi/',
     'storage_path' => "uploads/",
-    'compress_rate' => 90,   //压缩比率
+    'compress_rate' => 80,   //压缩比率
     'compress_cover' => true,  //压缩后覆盖原文件
     'compress_config_enable' => true,
     'compress_config' => [

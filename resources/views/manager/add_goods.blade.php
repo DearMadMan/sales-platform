@@ -183,7 +183,7 @@
                     <div class="panel-title">商品相册</div>
                 </div>
                 <div class="panel-body">
-                    <form action="{{url("manager/upload-images")}}" class="dropzone dz-clickable">
+                    <form action="{{url("manager/good-gallery")}}" class="dropzone dz-clickable">
                         <div class="dz-default dz-message"><span></span></div>
                     </form>
                 </div>
