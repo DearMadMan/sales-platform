@@ -1027,17 +1027,26 @@ var public_vars = public_vars || {};
 			$(".dropzone[action]").each(function(i, el)
 			{
 
-				var token=$("#_token");
+				var token=$("#_token"),
+                    count=$(this).find('.dz-success').length;
+
 				if(token)
 				{
+
+                    var _method=$("#_method").val(),
+                        _id=$("#id").val();
                     $(el).dropzone({
                         sending:function(file, xhr, formData) {
                             // Will send the filesize along with the file as POST data.
+
                             formData.append("_token", $("#_token").val());
+                            formData.append("method", $("#_method").val());
+                            formData.append("id", $("#id").val());
+
                         },
                         addRemoveLinks:true,
                         clickable:true,
-                        maxFiles:8,
+                        maxFiles:10,
                         parallelUploads:1,
                         acceptedFiles:'image/*',
                         init: function() {
@@ -1046,9 +1055,29 @@ var public_vars = public_vars || {};
                                 preview.find('span[data-dz-name]').text("Something Error!");
                                 preview.find('span[data-dz-errormessage]').text("Something Error!");
                             });
+                            this.on("addedfile", function(file) {
+                                count=$(el).find('.dz-success').length;
+                                count+=$(el).find('.dz-file-preview').length;
+                                if(count>=11){
+
+                                    alert('相册内最多只能有十张相片!');
+                                    this.removeFile(file);
+                                }
+                            });
+
                             this.on("success",function(file,response){
+                                if(response=='false')
+                                {
+                                    alert('上传失败！');
+                                    this.removeFile(file);
+                                }
                                 var preview=$(file.previewElement);
                                 preview.find('span[data-dz-name]').text(response);
+                                count=$(el).find('.dz-success').length;
+                                if(count>=11){
+                                    alert('相册内最多只能有十张相片!');
+                                    this.removeFile(file);
+                                }
                             });
                             this.on("removedfile",function(file){
                                     var file_name=$(file.previewElement).find('span[data-dz-name]').text();
@@ -1058,7 +1087,8 @@ var public_vars = public_vars || {};
                                     data:{
                                         _token:$("#_token").val(),
                                         destroy:true,
-                                        file_name:file_name
+                                        file_name:file_name,
+                                        method:_method
                                     },
                                     success:function(){
 

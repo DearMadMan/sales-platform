@@ -24,7 +24,7 @@ class CreateGoodsTable extends Migration {
 			$table->integer('sold_count')->default(0)->comment("已售数量");
 			$table->integer('goods_number')->default(0)->comment("库存数量");
 			$table->text('goods_desc')->default('')->comment("商品介绍");
-			$table->string('goods_img')->default('')->comment("主图地址");
+			$table->integer('image_id')->default(0)->comment("主图ID地址:关联表ImageMd5");
 			$table->integer('shipping_free')->default(0)->comment("包邮状态");
 			$table->integer('is_on_sale')->default(1)->comment("销售状态");
 			$table->integer('base_sold_count')->default(0)->comment("初始化已售数量");

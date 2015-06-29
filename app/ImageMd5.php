@@ -17,4 +17,19 @@
         }
 
 
+        public function GetIdFormFileName($file_name)
+        {
+            $arr = explode('/', $file_name);
+            if (is_array($arr)) {
+                $count = count($arr);
+                $file_name = $arr[$count - 1];
+            }
+
+            $res = $this->where('file_name', $file_name)->first();
+            $res = $res ? $res->id : 0;
+            return $res;
+
+        }
+
+
     }

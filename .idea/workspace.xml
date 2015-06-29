@@ -2,47 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0855094d-c361-487e-8d88-44aa3a2c6925" name="Default" comment="">
-      <change type="DELETED" beforePath="I:\web\wechat\.idea\codeStyleSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150613\00c1e3194c9e88b26868ed955814a355.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150613\5f47ea4274cae72def6c0c802398d674.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150624\00c1e3194c9e88b26868ed955814a355.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150624\5f47ea4274cae72def6c0c802398d674.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150626\58a11ca2f546a47265d9719271247f67.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150626\ef74373a551dfd51b01f097686f1c673.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150626\img_58a11ca2f546a47265d9719271247f67.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150626\img_ef74373a551dfd51b01f097686f1c673.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150626\thumb_58a11ca2f546a47265d9719271247f67.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150626\thumb_ef74373a551dfd51b01f097686f1c673.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\1185ceb39d9f8dfec7bb71f68fc7a955.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\1bc734457e9505b98ae269b1560bffe6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\24bfebc8f524e96da9ac96fd0609ebb2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\3bd2f2e16f2d142c0224c0caeed4fed1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\5f47ea4274cae72def6c0c802398d674.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\637c55516b7234e3e1becd6e3bdda523.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\de73734d52028c7dfb17380dcc13aa4b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_1185ceb39d9f8dfec7bb71f68fc7a955.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_1bc734457e9505b98ae269b1560bffe6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_24bfebc8f524e96da9ac96fd0609ebb2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_3bd2f2e16f2d142c0224c0caeed4fed1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_5f47ea4274cae72def6c0c802398d674.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_637c55516b7234e3e1becd6e3bdda523.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\img_de73734d52028c7dfb17380dcc13aa4b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_1185ceb39d9f8dfec7bb71f68fc7a955.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_1bc734457e9505b98ae269b1560bffe6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_24bfebc8f524e96da9ac96fd0609ebb2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_3bd2f2e16f2d142c0224c0caeed4fed1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_5f47ea4274cae72def6c0c802398d674.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_637c55516b7234e3e1becd6e3bdda523.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\20150627\thumb_de73734d52028c7dfb17380dcc13aa4b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\manager\1\2015-06-13\3206c96b334a4c4164913d0e12fad8c8" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\public\uploads\manager\1\2015-06-13\5e8cd000a7b472c4ebd8d631f0be17bc" afterPath="" />
-      <change type="DELETED" beforePath="I:\web\wechat\resources\views\manager\add_keywrod.blade.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/good.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/manager/good_recycle_list.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_06_27_124745_create_good_galleries_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_06_27_124745_create_good_galleries_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Good.php" afterPath="$PROJECT_DIR$/app/Good.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GoodGallery.php" afterPath="$PROJECT_DIR$/app/GoodGallery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ImageMd5.php" afterPath="$PROJECT_DIR$/app/ImageMd5.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/custom.css" afterPath="$PROJECT_DIR$/public/assets/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/xenon-custom.js" afterPath="$PROJECT_DIR$/public/assets/js/xenon-custom.js" />
       <change type="MOVED" beforePath="I:\web\wechat\README.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="wechat.iws" />
@@ -68,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UploadController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php">
+      <file leaf-file-name="add_goods.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.740741" vertical-offset="246" max-vertical-offset="3749">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="30" />
+            <state vertical-scroll-proportion="-7.9259257" vertical-offset="706" max-vertical-offset="6808">
+              <caret line="40" column="64" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -81,8 +55,8 @@
       <file leaf-file-name="Good.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Good.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.962963" vertical-offset="1854" max-vertical-offset="2507">
-              <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+            <state vertical-scroll-proportion="-32.703705" vertical-offset="3878" max-vertical-offset="5566">
+              <caret line="207" column="31" selection-start-line="207" selection-start-column="20" selection-end-line="207" selection-end-column="31" />
               <folding>
                 <element signature="e#22#72#0#PHP" expanded="true" />
               </folding>
@@ -90,11 +64,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="UploadController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.2222223" vertical-offset="246" max-vertical-offset="1840">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="55" />
+            <state vertical-scroll-proportion="-22.481482" vertical-offset="3188" max-vertical-offset="4186">
+              <caret line="165" column="17" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="17" />
+              <folding>
+                <element signature="e#48#61#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/ArticleController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.9259257" vertical-offset="1626" max-vertical-offset="4508">
+              <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+              <folding>
+                <element signature="e#48#64#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Article.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Article.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-24.185184" vertical-offset="497" max-vertical-offset="1357">
+              <caret line="50" column="5" selection-start-line="41" selection-start-column="3" selection-end-line="50" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -103,38 +101,28 @@
       <file leaf-file-name="GoodController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35958904" vertical-offset="710" max-vertical-offset="2990">
-              <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.55136985" vertical-offset="2760" max-vertical-offset="3726">
+              <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_goods.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
+      <file leaf-file-name="good_recycle_list.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/manager/good_recycle_list.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.88889" vertical-offset="966" max-vertical-offset="5796">
-              <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="414" max-vertical-offset="2231">
+              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_keyword.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/manager/add_keyword.blade.php">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1656">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_article.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/manager/add_article.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.333333" vertical-offset="414" max-vertical-offset="3680">
-              <caret line="36" column="30" selection-start-line="26" selection-start-column="23" selection-end-line="36" selection-end-column="30" />
+            <state vertical-scroll-proportion="-3.4074075" vertical-offset="0" max-vertical-offset="1886">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -148,10 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/assets/js/ckeditor/ckeditor.js" />
-        <option value="$PROJECT_DIR$/public/assets/js/ckeditor/skins/bootstrapck/dialog.css" />
-        <option value="$PROJECT_DIR$/public/assets/js/ckeditor/config.js" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/Manager/ArticleStoreReqeust.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Manager/ArticleStoreRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/article_show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager.blade.php" />
@@ -162,7 +146,6 @@
         <option value="$PROJECT_DIR$/resources/views/manager/add_article_type.blade.php" />
         <option value="$PROJECT_DIR$/app/ArticleType.php" />
         <option value="$PROJECT_DIR$/app/Breadcrumb.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/ManagerController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/ArticleTypeController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_20_011734_create_articles_table.php" />
         <option value="$PROJECT_DIR$/app/Article.php" />
@@ -178,7 +161,6 @@
         <option value="$PROJECT_DIR$/resources/views/manager/article_type_list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/goods_type.blade.php" />
         <option value="$PROJECT_DIR$/app/GoodType.php" />
-        <option value="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
         <option value="$PROJECT_DIR$/../MyLib/larevel/ImageTool/src/ImageTool.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/vendor/dearmadman/laravel-image-tool/src/ImageToolServiceProvider.php" />
@@ -186,18 +168,24 @@
         <option value="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
         <option value="$PROJECT_DIR$/vendor/dearmadman/laravel-image-tool/composer.json" />
         <option value="$PROJECT_DIR$/vendor/dearmadman/laravel-image-tool/src/ImageTool.php" />
-        <option value="$PROJECT_DIR$/config/image.php" />
         <option value="$PROJECT_DIR$/../MyLib/larevel/ImageTool/README.md" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/Manager/GoodStore.php" />
+        <option value="$PROJECT_DIR$/resources/views/manager/goods_list.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/custom.css" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_06_27_124745_create_good_galleries_table.php" />
+        <option value="$PROJECT_DIR$/config/image.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/ManagerController.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/good.js" />
         <option value="$PROJECT_DIR$/public/assets/js/xenon-custom.js" />
         <option value="$PROJECT_DIR$/app/GoodGallery.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_06_27_124745_create_good_galleries_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/Manager/GoodStore.php" />
+        <option value="$PROJECT_DIR$/app/ImageMd5.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/add_goods.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Good.php" />
+        <option value="$PROJECT_DIR$/resources/views/manager/good_recycle_list.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php" />
       </list>
     </option>
@@ -592,7 +580,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -619,96 +607,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../MyLib/larevel/ImageTool/src/ImageTool.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11815068" vertical-offset="0" max-vertical-offset="6072">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.6712327" vertical-offset="0" max-vertical-offset="4784">
-          <caret line="145" column="39" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/dearmadman/captcha/src/CaptchaServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03938356" vertical-offset="0" max-vertical-offset="584">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/dearmadman/captcha/src/Captcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="6486">
-          <caret line="0" column="26" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/dearmadman/laravel-image-tool/src/ImageToolServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3938356" vertical-offset="0" max-vertical-offset="584">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_real.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2054795" vertical-offset="796" max-vertical-offset="1449">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_psr4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7089041" vertical-offset="345" max-vertical-offset="1035">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_namespaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="667">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_files.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="611">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.638699" vertical-offset="20267" max-vertical-offset="109158">
-          <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23630136" vertical-offset="0" max-vertical-offset="584">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55136985" vertical-offset="3036" max-vertical-offset="4784">
@@ -795,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6666665" vertical-offset="0" max-vertical-offset="575">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2020548" vertical-offset="1078" max-vertical-offset="3519">
@@ -813,7 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18664384" vertical-offset="13875" max-vertical-offset="27876">
           <caret line="616" column="0" selection-start-line="616" selection-start-column="0" selection-end-line="616" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18664384" vertical-offset="5204" max-vertical-offset="10258">
           <caret line="231" column="0" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2020548" vertical-offset="5655" max-vertical-offset="6601">
           <caret line="255" column="0" selection-start-line="255" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,7 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="611">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.994863" vertical-offset="5051" max-vertical-offset="5635">
           <caret line="54" column="5" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,15 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63013697" vertical-offset="0" max-vertical-offset="621">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_27_124745_create_good_galleries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7089041" vertical-offset="0" max-vertical-offset="874">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -891,31 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36988544" vertical-offset="1936" max-vertical-offset="5865">
           <caret line="88" column="183" selection-start-line="88" selection-start-column="183" selection-end-line="88" selection-end-column="183" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/ManagerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5667808" vertical-offset="9582" max-vertical-offset="10166">
-          <caret line="446" column="14" selection-start-line="446" selection-start-column="14" selection-end-line="446" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/xenon-custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7408027" vertical-offset="24213" max-vertical-offset="46138">
-          <caret line="1060" column="45" selection-start-line="1060" selection-start-column="45" selection-end-line="1060" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/GoodGallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35445204" vertical-offset="0" max-vertical-offset="584">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,76 +784,215 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3938356" vertical-offset="345" max-vertical-offset="1219">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-          <folding />
+        <state vertical-scroll-proportion="0.3321918" vertical-offset="864" max-vertical-offset="15847">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <element signature="e#7#34#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/manager/add_article.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/BaseManagerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.333333" vertical-offset="414" max-vertical-offset="3680">
-          <caret line="36" column="30" selection-start-line="26" selection-start-column="23" selection-end-line="36" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.27568492" vertical-offset="621" max-vertical-offset="1219">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/add_keyword.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1656">
+        <state vertical-scroll-proportion="0.0" vertical-offset="299" max-vertical-offset="1610">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9247136" vertical-offset="1666" max-vertical-offset="2392">
+          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.369863" vertical-offset="635" max-vertical-offset="1219">
+          <caret line="41" column="65" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_27_124745_create_good_galleries_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7482877" vertical-offset="0" max-vertical-offset="874">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/uikit/js/addons/upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6026">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/add_article.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40924656" vertical-offset="3004" max-vertical-offset="3588">
+          <caret line="141" column="46" selection-start-line="141" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1969178" vertical-offset="0" max-vertical-offset="584">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/ManagerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84246576" vertical-offset="9145" max-vertical-offset="10120">
+          <caret line="436" column="5" selection-start-line="436" selection-start-column="5" selection-end-line="436" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/good.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5859247" vertical-offset="401" max-vertical-offset="1633">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Manager/GoodStore.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5667808" vertical-offset="336" max-vertical-offset="920">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+        <state vertical-scroll-proportion="-8.851851" vertical-offset="336" max-vertical-offset="920">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
+    <entry file="file://$PROJECT_DIR$/app/GoodGallery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918" vertical-offset="864" max-vertical-offset="15847">
-          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-          <folding>
-            <element signature="e#7#34#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.5273973" vertical-offset="313" max-vertical-offset="943">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/xenon-custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5908347" vertical-offset="24709" max-vertical-offset="46184">
+          <caret line="1090" column="54" selection-start-line="1090" selection-start-column="54" selection-end-line="1090" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ImageMd5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64726025" vertical-offset="220" max-vertical-offset="920">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_20_011834_create_article_types_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_20_011054_create_goods_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.98458904" vertical-offset="0" max-vertical-offset="1219">
+          <caret line="26" column="80" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/manager/add_goods.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.88889" vertical-offset="966" max-vertical-offset="5796">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+        <state vertical-scroll-proportion="-7.9259257" vertical-offset="706" max-vertical-offset="6808">
+          <caret line="40" column="64" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/article_recycle_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59075344" vertical-offset="1311" max-vertical-offset="2461">
+          <caret line="72" column="44" selection-start-line="64" selection-start-column="39" selection-end-line="72" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/goods_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11815068" vertical-offset="552" max-vertical-offset="2346">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/UploadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.740741" vertical-offset="246" max-vertical-offset="3749">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="30" />
+        <state vertical-scroll-proportion="-22.481482" vertical-offset="3188" max-vertical-offset="4186">
+          <caret line="165" column="17" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="17" />
+          <folding>
+            <element signature="e#48#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9259257" vertical-offset="1626" max-vertical-offset="4508">
+          <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+          <folding>
+            <element signature="e#48#64#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.185184" vertical-offset="497" max-vertical-offset="1357">
+          <caret line="50" column="5" selection-start-line="41" selection-start-column="3" selection-end-line="50" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manager/good_recycle_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="414" max-vertical-offset="2231">
+          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.2222223" vertical-offset="246" max-vertical-offset="1932">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="55" />
+        <state vertical-scroll-proportion="-3.4074075" vertical-offset="0" max-vertical-offset="1886">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Good.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.962963" vertical-offset="1854" max-vertical-offset="2507">
-          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+        <state vertical-scroll-proportion="-32.703705" vertical-offset="3878" max-vertical-offset="5566">
+          <caret line="207" column="31" selection-start-line="207" selection-start-column="20" selection-end-line="207" selection-end-column="31" />
           <folding>
             <element signature="e#22#72#0#PHP" expanded="true" />
           </folding>
@@ -1005,8 +1001,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Manager/GoodController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35958904" vertical-offset="710" max-vertical-offset="2990">
-          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.55136985" vertical-offset="2760" max-vertical-offset="3726">
+          <caret line="142" column="38" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
           <folding />
         </state>
       </provider>

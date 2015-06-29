@@ -46,7 +46,7 @@ class GoodController extends BaseManagerController
     {
         $this->setBreadcrumb('添加新产品');
         $good=new Good();
-        $good->UnSetGalleries();
+        $good->is_on_sale=true;
         $type=new GoodType();
         $types=$type->getTypes($this->manager_id,false);
         return view('manager.add_goods')
@@ -93,29 +93,38 @@ class GoodController extends BaseManagerController
     {
         $this->setBreadcrumb('修改商品');
         $good=new Good();
-        $res=$good->getGood($this->manager_id,$id);
-        $type=new GoodType();
-        $types=$type->getTypes($this->manager_id);
+        $good=$good->getGood($this->manager_id,$id);
         if(!$good)
         {
             return redirect($this->breadcrumbs_url)->with('message',"Whoops, looks like something went wrong.");
         }
+        $type=new GoodType();
+        $types=$type->getTypes($this->manager_id);
         return view('manager.add_goods')
             ->with('breadcrumb',$this->breadcrumb)
             ->with('good',$good)
+            ->with('method','put')
             ->with('types',$types);
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param GoodStore $request
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update(GoodStore $request,$id)
     {
-        //
+        $good=new Good();
+        $res=$good->UpdateGood($request,$id);
+        if(!$res){
+            return redirect($this->breadcrumbs_url)->with('message','Update Something Error!');
+
+        }
+        return redirect($this->breadcrumbs_url)->with('message','Update Good Success!');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -126,6 +135,29 @@ class GoodController extends BaseManagerController
     public function destroy($id)
     {
         //
+    }
+
+
+    public function Recycle(Request $request)
+    {
+        $this->setBreadcrumb('商品回收站');
+        $good = new Good();
+        $goods = $good->getRecycles($request->user()->manager_id);
+        return view('manager.good_recycle_list')
+            ->with('goods', $goods)
+            ->with('breadcrumb', $this->breadcrumb);
+    }
+
+    public function Restore(Request $request,$id)
+    {
+        $good=new Good();
+        $good=$good->Restore($request->user()->manager_id,$id);
+        if($good)
+        {
+            return redirect('manager/good/recycle')->with('message','Restore Data Success!');
+        }
+        return redirect('manager/good/recycle')->with('message','Restore Data Failed!');
+
     }
 
 

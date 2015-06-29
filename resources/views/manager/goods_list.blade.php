@@ -54,16 +54,12 @@
                             <input type="checkbox" @if($v->is_on_sale) checked @endif class="iswitch iswitch-turquoise">
                         </td>
                         <td>
-                            <a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
+                            <a href="{{url('manager/good').'/'.$v->id.'/edit'}}" class="btn btn-secondary btn-sm btn-icon icon-left">
                                 Edit
                             </a>
 
                             <a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
                                 Delete
-                            </a>
-
-                            <a href="#" class="btn btn-info btn-sm btn-icon icon-left">
-                                Profile
                             </a>
                         </td>
                     </tr>

@@ -80,3 +80,20 @@ a {
 .search-c-btn .btn{
     margin-bottom: 0;
 }
+.image-gallery{
+
+}
+.image-gallery img{
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+
+}
+.image-gallery ul{
+    list-style-type: none;
+}
+.image-gallery ul li{
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+}

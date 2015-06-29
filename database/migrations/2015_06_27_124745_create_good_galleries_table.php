@@ -15,7 +15,7 @@ class CreateGoodGalleriesTable extends Migration
         Schema::create('good_galleries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('good_id')->commen('所属商品id');
-            $table->string('data_dir')->comment('图片所在日期目录');
+            $table->string('date_dir')->comment('图片所在日期目录');
             $table->string('file_name')->comment('图片名称');
 
         });

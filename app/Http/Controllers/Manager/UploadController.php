@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Manager;
 
+use App\Good;
 use App\ImageMd5;
 use Dearmadman\ImageTool\ImageTool;
 use Illuminate\Http\Request;
@@ -25,16 +26,29 @@ class UploadController extends Controller
 
     public function GoodGallery(Request $request)
     {
-
+        $method = $request->has('method') ? $request->input('method') : false;
+        $id=$request->input('id');
+        if($id){
+            /*  illegal manager */
+            $good=new Good();
+            if(!$good->getGood($request->user()->manager_id,$id)){
+                return 'false';
+            }
+        }
+        $session=$method.'_image_gallery'.$id;
+        if (!$method) {
+            return 'false';
+        }
         /* determine if type is destroy */
 
         if ($request->has('destroy')) {
             $file_name = $request->input('file_name');
-            $image_gallery = session('image_gallery');
+            $file_name=trim($file_name,'/');
+            $image_gallery = session($session);
             if ($image_gallery) {
                 if (array_key_exists($file_name, $image_gallery)) {
                     unset($image_gallery[$file_name]);
-                    session(['image_gallery' => $image_gallery]);
+                    session([$session => $image_gallery]);
                     session()->save();
                 }
             }
@@ -61,9 +75,9 @@ class UploadController extends Controller
                 $res = $image_tool->GetImageFromString($target, $k);
                 $gallery_now[$target] = array_merge($gallery_now[$target], [$k => $res]);
             }
-            $image_gallery = session('image_gallery');
+            $image_gallery = session($session);
             $image_gallery[$target] = $gallery_now[$target];
-            session(['image_gallery' => $image_gallery]);
+            session([$session => $image_gallery]);
             return $target;
         }
         return 'GoodGallery false';
@@ -87,8 +101,7 @@ class UploadController extends Controller
                 ];
                 $image_tool->SetConfig($arr);
                 $res = $image_tool->GetImageFromString($target, $k);
-                if(!$res)
-                {
+                if (!$res) {
                     return false;
                 }
             }
@@ -116,6 +129,7 @@ class UploadController extends Controller
             $ext = ['jpg', 'png', 'gif'];
             $mime_type = $file->getMimeType();
             if (!in_array($mime_type, $files_access_mime_type)) {
+
                 return false;
             } else {
                 $ext = $ext[array_search($mime_type, $files_access_mime_type)];
@@ -129,15 +143,15 @@ class UploadController extends Controller
             $file_name = md5_file($file->getRealPath()) . '.' . $ext;
             $image_md5 = new ImageMd5();
             if ($img = $image_md5->hasFile($file_name)) {
-                return config('image.storage_path') . $img->date_dir . $file_name;
+                return config('image.storage_path') . $img->date_dir.'/' . $file_name;
             }
-            $data_dir = date("Ymd") . '/';
-            $path = config('image.storage_path') . $data_dir;
+            $date_dir = date("Ymd") . '/';
+            $path = config('image.storage_path') . $date_dir;
             $target = $file->move($path, $file_name);
             if ($target) {
                 $target = $path . $file_name;
                 /* insert Md5 file info */
-                $image_md5->date_dir = $data_dir;
+                $image_md5->date_dir = trim($date_dir,'/');
                 $image_md5->file_name = $file_name;
                 $image_md5->save();
                 if (config('image.compress_config_enable')) {
