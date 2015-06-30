@@ -40,7 +40,7 @@ class Article extends Model
     }
 
     public function Restore($manager_id,$id){
-        $article=$this->where(['manager_id'=>$manager_id,"id"=>$id])->first();
+        $article=$this->GetArticle($manager_id,$id);
         if($article)
         {
             $article->is_delete=false;
@@ -48,6 +48,21 @@ class Article extends Model
             return true;
         }
         return false;
+    }
+
+    public function GetArticle($manager_id,$id){
+        return $this->where(['manager_id'=>$manager_id,"id"=>$id])->first();
+    }
+
+    public function Recycle( $manager_id,$id){
+        $article=$this->GetArticle($manager_id,$id);
+        if($article){
+            $article->is_delete=true;
+            $article->save();
+            return true;
+        }
+        return false;
+
     }
 
 }

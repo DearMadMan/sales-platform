@@ -233,4 +233,16 @@ class Good extends Model
         return false;
     }
 
+    public function Recycle( $manager_id,$id){
+        $good=$this->GetGood($manager_id,$id);
+        if($good){
+            $good->is_delete=true;
+            $good->save();
+            return true;
+        }
+        return false;
+
+    }
+
+
 }

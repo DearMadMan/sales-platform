@@ -10,14 +10,16 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-class WechatMenuController extends Controller
+class WechatMenuController extends BaseManagerController
 {
 
 
-    public function __construct ()
+    public function __construct()
     {
-        $this->middleware ('manager');
-        $this->middleware ('manager.wechat_menu' , ["except" => ['index' , 'create' , 'store']]);
+        parent::__construct();
+        $this->middleware('manager.wechat_menu', ["except" => ['index', 'create', 'store']]);
+        $this->breadcrumbs_url = "manager/wechat-menu";
+        $this->breadcrumbs_main =[['manager/wechat-menu', '微信中心', 0],['manager/wechat-menu', '菜单管理', 0]];
     }
 
     /**
@@ -26,19 +28,16 @@ class WechatMenuController extends Controller
      * @param Breadcrumb $breadcrumb
      * @return Response
      */
-    public function index (Breadcrumb $breadcrumb)
+    public function index()
     {
+        $this->setBreadcrumb('菜单列表');
 
-        $breadcrumb->setBreadcrumbs('菜单管理',[
-            [ 'manager/user-list' ,  '微信中心' ,  0] ,
-            ['' , '菜单管理' , 1]
-        ]);
-        $wechat_menu = new WechatMenu( Auth::user ()->manager_id);
-        $menu_list = $wechat_menu->getMenuList ();
+        $wechat_menu = new WechatMenu(Auth::user()->manager_id);
+        $menu_list = $wechat_menu->getMenuList();
 
-        return view ('manager.wechat_menu')
-            ->with ('menu_list' , $menu_list)
-            ->with ('breadcrumb' , $breadcrumb);
+        return view('manager.wechat_menu')
+            ->with('menu_list', $menu_list)
+            ->with('breadcrumb', $this->breadcrumb);
     }
 
     /**
@@ -46,23 +45,18 @@ class WechatMenuController extends Controller
      *
      * @return Response
      */
-    public function create ()
+    public function create()
     {
-        $menu = new WechatMenu( Auth::user ()->manager_id);
-        $menu_list = $menu->getFirstMenu ();
-        $breadcrumb_title = '新增菜单';
-        $breadcrumb = [
-            ['url' => 'manager/user-list' , 'title' => '微信中心' , 'is_active' => 0] ,
-            ['url' => 'manager/wechat-menu' , 'title' => '菜单管理' , 'is_active' => 0] ,
-            ['url' => '' , 'title' => '新增菜单' , 'is_active' => 1]
-        ];
+        $menu = new WechatMenu(Auth::user()->manager_id);
+        $menu_list = $menu->getFirstMenu();
+        $this->setBreadcrumb('新增菜单');
 
-        return view ('manager.wechat_menu_create')
-            ->with ('method' , 'post')
-            ->with ('menu' , $menu)
-            ->with ('breadcrumb_title' , $breadcrumb_title)
-            ->with ('breadcrumb' , $breadcrumb)
-            ->with ('menu_list' , $menu_list);
+
+        return view('manager.wechat_menu_create')
+            ->with('method', 'post')
+            ->with('menu', $menu)
+            ->with('breadcrumb', $this->breadcrumb)
+            ->with('menu_list', $menu_list);
     }
 
     /**
@@ -71,11 +65,11 @@ class WechatMenuController extends Controller
      * @param WechatMenuStore $request
      * @return Response
      */
-    public function store (WechatMenuStore $request)
+    public function store(WechatMenuStore $request)
     {
 
-        $wechat_menu = new WechatMenu( Auth::user ()->manager_id);
-        $res = $wechat_menu->UpdateOrCreateFromRequest ($request);
+        $wechat_menu = new WechatMenu(Auth::user()->manager_id);
+        $res = $wechat_menu->UpdateOrCreateFromRequest($request);
         if ($res !== true) {
             return $res;
         }
@@ -84,7 +78,7 @@ class WechatMenuController extends Controller
 
         /* 返回 */
 
-        return redirect ('manager/wechat-menu');
+        return redirect('manager/wechat-menu');
     }
 
     /**
@@ -93,9 +87,9 @@ class WechatMenuController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show ($id)
+    public function show($id)
     {
-        return redirect ('manager/wechat-menu');
+        return redirect('manager/wechat-menu');
     }
 
     /**
@@ -104,25 +98,19 @@ class WechatMenuController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit ($id)
+    public function edit($id)
     {
-        $menu = WechatMenu::find ($id);
-        $menu->setMId(Auth::user ()->manager_id);
-        $menu_list = $menu->getFirstMenu ();
+        $menu = WechatMenu::find($id);
+        $menu->setMId(Auth::user()->manager_id);
+        $menu_list = $menu->getFirstMenu();
+        $this->setBreadcrumb('修改菜单');
 
-        $breadcrumb_title = '修改菜单';
-        $breadcrumb = [
-            ['url' => 'manager/user-list' , 'title' => '微信中心' , 'is_active' => 0] ,
-            ['url' => 'manager/wechat-menu' , 'title' => '菜单管理' , 'is_active' => 0] ,
-            ['url' => '' , 'title' => '修改菜单' , 'is_active' => 1]
-        ];
 
-        return view ('manager.wechat_menu_create')
-            ->with ('method' , 'put')
-            ->with ('menu' , $menu)
-            ->with ('breadcrumb_title' , $breadcrumb_title)
-            ->with ('breadcrumb' , $breadcrumb)
-            ->with ('menu_list' , $menu_list);
+        return view('manager.wechat_menu_create')
+            ->with('method', 'put')
+            ->with('menu', $menu)
+            ->with('breadcrumb', $this->breadcrumb)
+            ->with('menu_list', $menu_list);
 
     }
 
@@ -133,10 +121,10 @@ class WechatMenuController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update (WechatMenuStore $request , $id)
+    public function update(WechatMenuStore $request, $id)
     {
-        $wechat_menu = WechatMenu::find ($id);
-        $res = $wechat_menu->UpdateOrCreateFromRequest ($request);
+        $wechat_menu = WechatMenu::find($id);
+        $res = $wechat_menu->UpdateOrCreateFromRequest($request);
         if ($res !== true) {
             return $res;
         }
@@ -145,7 +133,7 @@ class WechatMenuController extends Controller
 
         /* 返回 */
 
-        return redirect ('manager/wechat-menu');
+        return redirect('manager/wechat-menu');
     }
 
     /**
@@ -154,24 +142,24 @@ class WechatMenuController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy ($id)
+    public function destroy($id)
     {
 
         /* 一级菜单 删除该菜单下所有子菜单  */
 
-        $wechatMenu = new WechatMenu(Auth::user ()->manager_id);
+        $wechatMenu = new WechatMenu(Auth::user()->manager_id);
 
-        if ($wechatMenu->isFirstMenu ($id)) {
+        if ($wechatMenu->isFirstMenu($id)) {
             /* 删除当前菜单及其子菜单 */
 
 
-            $wechatMenu->DeleteFromFirstId ($id);
+            $wechatMenu->DeleteFromFirstId($id);
 
-            return '1';
+            return 'true';
         } else {
-            $wechatMenu->destroy ($id);
+            $wechatMenu->destroy($id);
 
-            return "0";
+            return "true";
         }
 
     }

@@ -132,9 +132,11 @@ class GoodController extends BaseManagerController
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $good=new Good();
+        $res=$good->Recycle($request->user()->manager_id,$id);
+        return $res?"true":'false';
     }
 
 

@@ -19,4 +19,8 @@ class ToolController extends Controller {
 		return $captcha->PushImage();
 	}
 
+    public function postDelete(Request $request){
+
+    }
+
 }

@@ -19,14 +19,14 @@
                         <a class="btn btn-info" href="{{url('manager/article/create')}}">新增</a>
                     </div>
                 </div>
-
+<input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
                 <div class="panel-body">
 
                     <table class="table table-bordered table-striped" >
                         <thead>
                         <tr>
                             <th class="no-sorting">
-                                <input type="checkbox" class="cbr">
+                                <input type="checkbox" id="checkbox_leader" class="cbr">
                             </th>
                             <th class="no-sorting">ID</th>
                             <th class="no-sorting">标题</th>
@@ -42,7 +42,7 @@
                     @foreach($articles as $v)
                         <tr>
                             <td>
-                                <input type="checkbox" class="cbr">
+                                <input  data="{{$v->id}}" type="checkbox" class="cbr">
                             </td>
                             <td>{{$v->id}}</td>
                             <td>{{str_limit($v->title,30)}}</td>
@@ -64,7 +64,7 @@
                                     Edit
                                 </a>
 
-                                <a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+                                <a href="javascript:;"  data="{{$v->id}}" class="btn btn-danger btn-sm btn-icon icon-left">
                                     Delete
                                 </a>
 
@@ -77,7 +77,11 @@
                 @endif
                         </tbody>
                     </table>
-
+                    <div class="tool-btn">
+                        <button class="btn btn-info btn-sm" onclick="checked();">全选</button>
+                        <button class="btn btn-info btn-sm" onclick="unCheck();">全不选</button>
+                        <button class="btn btn-danger btn-sm" id="delete_all">删除</button>
+                    </div>
                     <ul class="pagination text-center">
                         {!! $articles->render() !!}
                     </ul>
@@ -89,7 +93,9 @@
         </div>
     </div>
 
-
+    <script>
+        var post_url="{{url('manager/article')}}"+"/";
+    </script>
 
 
 
@@ -99,4 +105,5 @@
 
 
 @section('js')
+    <script src="{{url()}}/js/tool.js"></script>
 @stop

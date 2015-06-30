@@ -183,8 +183,10 @@ class ArticleController extends Controller
         return view('manager.article_show')->with('article', $article)->with('breadcrumb', $this->breadcrumb);;
     }
 
-    public function destroy()
+    public function destroy(Request $request,$id)
     {
-
+            $article=new Article();
+            $res=$article->Recycle($request->user()->manager_id,$id);
+            return $res?"true":"false";
     }
 }

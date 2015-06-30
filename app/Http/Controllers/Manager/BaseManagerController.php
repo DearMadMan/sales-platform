@@ -25,7 +25,7 @@ class BaseManagerController extends Controller
         $this->middleware('manager');
         $this->breadcrumb = new Breadcrumb();
         $this->user = Auth::user();
-        if(!$this->user){
+        if (!$this->user) {
             return redirect('manager/login');
         }
         $this->manager_id = $this->user->manager_id;
@@ -40,7 +40,13 @@ class BaseManagerController extends Controller
     public function setBreadcrumb($title, $arr = null)
     {
         $data = [];
-        array_push($data, $this->breadcrumbs_main);
+        foreach ($this->breadcrumbs_main as $v) {
+            if (count($v) != 3) {
+                array_push($data, $this->breadcrumbs_main);
+                break;
+            }
+            array_push($data, $v);
+        }
         if (is_array($arr)) {
             foreach ($arr as $v) {
                 array_push($data, $v);

@@ -109,7 +109,7 @@
 
 
 
-                    <div class="col-sm-12 ">
+                    <div class="">
                         <button class="btn btn-info btn-sm" onclick="checked();">全选</button>
                         <button class="btn btn-info btn-sm" onclick="unCheck();">全不选</button>
                         <button class="btn btn-danger btn-sm" id="delete_all">删除</button>
