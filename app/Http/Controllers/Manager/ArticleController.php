@@ -12,24 +12,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ArticleController extends Controller
+class ArticleController extends BaseManagerController
 {
     //
-    protected $breadcrumbs_url = 'manager/article';
-    protected $breadcrumb = null;
 
     public function __construct()
     {
-        $this->middleware('manager');
-        $this->breadcrumb = new Breadcrumb();
+        parent::__construct();
+        $this->breadcrumbs_url = "manager/article";
+        $this->breadcrumbs_main =  ['manager/article', '文章中心', 0];
     }
 
     public function index(Article $articles, Request $request)
     {
 
-        $this->breadcrumb->setBreadcrumbs("文章列表", [
-            ['manager/article', '文章中心', 0],
-        ]);
+        $this->setBreadcrumb("文章列表");
         $user = $request->user();
         $articles = $articles->where([
             'manager_id' => $user->manager_id,
@@ -43,9 +40,7 @@ class ArticleController extends Controller
 
     public function create(Request $request)
     {
-        $this->breadcrumb->setBreadcrumbs('新增文章', [
-            [$this->breadcrumbs_url, '文章列表', 0],
-        ]);
+        $this->setBreadcrumb("新增文章");
 
         $types = new ArticleType();
         $types = $types->getTypes($request->user()->manager_id);
@@ -56,9 +51,7 @@ class ArticleController extends Controller
 
     public function Recycle(Request $request)
     {
-        $this->breadcrumb->setBreadcrumbs("文章回收站", [
-            ['manager/article', '文章中心', 0],
-        ]);
+        $this->setBreadcrumb("文章回收站");
         $article = new Article();
         $articles = $article->getRecycles($request->user()->manager_id);
         return view('manager.article_recycle_list')
@@ -107,9 +100,7 @@ class ArticleController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $this->breadcrumb->setBreadcrumbs('修改文章', [
-            [$this->breadcrumbs_url, '文章列表', 0],
-        ]);
+        $this->setBreadcrumb("修改文章");
         $article = new Article();
         $article = $article->where([
             'id' => $id,
@@ -168,9 +159,7 @@ class ArticleController extends Controller
 
     public function show(Request $request, $id)
     {
-        $this->breadcrumb->setBreadcrumbs("文章展示", [
-            ['manager/article', '文章中心', 0],
-        ]);
+        $this->setBreadcrumb("文章展示");
 
         $article = new Article();
         $article = $article->where([

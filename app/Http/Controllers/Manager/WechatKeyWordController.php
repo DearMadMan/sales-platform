@@ -11,19 +11,18 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class WechatKeyWordController extends Controller
+class WechatKeyWordController extends BaseManagerController
 {
     public function __construct()
     {
-        $this->middleware("manager");
+        parent::__construct();
+        $this->breadcrumbs_url = "manager/fans-list";
+        $this->breadcrumbs_main = ['manager/fans-list', '微信中心', 0];
     }
 
-    public function show(Breadcrumb $breadcrumb, Request $request, $id)
+    public function show( Request $request, $id)
     {
-        $breadcrumb->setBreadcrumbs('设置关键词', [
-            ['url' => 'manager/fans-list',  '微信中心',  0],
-            ['url' => '',  '设置关键词',  1]
-        ]);
+        $this->setBreadcrumb('设置关键词');
 
         $keyword = new WechatKeyword();
         $keyword = $keyword->where('manager_id', $request->user()->manager_id)
@@ -41,24 +40,21 @@ class WechatKeyWordController extends Controller
                 ->get();
         }
         return view('manager.keyword_edit')
-            ->with('breadcrumb', $breadcrumb)
+            ->with('breadcrumb', $this->breadcrumb)
             ->with("keyword", $keyword)
             ->with("articles", $articles);
     }
 
-    public function index(Breadcrumb $breadcrumb, Request $request)
+    public function index(Request $request)
     {
-        $breadcrumb->setBreadcrumbs('关键词', [
-            [ 'manager/fans-list',  '微信中心',  0],
-            [ '',  '关键词',  1]
-        ]);
+        $this->setBreadcrumb('关键词');
 
         $keywords = new WechatKeyword();
         $keywords = $keywords->where('manager_id', $request->user()->manager_id)
             ->get();
 
         return view('manager.keyword_list')
-            ->with('breadcrumb', $breadcrumb)
+            ->with('breadcrumb', $this->breadcrumb)
             ->with("keywords", $keywords);
     }
 
@@ -108,14 +104,11 @@ class WechatKeyWordController extends Controller
         return redirect('manager/keyword')->with("tips", "Update Success!");
     }
 
-    public function create(Breadcrumb $breadcrumb)
+    public function create()
     {
-        $breadcrumb->setBreadcrumbs('新增关键词', [
-            [ 'manager/fans-list',  '微信中心',  0],
-            [ '',  '新增关键词',  1]
-        ]);
+        $this->setBreadcrumb('新增关键词');
         return view('manager.add_keyword')
-            ->with('breadcrumb', $breadcrumb);
+            ->with('breadcrumb', $this->breadcrumb);
     }
 
     public function store(Request $request)
