@@ -63,6 +63,7 @@ Route::resources([
     'manager/article' => 'Manager\ArticleController',
     'manager/article-type' => 'Manager\ArticleTypeController',
     'manager/good' => 'Manager\GoodController',
+    'manager/express' => 'Manager\ExpressController',
     'manager/good-type' => 'Manager\GoodTypeController'
 ]);
 

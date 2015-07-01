@@ -69,6 +69,18 @@
 
                         </div>
 
+                        <div class="form-group">
+
+                            <label class="col-sm-2 control-label" for="goods_weight">商品重量：</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" value="{{$good->goods_weight}}" name="goods_weight"
+                                       id="goods_weight"
+                                       placeholder=" example: ST000001"/>
+                            </div>
+
+                        </div>
+
                         <div class="form-group-separator"></div>
 
                         <div class="form-group">

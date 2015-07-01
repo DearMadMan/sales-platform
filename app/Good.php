@@ -51,6 +51,7 @@ class Good extends Model
         $this->shop_price = $request->input('shop_price');
         $this->market_price = $request->input('market_price');
         $this->goods_number = $request->input('goods_number');
+        $this->goods_weight = $request->input('goods_weight');
         $this->shipping_free = $request->has('shipping_free') ? true : false;
         $this->is_on_sale = $request->has('is_on_sale') ? true : false;
         $this->goods_desc = $request->input('goods_desc');
@@ -121,6 +122,7 @@ class Good extends Model
         $good->market_price = $request->input('market_price');
         $good->goods_sn = $request->input('goods_sn');
         $good->goods_number = $request->input('goods_number');
+        $good->goods_weight = $request->input('goods_weight');
         $good->shipping_free = $request->has('shipping_free') ? true : false;
         $good->is_on_sale = $request->has('is_on_sale') ? true : false;
         $good->goods_desc = $request->input('goods_desc');

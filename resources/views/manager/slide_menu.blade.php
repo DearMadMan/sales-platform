@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li>
-                            <a href="{{url('manager/shipping-type')}}">
+                            <a href="{{url('manager/express')}}">
                             <span class="title">配送方式</span>
                         </a>
                     </li>

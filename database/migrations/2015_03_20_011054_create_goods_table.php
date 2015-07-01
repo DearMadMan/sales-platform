@@ -23,6 +23,7 @@ class CreateGoodsTable extends Migration {
 			$table->integer('click_count')->default(0)->comment("点击次数");
 			$table->integer('sold_count')->default(0)->comment("已售数量");
 			$table->integer('goods_number')->default(0)->comment("库存数量");
+            $table->integer('goods_weight')->defautl(0)->comment('商品重量 单位:g');
 			$table->text('goods_desc')->default('')->comment("商品介绍");
 			$table->integer('image_id')->default(0)->comment("主图ID地址:关联表ImageMd5");
 			$table->integer('shipping_free')->default(0)->comment("包邮状态");

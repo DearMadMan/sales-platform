@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class BaseManagerController extends Controller
 {
     protected $breadcrumbs_url = "";
-    protected $breadcrumbs_main = []; // ['manager/good', '商品管理', 0]
+    protected $breadcrumbs_main = []; // ['manager/good', '商品管理', 0] or [[],[]]
     protected $breadcrumb = null;
     protected $user = null;
     protected $manager_id = null;
