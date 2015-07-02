@@ -27,6 +27,8 @@ Route::get('manager/article/recycle', 'Manager\ArticleController@Recycle');  /* 
 Route::get('manager/article/{id}/restore', 'Manager\ArticleController@Restore')->where('id', '[0-9]+');;  /* 独立路由 需要在之前定义*/
 Route::get('manager/good/recycle', 'Manager\GoodController@Recycle');  /* 独立路由 需要在之前定义*/
 Route::get('manager/good/{id}/restore', 'Manager\GoodController@Restore')->where('id', '[0-9]+');;  /* 独立路由 需要在之前定义*/
+Route::get('manager/express/{code}/install', 'Manager\ExpressController@install')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
+Route::get('manager/express/{code}/uninstall', 'Manager\ExpressController@uninstall')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 
 Route::get('test', function () {
     if (Input::get('clear')) {

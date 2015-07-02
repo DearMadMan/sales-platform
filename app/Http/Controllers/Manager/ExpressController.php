@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Express;
+use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 
 class ExpressController extends BaseManagerController
 {
@@ -23,30 +25,19 @@ class ExpressController extends BaseManagerController
      */
     public function index()
     {
-
         $this->setBreadcrumb('配送方式');
-        $path = '../app/Lib/Express/';
-        $it = new \FilesystemIterator($path);
-        $namespace="\\App\\Lib\\Express\\";
-        foreach ($it as $finfo) {
-            $file_name = $finfo->getBasename();
-            try {
-                if (strpos($file_name, 'Express')) {
-                    $class = trim($file_name, '.php');
-                    $class=$namespace.$class;
-                    $obj = new $class();
-                    dd($obj);
-                }
-            } catch (\Exception $e) {
-                dd($e->getMessage());
-            }
 
-
-        }
+        $collection = $this->getSystemExpress();
         $express = new Express();
-        $expresses = $express->getExpresses($this->manager_id);
+        $expresses = $express->getExpresses($this->manager_id)->toArray();
+        $arr=[];
+        foreach ($expresses as $k=>$v){
+            $arr[$v['code']]=$v;
+        }
+        $expresses=$arr;
         return view('manager.express_list')
             ->with('expresses', $expresses)
+            ->with('collection', $collection)
             ->with('breadcrumb', $this->breadcrumb);
     }
 
@@ -89,7 +80,11 @@ class ExpressController extends BaseManagerController
      */
     public function edit($id)
     {
-        //
+        $this->setBreadcrumb("配送配置");
+        $express=new Express();
+        return view('manager.edit_express')
+            ->with('expresses', $express)
+            ->with('breadcrumb', $this->breadcrumb);
     }
 
     /**
@@ -112,5 +107,73 @@ class ExpressController extends BaseManagerController
     public function destroy($id)
     {
         //
+    }
+
+    public function install($code)
+    {
+        $express = new Express();
+        $res = $express->hasExpress($this->manager_id, $code);
+        if ($res) {
+            return redirect($this->breadcrumbs_url)->with('message', 'Already Have It!');
+        }
+        $collection = $this->getSystemExpress();
+        foreach ($collection as $v) {
+            if ($v->code == $code) {
+                /* insert to table */
+                $express->name = $v->name;
+                $express->desc = $v->desc;
+                $express->code = $v->code;
+                $express->config = json_encode($v->config);
+                $express->manager_id = $this->manager_id;
+                $express->enable = true;
+                $express->save();
+                return redirect($this->breadcrumbs_url)->with('message', 'Insert Success!');
+                break;
+            }
+        }
+        return redirect($this->breadcrumbs_url)->with('message', 'Nothing Todo!');
+
+
+    }
+
+    public function uninstall($code)
+    {
+        $express = new Express();
+        $res = $express->hasExpress($this->manager_id, $code);
+        if ($res) {
+            $res->delete();
+            return redirect($this->breadcrumbs_url)->with('message', 'UnInsert Success!');
+        }
+        return redirect($this->breadcrumbs_url)->with('message', 'Nothing Todo!');
+
+    }
+
+    public function getSystemExpress()
+    {
+        /*  Collect Expresses from System */
+        $path = '../app/Lib/Express/';
+        $it = new \FilesystemIterator($path);
+        $namespace = "\\App\\Lib\\Express\\";
+        $contracts = $namespace . "Contracts";
+        $collection = new Collection();
+        foreach ($it as $finfo) {
+            $file_name = $finfo->getBasename();
+            try {
+                if (strpos($file_name, 'Express')) {
+                    $class = trim($file_name, '.php');
+                    $class = $namespace . $class;
+                    if (class_exists($class)) {
+                        $obj = new $class();
+                        if ($obj instanceof $contracts) {
+                            $collection->push($obj);
+                        }
+                    }
+                }
+            } catch (\Exception $e) {
+                dd($e->getMessage());
+            }
+        }
+        return $collection;
+
     }
 }

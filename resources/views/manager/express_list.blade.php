@@ -40,23 +40,28 @@
                         </tr>
                         </thead>
                         <tbody class="middle-align">
-                        @foreach($expresses as $v)
+                        @foreach($collection as $k=>$v)
                             <tr>
-
-                                <td>{{$i}}</td>
-                                <td>{{str_limit($v->goods_name,30)}}</td>
-                                <td>{{$v->goods_number}}</td>
+                                <td>{{$k+1}}</td>
+                                <td>{{str_limit($v->name,30)}}</td>
+                                <td>{{str_limit($v->desc,30)}}</td>
                                 <td>
-                                    <input type="checkbox" @if($v->is_on_sale) checked @endif class="iswitch iswitch-turquoise">
+                                    {{$v->auth}}
                                 </td>
+                                <td>{{$v->email}}</td>
                                 <td>
-                                    <a href="{{url('manager/good').'/'.$v->id.'/edit'}}" class="btn btn-secondary btn-sm btn-icon icon-left">
-                                        Edit
+                                @if(array_key_exists($v->code,$expresses))
+                                        <a href="{{url('manager/express').'/'.$expresses[$v->code]['id'].'/edit'}}" class="btn btn-primary btn-sm btn-icon icon-left">
+                                            Config
+                                        </a>
+                                        <a href="{{url('manager/express').'/'.$v->code.'/uninstall'}}" class="btn btn-danger btn-sm btn-icon icon-left">
+                                            UnInsert
+                                        </a>
+                                    @else
+                                    <a href="{{url('manager/express').'/'.$v->code.'/install'}}" class="btn btn-info btn-sm btn-icon icon-left">
+                                        Insert
                                     </a>
-
-                                    <a href="javascript:;"  data="{{$v->id}}" class="btn btn-danger btn-sm btn-icon icon-left">
-                                        Delete
-                                    </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

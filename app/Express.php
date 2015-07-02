@@ -10,6 +10,10 @@ class Express extends Model
     public  $timestamps=false;
 
     public function getExpresses($manager_id){
-        return [];
+        return $this->where('manager_id',$manager_id)->get();
+    }
+
+    public function hasExpress($manager_id,$code){
+        return $this->where(['manager_id'=>$manager_id,'code'=>$code])->first();
     }
 }

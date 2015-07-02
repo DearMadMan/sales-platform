@@ -27,9 +27,9 @@ class EmsExpress extends Contracts
         $this->code = 'ems';
         $this->desc = "EMS 国内邮政特快专递";
         $this->config = [
-            'item_fee'=>20,
-            'base_fee'=>20,
-            'step_fee'=>15,
+            'item_fee' => 20,
+            'base_fee' => 20,
+            'step_fee' => 15,
         ];
     }
 

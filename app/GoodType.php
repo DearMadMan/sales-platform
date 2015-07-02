@@ -19,11 +19,12 @@ class GoodType extends Model
         }
         $types=$this->where('manager_id', $manager_id)->get();
         if($types->isEmpty()){
-            $types=new self();
-            $types->type_name="普通商品";
-            $types->parent_id=0;
-            $types->manager_id=$manager_id;
-            $types->save();
+            $type=new self();
+            $type->type_name="普通商品";
+            $type->parent_id=0;
+            $type->manager_id=$manager_id;
+            $type->save();
+            $types->push($type);
         }
         return $types;
     }

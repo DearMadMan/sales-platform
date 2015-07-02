@@ -19,17 +19,22 @@ abstract class Contracts
     protected $cod = false;
     protected $auth = "wang";
     protected $website = "https://github/Dearmadman";
-    protected $config=[];
+    protected $email = "2034906607@qq.com";
+    protected $config = [];
+
     abstract function settleAccount($amount, $number, $weight);
 
     public function __set($key, $value)
     {
-        $this->config[$key]=$value;
+        $this->config[$key] = $value;
     }
 
     public function __get($key)
     {
-        if (array_key_exists($key,$this->config)) {
+        if (property_exists(self::class, $key)) {
+            return $this->$key;
+        }
+        if (array_key_exists($key, $this->config)) {
             return $this->config[$key];
         }
         return '';

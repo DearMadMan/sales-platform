@@ -19,9 +19,9 @@ class SFExpress extends Contracts
         $this->code = 'shunfeng';
         $this->desc = "江、浙、沪地区首重15元/KG，续重2元/KG，其余城市首重20元/KG";
         $this->config = [
-            'item_fee'=>20,
-            'base_fee'=>15,
-            'step_fee'=>2,
+            'item_fee' => 20,
+            'base_fee' => 15,
+            'step_fee' => 2,
         ];
     }
 

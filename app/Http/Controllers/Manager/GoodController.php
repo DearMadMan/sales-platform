@@ -45,10 +45,12 @@ class GoodController extends BaseManagerController
     public function create()
     {
         $this->setBreadcrumb('添加新产品');
-        $good=new Good();
-        $good->is_on_sale=true;
         $type=new GoodType();
         $types=$type->getTypes($this->manager_id,false);
+        $good=new Good();
+        $good->type_id=0;
+        $good->is_on_sale=true;
+
         return view('manager.add_goods')
             ->with('breadcrumb',$this->breadcrumb)
             ->with('method','post')
