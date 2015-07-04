@@ -80,8 +80,14 @@ class ExpressController extends BaseManagerController
      */
     public function edit($id)
     {
-        $this->setBreadcrumb("配送配置");
+
         $express=new Express();
+        $res=$express->existExpress($this->manager_id,$id);
+        if(!$res){
+            return redirect($this->breadcrumbs_url)->with('message',"Something Error!");
+        }
+        $express=$res;
+        $this->setBreadcrumb($express->name);
         return view('manager.edit_express')
             ->with('expresses', $express)
             ->with('breadcrumb', $this->breadcrumb);
@@ -136,6 +142,11 @@ class ExpressController extends BaseManagerController
 
     }
 
+    /**
+     * uninstall express to table
+     * @param $code
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function uninstall($code)
     {
         $express = new Express();
@@ -148,6 +159,10 @@ class ExpressController extends BaseManagerController
 
     }
 
+    /**
+     *  need search plugin of express from local system
+     * @return Collection
+     */
     public function getSystemExpress()
     {
         /*  Collect Expresses from System */

@@ -31,8 +31,9 @@ Route::get('manager/express/{code}/install', 'Manager\ExpressController@install'
 Route::get('manager/express/{code}/uninstall', 'Manager\ExpressController@uninstall')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 
 Route::get('test', function () {
+    return view('manager.edit_express');
     if (Input::get('clear')) {
-        session()->forget('image_gallery');
+        session()->forget('post_image_gallery');
         session()->save();
 
     }
@@ -74,6 +75,5 @@ Route::Controllers([
     'tool' => 'ToolController',
     'manager' => 'Manager\ManagerController'
 ]);
-
 
 
