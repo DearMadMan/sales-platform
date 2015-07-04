@@ -22,6 +22,38 @@ class SFExpress extends Contracts
             'item_fee' => 20,
             'base_fee' => 15,
             'step_fee' => 2,
+            'free_money'=>300,
+            'settle_mode'=>'by_weight', //计算方式
+            'input'=>[
+                [
+                    'type'=>'text',
+                    'label'=>'1000克以内费用：',
+                    'name'=>'base_fee',
+                    'value'=>15
+                ],
+                [
+                    'type'=>'text',
+                    'label'=>'续重每1000克或其零数的费用：',
+                    'name'=>'step_fee',
+                    'value'=>15
+                ],
+                [
+                    'type'=>'text',
+                    'label'=>'免费额度：',
+                    'name'=>'free_money',
+                    'value'=>300
+                ],
+                [
+                    'type'=>'select',
+                    'label'=>'计算方式：',
+                    'name'=>'settle_mode',
+                    'value'=>'by_weight',
+                    'options'=>[
+                        'by_weight'=>'按重量计算',
+                        'by_number'=>'按数量计算'
+                    ]
+                ]
+            ]
         ];
     }
 

@@ -55,7 +55,7 @@
     @include('manager.footer')
     @show
 
-<div class="page-loading-overlay">
+<div class="page-loading-overlay" style="background: #868686;">
     <div class="loader-2"></div>
 </div>
 

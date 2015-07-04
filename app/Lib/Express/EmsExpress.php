@@ -27,9 +27,41 @@ class EmsExpress extends Contracts
         $this->code = 'ems';
         $this->desc = "EMS 国内邮政特快专递";
         $this->config = [
-            'item_fee' => 20,
-            'base_fee' => 20,
-            'step_fee' => 15,
+            'item_fee' => 20,   // 计量费用
+            'base_fee' => 20,   // 基本费用
+            'step_fee' => 15,   // 阶梯费用
+            'free_money'=>300,  // 免费额度
+            'settle_mode'=>'by_weight', //计算方式
+            'input'=>[
+                [
+                    'type'=>'text',
+                    'label'=>'500克以内费用：',
+                    'name'=>'base_fee',
+                    'value'=>15
+                ],
+                [
+                    'type'=>'text',
+                    'label'=>'续重每500克或其零数的费用：',
+                    'name'=>'step_fee',
+                    'value'=>15
+                ],
+                [
+                    'type'=>'text',
+                    'label'=>'免费额度：',
+                    'name'=>'free_money',
+                    'value'=>300
+                ],
+                [
+                    'type'=>'select',
+                    'label'=>'计算方式：',
+                    'name'=>'settle_mode',
+                    'value'=>'by_weight',
+                    'options'=>[
+                        'by_weight'=>'按重量计算',
+                        'by_number'=>'按数量计算'
+                    ]
+                ]
+            ]
         ];
     }
 
@@ -43,8 +75,8 @@ class EmsExpress extends Contracts
             if ($mode == 'by_number') {
                 $fee = $number * $this->item_fee;
             } else {
-                if ($weight > 1000) {
-                    $fee += (ceil(($weight - 1000) / 1000)) * $this->step_fee;
+                if ($weight > 500) {
+                    $fee += (ceil(($weight - 500) / 500)) * $this->step_fee;
                 }
             }
             return $fee;

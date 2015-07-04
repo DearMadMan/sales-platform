@@ -31,7 +31,19 @@ Route::get('manager/express/{code}/install', 'Manager\ExpressController@install'
 Route::get('manager/express/{code}/uninstall', 'Manager\ExpressController@uninstall')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 
 Route::get('test', function () {
-    return view('manager.edit_express');
+
+    $regoin=new \App\Region();
+    $regoin=$regoin->get();
+    $arr=[];
+    foreach($regoin as $v){
+        $arr[]=[
+          'i'=>$v->id,
+          'p'=>$v->parent_id,
+          'n'=>$v->name,
+          'l'=>$v->level_id,
+        ];
+    }
+    file_put_contents('city.js',json_encode($arr,JSON_UNESCAPED_UNICODE));
     if (Input::get('clear')) {
         session()->forget('post_image_gallery');
         session()->save();

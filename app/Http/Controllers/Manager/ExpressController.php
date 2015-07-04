@@ -87,9 +87,12 @@ class ExpressController extends BaseManagerController
             return redirect($this->breadcrumbs_url)->with('message',"Something Error!");
         }
         $express=$res;
+        $attributes=$express->config;
+        $attributes=json_decode($attributes);
         $this->setBreadcrumb($express->name);
         return view('manager.edit_express')
-            ->with('expresses', $express)
+            ->with('express', $express)
+            ->with('attributes',$attributes)
             ->with('breadcrumb', $this->breadcrumb);
     }
 
