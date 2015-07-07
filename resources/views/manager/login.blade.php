@@ -130,7 +130,6 @@
 
 
 @section('js')
-    <script src="{{url('/')}}/js/jquery.min.js"></script>
     <script src="{{url('/')}}/js/formValidation.min.js"></script>
     <script src="{{url('/')}}/js/formvalidation_bootstrap.min.js"></script>
     <script src="{{url('/')}}/js/login.js"></script>

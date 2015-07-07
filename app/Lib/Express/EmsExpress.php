@@ -20,6 +20,10 @@ namespace App\Lib\Express;
  */
 class EmsExpress extends Contracts
 {
+    /**
+     * [config initialize]
+     * set defaults ,please
+     */
     public function __construct()
     {
         $this->name = "EMS";
@@ -30,35 +34,35 @@ class EmsExpress extends Contracts
             'item_fee' => 20,   // 计量费用
             'base_fee' => 20,   // 基本费用
             'step_fee' => 15,   // 阶梯费用
-            'free_money'=>300,  // 免费额度
-            'settle_mode'=>'by_weight', //计算方式
-            'input'=>[
+            'free_money' => 300,  // 免费额度
+            'settle_mode' => 'by_weight', //计算方式
+            'input' => [
                 [
-                    'type'=>'text',
-                    'label'=>'500克以内费用：',
-                    'name'=>'base_fee',
-                    'value'=>15
+                    'type' => 'text',
+                    'label' => '500克以内费用：',
+                    'name' => 'base_fee',
+                    'value' => 15
                 ],
                 [
-                    'type'=>'text',
-                    'label'=>'续重每500克或其零数的费用：',
-                    'name'=>'step_fee',
-                    'value'=>15
+                    'type' => 'text',
+                    'label' => '续重每500克或其零数的费用：',
+                    'name' => 'step_fee',
+                    'value' => 15
                 ],
                 [
-                    'type'=>'text',
-                    'label'=>'免费额度：',
-                    'name'=>'free_money',
-                    'value'=>300
+                    'type' => 'text',
+                    'label' => '免费额度：',
+                    'name' => 'free_money',
+                    'value' => 300
                 ],
                 [
-                    'type'=>'select',
-                    'label'=>'计算方式：',
-                    'name'=>'settle_mode',
-                    'value'=>'by_weight',
-                    'options'=>[
-                        'by_weight'=>'按重量计算',
-                        'by_number'=>'按数量计算'
+                    'type' => 'select',
+                    'label' => '计算方式：',
+                    'name' => 'settle_mode',
+                    'value' => 'by_weight',
+                    'options' => [
+                        'by_weight' => '按重量计算',
+                        'by_number' => '按数量计算'
                     ]
                 ]
             ]
@@ -67,16 +71,20 @@ class EmsExpress extends Contracts
 
     public function settleAccount($amount, $number, $weight)
     {
-        if ($this->free_money > 0 && $amount >= $this->free_money) {
+        $free_money = floatval($this->free_money);
+        $base_fee = floatval($this->base_fee);
+        $item_fee = floatval($this->item_fee);
+        $step_fee=floatval($this->step_fee);
+        if ($free_money > 0 && $amount >= $free_money) {
             return 0;
         } else {
-            $fee = $this->base_fee;
+            $fee = $base_fee;
             $mode = $this->settle_mode ? $this->settle_mode : "by_weight";
             if ($mode == 'by_number') {
-                $fee = $number * $this->item_fee;
+                $fee = $number * $item_fee;
             } else {
                 if ($weight > 500) {
-                    $fee += (ceil(($weight - 500) / 500)) * $this->step_fee;
+                    $fee += (ceil(($weight - 500) / 500)) * $step_fee;
                 }
             }
             return $fee;

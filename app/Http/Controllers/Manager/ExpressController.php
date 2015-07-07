@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Express;
+use App\Http\Requests\ExpressStoreForExpressController;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Input;
 
 class ExpressController extends BaseManagerController
 {
@@ -48,17 +50,20 @@ class ExpressController extends BaseManagerController
      */
     public function create()
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param ExpressStoreForExpressController $request
      * @return Response
      */
-    public function store()
+    public function store(ExpressStoreForExpressController $request)
     {
-        //
+        $express=new Express();
+        $res=$express->storeDeliverRegion($request);
+        return $res;
     }
 
     /**
@@ -69,7 +74,7 @@ class ExpressController extends BaseManagerController
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -86,12 +91,16 @@ class ExpressController extends BaseManagerController
         if(!$res){
             return redirect($this->breadcrumbs_url)->with('message',"Something Error!");
         }
+        /* get DeliverRegions */
+        $express_area_list=$express->getDeliverRegions($id);
+        /* get configs for plugin inputs*/
         $express=$res;
         $attributes=$express->config;
         $attributes=json_decode($attributes);
         $this->setBreadcrumb($express->name);
         return view('manager.edit_express')
             ->with('express', $express)
+            ->with("express_area_list",$express_area_list)
             ->with('attributes',$attributes)
             ->with('breadcrumb', $this->breadcrumb);
     }

@@ -60,6 +60,7 @@
 </div>
 
 <!-- Bottom Scripts -->
+<script src="{{url('/')}}/js/jquery.min.js"></script>
 <script src="{{url('/')}}/assets/js/bootstrap.min.js"></script>
 <script src="{{url('/')}}/assets/js/TweenMax.min.js"></script>
 <script src="{{url('/')}}/assets/js/resizeable.js"></script>
