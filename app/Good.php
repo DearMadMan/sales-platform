@@ -48,6 +48,7 @@ class Good extends Model
         $this->goods_name = $request->input('goods_name');
         $this->goods_sn = $request->input('goods_sn');
         $this->type_id = $request->input('type_id');
+        $this->cost = $request->input('cost');
         $this->shop_price = $request->input('shop_price');
         $this->market_price = $request->input('market_price');
         $this->goods_number = $request->input('goods_number');
@@ -119,6 +120,7 @@ class Good extends Model
         $good->goods_name = $request->input('goods_name');
         $good->type_id = $request->input('type_id');
         $good->shop_price = $request->input('shop_price');
+        $good->cost = $request->input('cost');
         $good->market_price = $request->input('market_price');
         $good->goods_sn = $request->input('goods_sn');
         $good->goods_number = $request->input('goods_number');

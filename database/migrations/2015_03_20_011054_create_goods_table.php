@@ -18,6 +18,7 @@ class CreateGoodsTable extends Migration {
 			$table->string('goods_name')->default('');
 			$table->integer('type_id')->unsigned()->default(0)->comment("商品分类ID");
 			$table->decimal('shop_price')->default(0)->comment("店铺价");
+            $table->decimal('cost')->default(0)->comment("成本");
 			$table->decimal('market_price')->default(0)->comment("市场价");
 			$table->string('goods_sn')->default('')->comment("商品编号");
 			$table->integer('click_count')->default(0)->comment("点击次数");

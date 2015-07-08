@@ -99,6 +99,25 @@
                         <div class="form-group-separator"></div>
 
                         <div class="form-group">
+                            <label class="col-sm-2 control-label" for="cost">成本：</label>
+
+                            <div class="input-group input-group-sm input-group-minimal col-sm-10 pd-15">
+										<span class="input-group-addon">
+											<i class="linecons-money"></i>
+										</span>
+                                <input type="text" id="cost" name="cost" class="form-control"
+                                       value="{{$good->cost}}"
+                                       data-mask="fdecimal" placeholder=" example: 9.9" data-rad="." data-digits="2"
+                                       maxlength="10">
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group-separator"></div>
+
+                        <div class="form-group">
                             <label class="col-sm-2 control-label" for="shop_price">本店价格：</label>
 
                             <div class="input-group input-group-sm input-group-minimal col-sm-10 pd-15">

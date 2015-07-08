@@ -383,6 +383,16 @@ $(function () {
             this.listenTo(app.trCollection,'remove',this.render)
         },
         render:function(){
+            this.$el.html(this.template(this.model.toJSON()));
+            return this;
+        }
+    });
+    app.tbodyView=Backbone.View.extend({
+       el:$("#tbody"),
+        initialize:function(){
+            this.render();
+        },
+        render:function(){
 
         }
     });

@@ -27,6 +27,7 @@ class GoodStore extends Request
             'goods_name'=>'required',
             'type_id'=>'required|numeric|min:1',
             'shop_price'=>'required|numeric|min:0',
+            'cost'=>'required|numeric|min:0',
             'market_price'=>'required|numeric|min:0',
             'goods_number'=>'required|numeric|min:0',
             'goods_weight'=>'required|numeric|min:0'
