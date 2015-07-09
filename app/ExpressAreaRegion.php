@@ -19,10 +19,18 @@ class ExpressAreaRegion extends Model
         $res = $this->where('express_area_id', $express_area_id)->get();
         $names='';
         if(!$res->isEmpty()){
+            $ids=[];
             foreach($res as $v){
-                $names=$names.$v->region->name.",";
+                $ids[]=$v->region_id;
+            }
+            $region=new Region();
+            $region=$region->whereIn('id',$ids)->get();
+            foreach($region as $v){
+                $names.=$v->name.",";
             }
         }
+
+
         return trim($names,',');
     }
 }
