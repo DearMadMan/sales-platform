@@ -71,9 +71,11 @@ Route::get('test', function () {
 
 Route::get('/', function () {
 
-    $keyword = WechatKeyword::where(["key" => 'bbb', "manager_id" => 1])
-        ->first();
-    dd($keyword);
+    $regions=new \App\Region();
+    $regions=$regions->whereBetween('lft',[279,294])->orderBy('level_id','asc')->get();
+    print_r($regions->toArray());
+    die;
+
     return view('404');
 });
 
