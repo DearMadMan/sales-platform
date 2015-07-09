@@ -32,18 +32,34 @@ Route::get('manager/express/{code}/uninstall', 'Manager\ExpressController@uninst
 
 Route::get('test', function () {
 
-    $regoin=new \App\Region();
-    $regoin=$regoin->get();
+    $regions=new \App\Region();
+    $regions=$regions->where('id','>',0)->get();
+    $data=$regions->toArray();
     $arr=[];
-    foreach($regoin as $v){
-        $arr[]=[
-          'i'=>$v->id,
-          'p'=>$v->parent_id,
-          'n'=>$v->name,
-          'l'=>$v->level_id,
-        ];
+
+    function buildTree($parent,$left,&$data){
+        $right=$left+1;
+        foreach($data as $k=>$v){
+            if($v['parent_id']==$parent){
+                $right=buildTree($v['id'],$right,$data);
+            }
+        }
+        foreach($data as $k=>$v){
+            if($v['id']==$parent)
+            {
+                $data[$k]['lft']=$left;
+                $data[$k]['rgt']=$right;
+            }
+        }
+        return $right+1;
     }
-    file_put_contents('city.js',json_encode($arr,JSON_UNESCAPED_UNICODE));
+
+    buildTree(0,0,$data);
+    foreach($data as $k=>$v){
+        echo '["id"=>"'.$v['id'].'","parent_id"=>"'.$v['parent_id'].'","name"=>"'.$v['name'].'","lft"=>"'.$v['lft'].'","rgt"=>"'.$v['rgt'].'","level_id"=>"'.$v['level_id'].'"],<br/>';
+    }
+
+
     if (Input::get('clear')) {
         session()->forget('post_image_gallery');
         session()->save();
