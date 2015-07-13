@@ -76,7 +76,7 @@ class ArticleController extends BaseManagerController
         $target = false;
         if ($request->hasFile("pic_url")) {
             $upload = new UploadController();
-            $target = $upload->UploadImageHander($request, "pic_url");
+            $target = $upload->UploadImageHandler($request, "pic_url");
         }
         $article = new Article();
         $article->title = $request->input('title');
@@ -91,7 +91,7 @@ class ArticleController extends BaseManagerController
         $article->type_id = $request->input('type_id');
         $article->content = $request->input('content');
         $request->has("is_show") ? $article->is_show = 1 : $article->is_show = 0;
-        $request->out_link = $request->input('out_link');
+        $article->out_link = $request->input('out_link');
         $article->manager_id = Auth::user()->manager_id;
         $target ? $article->pic_url = $target : 0;
         $article->save();
@@ -143,7 +143,7 @@ class ArticleController extends BaseManagerController
         $target = false;
         if ($request->hasFile("pic_url")) {
             $upload = new UploadController();
-            $target = $upload->UploadImageHander($request, "pic_url");
+            $target = $upload->UploadImageHandler($request, "pic_url");
         }
 
         $article->title = $request->input('title');
@@ -151,7 +151,7 @@ class ArticleController extends BaseManagerController
         $article->type_id = $request->input('type_id');
         $article->content = $request->input('content');
         $request->has("is_show") ? $article->is_show = 1 : $article->is_show = 0;
-        $request->out_link = $request->input('out_link');
+        $article->out_link = $request->input('out_link');
         $target ? $article->pic_url = $target : 0;
         $article->save();
         return redirect($this->breadcrumbs_url);

@@ -30,6 +30,10 @@ Route::get('manager/good/{id}/restore', 'Manager\GoodController@Restore')->where
 Route::get('manager/express/{code}/install', 'Manager\ExpressController@install')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 Route::get('manager/express/{code}/uninstall', 'Manager\ExpressController@uninstall')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 
+Route::get("show/{id}",function($id){
+ return "Coming soon";
+})->where('id','[0-9]+');
+
 Route::get('test', function () {
 
     $regions=new \App\Region();

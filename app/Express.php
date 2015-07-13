@@ -96,7 +96,15 @@ class Express extends Model
         }
         $express_area_region->insert($arr);
 
-        return $this->ajaxResponse(0,'Insert Success');
+        /* return data */
+        $data=[
+            'id'=>$express_area->id,
+            'name'=>$express_area->name,
+            'regionNames'=>str_limit( $this->getDeliverRegionNames($express_area->id),50)
+        ];
+
+
+        return $this->ajaxResponse(0,'Insert Success',$data);
 
     }
 

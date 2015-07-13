@@ -276,8 +276,8 @@ class ManagerController extends Controller
         $user = $request->user();
         if ($all['type'] == "text-image") {
             /* text-image model */
-            if (empty($all['title']) || empty($all['url'])) {
-                return redirect()->back()->withErrors("title or url can't empty")->withInput();
+            if (empty($all['title']) ) {
+                return redirect()->back()->withErrors("title can't empty")->withInput();
             }
             $wechat_notify = new WechatNotify();
             $wechat_notify = $wechat_notify->where("manager_id", $user->manager_id)

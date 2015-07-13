@@ -33,6 +33,7 @@ class WechatCallbackController extends Controller
         $wechat_event=new WechatEventController($manager_id,$configs);
 
         $server->on('event', 'subscribe',array($wechat_event,"subscribe"));
+        $server->on('event','click',array($wechat_event,'keyword'));
         $server->on('message','text',array($wechat_event,'keyword'));
         return $server->serve();
     }

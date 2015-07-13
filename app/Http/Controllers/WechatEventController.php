@@ -24,6 +24,11 @@ class WechatEventController extends Controller
         $this->configs = $configs;
     }
 
+    /**
+     * [subscribe event listener]
+     * @param $event
+     * @return bool
+     */
     public function subscribe($event)
     {
         if ($this->configs->subscribe) {
@@ -33,7 +38,9 @@ class WechatEventController extends Controller
                 ->first();
             if (!empty($notify)) {
                 $notify->contents = str_replace(['\n', '<br>'], "\n", $notify->contents);
+                empty($notify->url) ? $notify->url = config('image.domain') . "show/{$notify->id}" : true;
                 $this->temp_obj = $notify;
+
                 if ($notify->type == "text") {
                     return Message::make('text')->content($notify->contents);
                 } else {
@@ -57,6 +64,9 @@ class WechatEventController extends Controller
     public function keyword($message)
     {
         $key = $message->Content;
+        if (empty($key)) {
+            $key = $message->EventKey;
+        }
         $keyword = WechatKeyword::where(["key" => $key, "manager_id" => $this->manager_id])
             ->first();
         if ($keyword) {
@@ -69,10 +79,11 @@ class WechatEventController extends Controller
                         $news = Message::make('news')->items(function () use ($articles) {
                             $arr = [];
                             foreach ($articles as $v) {
+                                empty($v->out_link) ? $v->out_link = config('image.domain') . "show/{$v->id}" : true;
                                 $arr[] = Message::make("news_item")
                                     ->title($v->title)
                                     ->url($v->out_link)
-                                    ->picUrl(config("image.domain").$v->pic_url);
+                                    ->picUrl(config("image.domain") . $v->pic_url);
                             }
                             return $arr;
                         });
@@ -89,7 +100,7 @@ class WechatEventController extends Controller
         } else {
             return $key . ":" . $this->manager_id;
         }
-        return false;
+        return '';
     }
 
 

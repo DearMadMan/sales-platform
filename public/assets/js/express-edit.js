@@ -7,19 +7,10 @@ $(function () {
                 i: 0,
                 n: 'NULL',
                 check: true
-            },
-            initialize: function () {
-
             }
         }),
         areaCollection = Backbone.Collection.extend({
-            model: areaMode,
-            evetns: {
-                'change': "changed"
-            },
-            changed: function () {
-                console.log("AreaCollection Changed");
-            }
+            model: areaMode
         }),
         areaView = Backbone.View.extend({
             tagName: 'li',
@@ -31,16 +22,11 @@ $(function () {
             initialize: function () {
             },
             render: function () {
-                app.c = this.model.toJSON();
-                app.d = this.template;
                 this.$el.html(this.template(this.model.toJSON()));
                 return this;
             },
             modify: function () {
-
                 this.model.set("check", !this.model.get('check'));
-
-                console.log("Now is " + this.model.get("check"));
             }
         }),
     /* input:select */
@@ -55,7 +41,6 @@ $(function () {
         }),
         selectView = Backbone.View.extend({
             tagName: 'option',
-
             initialize: function () {
                 this.$el.val(this.model.get('i'));
                 this.$el.text(this.model.get('n'));
@@ -77,6 +62,7 @@ $(function () {
 
     app.areas = new app.areaCollection;
     app.selects = new app.selectCollection;   // collect cities model
+    app.cities= cities;
 
 
     /* input:select  #province  View */
@@ -90,7 +76,6 @@ $(function () {
             this.$el.html(app.option);
         },
         addOne: function (model) {
-
             if (model.get('p') == 1) {
                 var s_view = new app.selectView({model: model});
                 $("#province").append(s_view.render().el);
@@ -170,7 +155,6 @@ $(function () {
         changed: function (e) {
         },
         render: function () {
-
         },
         addOne: function (area) {
             var view = new app.areaView({model: area});
@@ -187,9 +171,8 @@ $(function () {
 
     app._areas = new Areas();
 
-
     /* selector options init */
-    _.each(cities, function (el) {
+    _.each(app.cities, function (el) {
         var s_model = new app.select(el);
         app.selects.add(s_model);
     });
@@ -228,6 +211,7 @@ $(function () {
     app.POST = 'post';
     app.express_id = $("#express_id").val();
     app.express_area_id = 0;
+    app.inputs = $("#inputs");
     app.wait = function () {
         $(".page-loading-overlay").removeClass('loaded');
     };
@@ -242,6 +226,7 @@ $(function () {
         return $("#url").val();
     };
     app.setMethod = function (method) {
+        app.post = method == app.POST;
         $("#_method").val(method);
     };
     app.showAlert = function (msg) {
@@ -251,7 +236,7 @@ $(function () {
     app.inputCheck = function () {
         var form = $("#inputs"),
             off = true;
-        form_inputs = form.find('input,select');
+        var form_inputs = form.find('input,select');
         form_inputs.each(function () {
             var val = $.trim($(this).val());
             if (_.isEmpty(val)) {
@@ -273,9 +258,7 @@ $(function () {
         app.province.$el.val(app.province.$el.children().eq(0).val());
         app.city.$el.html(app.option);
         app.area.$el.html(app.option);
-        app.setMethod('post');
-
-
+        app.setMethod(app.POST);
     };
 
     app.create = function () {
@@ -284,6 +267,9 @@ $(function () {
     };
     app.close = function () {
         $("#modal").modal("hide");
+    };
+    app.show = function () {
+        $("#modal").modal("show", {});
     };
 
 
@@ -309,6 +295,10 @@ $(function () {
         _.each(areas, function (el) {
             areas_str += el + ",";
         });
+
+        var input_data = _.object(keys, values);
+        /* log the input data for Edit */
+
         var append_keys = ['areas', '_token', '_method'],
             _token = $("#_token").val(),
             _method = $("#_method").val(),
@@ -331,13 +321,22 @@ $(function () {
             url: app.post ? app.getPostUrl() : app.getPutUrl(),
             data: data,
             type: "post",
-            dataType: 'text',
+            dataType: 'json',
             cache: false,
             success: function (res) {
                 app.wake();
                 if (res.code) {
                     app.showAlert(res.msg);
                 } else {
+                    /* Update Table View */
+                    var new_tr = new app.trModel({
+                        id: res.data.id,
+                        name: res.data.name,
+                        regionNames: res.data.regionNames,
+                        areas: app.areas.clone(),
+                        inputData: input_data
+                    });
+                    app.trs.add(new_tr);
                     app.showAlert("新增配送区域成功!");
                     app.close();
                 }
@@ -345,7 +344,6 @@ $(function () {
             error: function (res) {
                 app.wake();
                 app.showAlert("配送信息设置失败，请稍后尝试！");
-                console.log(res);
             }
         });
 
@@ -359,41 +357,104 @@ $(function () {
     /* Edit DeliverRegion */
 
 
-
-
     /* table Model */
 
-    app.trModel=Backbone.Model.extend({
-        defaults:function(){
+    app.trModel = Backbone.Model.extend({
+        defaults: function () {
             return {
-                'id':0,
-                'name':'wang',
-                'regionNames':'china'
+                'id': 0,
+                'name': 'wang',
+                'regionNames': 'china',
+                areas: {},       // for DeliverRegions
+                inputData: {}    // for Edit Event
             };
         }
     });
-    app.trCollection=Backbone.Collection.extend({
-        model:app.trModel
+    app.trCollection = Backbone.Collection.extend({
+        model: app.trModel
     });
-    app.trView=Backbone.View.extend({
-        tagName:'tr',
+    app.trView = Backbone.View.extend({
+        tagName: 'tr',
         template: _.template($("#trTemplate").html()),
-        initialize:function(){
-            this.listenTo(app.trCollection,'add',this.render);
-            this.listenTo(app.trCollection,'remove',this.render)
+        events: {
+            'click .btn-secondary': 'showUpdate',
+            'click .btn-danger': 'showDelete'
         },
-        render:function(){
+        initialize: function () {
+            this.listenTo(app.trs, 'add', this.render);
+            this.listenTo(app.trs, 'remove', this.render)
+        },
+        render: function () {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+        },
+        showUpdate: function () {
+            app.setMethod(app.PUT);
+            /* set inputs value */
+            _.each(this.model.get('inputData'), function (value, key, list) {
+                var input= app.inputs.find('[name=' + key + ']');
+                if(input.length){
+                   input.eq(0).val(value);
+                }
+            });
+            /* set areas */
+            app.areas.reset();
+            this.model.get('areas').each(function (model) {
+                app.areas.add(model);
+            });
+            /* show modal */
+            app.show();
+        },
+        showDelete: function () {
+            app.showAlert('确定要删除?');
         }
     });
-    app.tbodyView=Backbone.View.extend({
-       el:$("#tbody"),
-        initialize:function(){
+    app.tbodyView = Backbone.View.extend({
+        el: $("#tbody"),
+        initialize: function () {
+            this.listenTo(app.trs, 'add', this.addOne);
+            this.listenTo(app.trs, 'remove', this.render);
             this.render();
         },
-        render:function(){
-
+        render: function (model) {
+            app.d = model;
+            app.wait();
+        },
+        addOne: function (m) {
+            var view = new app.trView({model: m});
+            this.$el.append(view.render().el);
         }
     });
+
+    app.trs = new app.trCollection();
+    app.tbody = new app.tbodyView();
+
+    /* fill the tr model */
+
+    _.each(tr_array,function(value,key,list){
+            var areas=value.inputData.areas;
+                areas=areas.split(',');
+        var areas_collection=new app.areaCollection();
+        _.each(areas,function(value,key,list){
+                if(value.length){
+                    var area= _.findWhere(app.cities,{i:parseInt(value)});
+                    areas_collection.add({
+                        i:area.i,
+                        n:area.n
+                    });
+                }
+        });
+            var new_tr = new app.trModel({
+                id: value.id,
+                name: value.name,
+                regionNames: value.regionNames,
+                areas: areas_collection,
+                inputData: value.inputData
+            });
+            app.trs.add(new_tr);
+    });
+
+    /* test */
+
+
 });

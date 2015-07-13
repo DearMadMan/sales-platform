@@ -32,24 +32,7 @@
                     </tr>
                     </thead>
                     <tbody id="tbody" class="middle-align">
-                    @if(!$express_area_list->isEmpty())
-                        @foreach($express_area_list as $v)
-                    <tr>
-                        <td>{{$v->id}}</td>
-                        <td>{{$v->name}}</td>
-                        <td>{{str_limit($v->regionNames,50)}}</td>
-                        <td>
-                            <a href="{{url('manager/good').'/'.$v->id.'/edit'}}" class="btn btn-secondary btn-sm btn-icon icon-left">
-                                Edit
-                            </a>
-
-                            <a href="javascript:void(0);"  data="{{$v->id}}" class="btn btn-danger btn-sm btn-icon icon-left">
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-                    @endif
+                   
                     </tbody>
 
                 </table>
@@ -243,7 +226,7 @@
         <td><%= name %></td>
         <td><%= regionNames %></td>
         <td>
-            <a href="javascript:viod(0);" class="btn btn-secondary btn-sm btn-icon icon-left">
+            <a href="javascript:void(0);" class="btn btn-secondary btn-sm btn-icon icon-left">
                 Edit
             </a>
 
@@ -252,6 +235,22 @@
             </a>
         </td>
     </script>
+
+    <script>
+        var tr_array=[];
+        @if(!$express_area_list->isEmpty())
+        @foreach($express_area_list as $v)
+            tr_array.push({
+                id:{{$v->id}},
+                name:'{{$v->name}}',
+                regionNames:'{{$v->regionNames}}',
+                inputData: ({!! $v->config !!})
+            });
+        @endforeach
+        @endif
+
+    </script>
+
 
     <input name="express_id" id="express_id" value="{{$express->id}}" type="hidden"/>
 @stop
