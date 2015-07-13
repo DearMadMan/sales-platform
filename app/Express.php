@@ -55,7 +55,7 @@ class Express extends Model
         /* Determine if id is illegal */
         $express = $this->existExpress($manager_id, $id);
         if (!$express) {
-            return $this->ajaxResponse(1,'Unknown Express!','');
+            return $this->ajaxResponse(1, 'Unknown Express!', '');
         }
         $express_config = json_decode($express->config);
         $config = [];
@@ -70,7 +70,7 @@ class Express extends Model
             $v = trim($v);
             if (empty($v)) {
                 if (!property_exists($express_config, $k))
-                    return $this->ajaxResponse(2,'Unknown Express Config\'s Property:'.$k);
+                    return $this->ajaxResponse(2, 'Unknown Express Config\'s Property:' . $k);
                 $v = $express_config->$k;
             }
             $config[$k] = $v;
@@ -83,40 +83,41 @@ class Express extends Model
         $express_area->save();
 
         /* insert to express_area_regions */
-        $regions=$inputs['areas'];
-        $regions=trim($regions,',');
-        $regions=explode(',',$regions);
-        $express_area_region=new ExpressAreaRegion();
-        $arr=[];
-        foreach($regions as $v){
-            $arr[]=[
-                'express_area_id'=>$express_area->id,
-                'region_id'=>$v
+        $regions = $inputs['areas'];
+        $regions = trim($regions, ',');
+        $regions = explode(',', $regions);
+        $express_area_region = new ExpressAreaRegion();
+        $arr = [];
+        foreach ($regions as $v) {
+            $arr[] = [
+                'express_area_id' => $express_area->id,
+                'region_id' => $v
             ];
         }
         $express_area_region->insert($arr);
 
         /* return data */
-        $data=[
-            'id'=>$express_area->id,
-            'name'=>$express_area->name,
-            'regionNames'=>str_limit( $this->getDeliverRegionNames($express_area->id),50)
+        $data = [
+            'id' => $express_area->id,
+            'name' => $express_area->name,
+            'regionNames' => str_limit($this->getDeliverRegionNames($express_area->id), 50)
         ];
 
 
-        return $this->ajaxResponse(0,'Insert Success',$data);
+        return $this->ajaxResponse(0, 'Insert Success', $data);
 
     }
 
     /**
      * @param $code
-     * 0 : true
-     * >0 : false
+     * 0 : store success
+     * 100 : update success
+     * !0 : failed
      * @param $msg
      * @param $data
      * @return string
      */
-    public function ajaxResponse($code, $msg, $data='')
+    public function ajaxResponse($code, $msg, $data = '')
     {
         if (!is_string($msg))
             $msg = "Unknown Message！";
@@ -128,20 +129,22 @@ class Express extends Model
         return json_encode($arr);
     }
 
-    public function getDeliverRegions($express_id){
-        $express_area=new ExpressArea();
-        $res=$express_area->where('express_id',$express_id)->get();
-        if(!$res->isEmpty())
-        {
-            foreach($res as $k=>$v){
-                $res[$k]->regionNames=$this->getDeliverRegionNames($v->id);
+    public function getDeliverRegions($express_id)
+    {
+        $express_area = new ExpressArea();
+        $res = $express_area->where('express_id', $express_id)->get();
+        if (!$res->isEmpty()) {
+            foreach ($res as $k => $v) {
+                $res[$k]->regionNames = $this->getDeliverRegionNames($v->id);
             }
         }
         return $res;
     }
-    public function getDeliverRegionNames($express_area_id){
-            $regions=new ExpressAreaRegion();
-            $names=$regions->getRegionNames($express_area_id);
+
+    public function getDeliverRegionNames($express_area_id)
+    {
+        $regions = new ExpressAreaRegion();
+        $names = $regions->getRegionNames($express_area_id);
 
         return $names;
     }

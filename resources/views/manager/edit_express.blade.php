@@ -32,7 +32,7 @@
                     </tr>
                     </thead>
                     <tbody id="tbody" class="middle-align">
-                   
+
                     </tbody>
 
                 </table>
@@ -241,7 +241,7 @@
         @if(!$express_area_list->isEmpty())
         @foreach($express_area_list as $v)
             tr_array.push({
-                id:{{$v->id}},
+                id: {{$v->id}},
                 name:'{{$v->name}}',
                 regionNames:'{{$v->regionNames}}',
                 inputData: ({!! $v->config !!})

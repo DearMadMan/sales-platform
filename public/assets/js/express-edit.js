@@ -62,7 +62,7 @@ $(function () {
 
     app.areas = new app.areaCollection;
     app.selects = new app.selectCollection;   // collect cities model
-    app.cities= cities;
+    app.cities = cities;
 
 
     /* input:select  #province  View */
@@ -208,9 +208,9 @@ $(function () {
     /* app initialize */
     app.post = true;
     app.PUT = 'put';
+    app.put_id = 0;
+    app.express_id=$("#express_id").val();
     app.POST = 'post';
-    app.express_id = $("#express_id").val();
-    app.express_area_id = 0;
     app.inputs = $("#inputs");
     app.wait = function () {
         $(".page-loading-overlay").removeClass('loaded');
@@ -308,7 +308,7 @@ $(function () {
             append_values = append_values.concat([app.express_id]);
         } else {
             append_keys = append_keys.concat(['express_area_id']);
-            append_keys = append_keys.concat([app.express_area_id]);
+            append_values = append_values.concat([app.put_id]);
         }
         keys = keys.concat(append_keys);
         values = values.concat(append_values);
@@ -326,7 +326,13 @@ $(function () {
             success: function (res) {
                 app.wake();
                 if (res.code) {
-                    app.showAlert(res.msg);
+                    if(res.code==100){
+                        /* update success */
+                        console.log(res);
+                    }else
+                    {
+                        app.showAlert(res.msg);
+                    }
                 } else {
                     /* Update Table View */
                     var new_tr = new app.trModel({
@@ -390,11 +396,12 @@ $(function () {
         },
         showUpdate: function () {
             app.setMethod(app.PUT);
+            app.put_id = this.model.get('id');
             /* set inputs value */
             _.each(this.model.get('inputData'), function (value, key, list) {
-                var input= app.inputs.find('[name=' + key + ']');
-                if(input.length){
-                   input.eq(0).val(value);
+                var input = app.inputs.find('[name=' + key + ']');
+                if (input.length) {
+                    input.eq(0).val(value);
                 }
             });
             /* set areas */
@@ -431,27 +438,27 @@ $(function () {
 
     /* fill the tr model */
 
-    _.each(tr_array,function(value,key,list){
-            var areas=value.inputData.areas;
-                areas=areas.split(',');
-        var areas_collection=new app.areaCollection();
-        _.each(areas,function(value,key,list){
-                if(value.length){
-                    var area= _.findWhere(app.cities,{i:parseInt(value)});
-                    areas_collection.add({
-                        i:area.i,
-                        n:area.n
-                    });
-                }
+    _.each(tr_array, function (value, key, list) {
+        var areas = value.inputData.areas;
+        areas = areas.split(',');
+        var areas_collection = new app.areaCollection();
+        _.each(areas, function (value, key, list) {
+            if (value.length) {
+                var area = _.findWhere(app.cities, {i: parseInt(value)});
+                areas_collection.add({
+                    i: area.i,
+                    n: area.n
+                });
+            }
         });
-            var new_tr = new app.trModel({
-                id: value.id,
-                name: value.name,
-                regionNames: value.regionNames,
-                areas: areas_collection,
-                inputData: value.inputData
-            });
-            app.trs.add(new_tr);
+        var new_tr = new app.trModel({
+            id: value.id,
+            name: value.name,
+            regionNames: value.regionNames,
+            areas: areas_collection,
+            inputData: value.inputData
+        });
+        app.trs.add(new_tr);
     });
 
     /* test */

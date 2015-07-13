@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Express;
+use App\ExpressArea;
+use App\Http\Requests\ExpressAreaUpdateForExpressController;
 use App\Http\Requests\ExpressStoreForExpressController;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
@@ -32,11 +34,11 @@ class ExpressController extends BaseManagerController
         $collection = $this->getSystemExpress();
         $express = new Express();
         $expresses = $express->getExpresses($this->manager_id)->toArray();
-        $arr=[];
-        foreach ($expresses as $k=>$v){
-            $arr[$v['code']]=$v;
+        $arr = [];
+        foreach ($expresses as $k => $v) {
+            $arr[$v['code']] = $v;
         }
-        $expresses=$arr;
+        $expresses = $arr;
         return view('manager.express_list')
             ->with('expresses', $expresses)
             ->with('collection', $collection)
@@ -61,8 +63,8 @@ class ExpressController extends BaseManagerController
      */
     public function store(ExpressStoreForExpressController $request)
     {
-        $express=new Express();
-        $res=$express->storeDeliverRegion($request);
+        $express = new Express();
+        $res = $express->storeDeliverRegion($request);
         return $res;
     }
 
@@ -86,34 +88,43 @@ class ExpressController extends BaseManagerController
     public function edit($id)
     {
 
-        $express=new Express();
-        $res=$express->existExpress($this->manager_id,$id);
-        if(!$res){
-            return redirect($this->breadcrumbs_url)->with('message',"Something Error!");
+        $express = new Express();
+        $res = $express->existExpress($this->manager_id, $id);
+        if (!$res) {
+            return redirect($this->breadcrumbs_url)->with('message', "Something Error!");
         }
         /* get DeliverRegions */
-        $express_area_list=$express->getDeliverRegions($id);
+        $express_area_list = $express->getDeliverRegions($id);
         /* get configs for plugin inputs*/
-        $express=$res;
-        $attributes=$express->config;
-        $attributes=json_decode($attributes);
+        $express = $res;
+        $attributes = $express->config;
+        $attributes = json_decode($attributes);
         $this->setBreadcrumb($express->name);
         return view('manager.edit_express')
             ->with('express', $express)
-            ->with("express_area_list",$express_area_list)
-            ->with('attributes',$attributes)
+            ->with("express_area_list", $express_area_list)
+            ->with('attributes', $attributes)
             ->with('breadcrumb', $this->breadcrumb);
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * @param ExpressAreaUpdateForExpressController $request
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update(ExpressAreaUpdateForExpressController $request, $id)
     {
-        //
+        $express = new Express();
+        $res = $express->existExpress($this->manager_id, $id);
+        if (!$res) {
+            return $express->ajaxResponse(-1, 'Nothing Todo!');
+        }
+        $express_area = new ExpressArea();
+        $res = $express_area->updateConfig($request, $res);
+        return $res;
+
     }
 
     /**
