@@ -62,7 +62,7 @@ class ExpressArea extends Model
         ];
 
 
-        return $express->ajaxResponse(0, 'Update Success', $data);
+        return $express->ajaxResponse(100, 'Update Success', $data);
 
 
     }

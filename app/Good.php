@@ -64,7 +64,7 @@ class Good extends Model
             if ($target) {
                 $image=new ImageMd5();
 
-                $this->goods_img = $image->GetIdFormFileName($target);
+                $this->image_id = $image->GetIdFormFileName($target);
                 /* compress image */
                 $upload->CompressHandler($target);
             }
@@ -135,7 +135,7 @@ class Good extends Model
 
             if ($target) {
                 $image=new ImageMd5();
-                $good->goods_img = $image->GetIdFormFileName($target);
+                $good->image_id = $image->GetIdFormFileName($target);
 
                 /* compress image */
                 $upload->CompressHandler($target);

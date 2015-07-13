@@ -208,6 +208,7 @@ $(function () {
     /* app initialize */
     app.post = true;
     app.PUT = 'put';
+    app.DELETE='delete';
     app.put_id = 0;
     app.express_id=$("#express_id").val();
     app.POST = 'post';
@@ -255,11 +256,15 @@ $(function () {
             $(this).val('');
         });
         app.areas.reset();
+        app.selectInit();
+        app.setMethod(app.POST);
+    };
+
+    app.selectInit=function(){
         app.province.$el.val(app.province.$el.children().eq(0).val());
         app.city.$el.html(app.option);
         app.area.$el.html(app.option);
-        app.setMethod(app.POST);
-    };
+    }
 
     app.create = function () {
         app.initialize();
@@ -328,12 +333,24 @@ $(function () {
                 if (res.code) {
                     if(res.code==100){
                         /* update success */
-                        console.log(res);
+                        var tr=app.trs.get({
+                            id:res.data.id
+                        });
+                        if(!_.isUndefined(tr)){
+                            tr.set({
+                                name:res.data.name,
+                                regionNames:res.data.regionNames,
+                                areas:app.areas.clone(),
+                                inputData:input_data
+                            });
+                        }
+                        app.close();
                     }else
                     {
                         app.showAlert(res.msg);
                     }
                 } else {
+                    /* store success */
                     /* Update Table View */
                     var new_tr = new app.trModel({
                         id: res.data.id,
@@ -388,7 +405,8 @@ $(function () {
         },
         initialize: function () {
             this.listenTo(app.trs, 'add', this.render);
-            this.listenTo(app.trs, 'remove', this.render)
+            this.listenTo(app.trs, 'remove', this.render);
+            this.listenTo(this.model,'change',this.render);
         },
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
@@ -396,6 +414,7 @@ $(function () {
         },
         showUpdate: function () {
             app.setMethod(app.PUT);
+            app.selectInit();
             app.put_id = this.model.get('id');
             /* set inputs value */
             _.each(this.model.get('inputData'), function (value, key, list) {
@@ -413,6 +432,8 @@ $(function () {
             app.show();
         },
         showDelete: function () {
+            app.setMethod(app.DELETE);
+            app.put_id = this.model.get('id');
             app.showAlert('确定要删除?');
         }
     });
