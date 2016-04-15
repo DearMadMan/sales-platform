@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/datatables/dataTables.bootstrap.css">
 @stop
 
 
@@ -53,7 +53,7 @@
                                             Edit
                                         </a>
 
-                                        <a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
+                                        <a href="javascript:void(0);" data="{{$v->id}}" class="btn btn-danger btn-sm btn-icon icon-left">
                                             Delete
                                         </a>
 
@@ -76,7 +76,11 @@
         </div>
     </div>
 
+<script>
+    
 
+    var post_url="{{url('manager/article-type')}}"+"/";
+</script>
 
 
 
@@ -86,4 +90,5 @@
 
 
 @section('js')
+    <script src="{{url('')}}/js/tool.js"></script>
 @stop

@@ -16,6 +16,8 @@ use Overtrue\Wechat\Server;
 |
 */
 
+// test
+
 /* post 独立路由 */
 Route::post('manager/upload-images', 'Manager\UploadController@UploadImages');  /* 独立路由 需要在之前定义*/
 Route::post('manager/good-gallery', 'Manager\UploadController@GoodGallery');  /* 独立路由 需要在之前定义*/
@@ -30,27 +32,27 @@ Route::get('manager/good/{id}/restore', 'Manager\GoodController@Restore')->where
 Route::get('manager/express/{code}/install', 'Manager\ExpressController@install')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 Route::get('manager/express/{code}/uninstall', 'Manager\ExpressController@uninstall')->where('code', '[a-z]+');;  /* 独立路由 需要在之前定义*/
 
-Route::get("show/{id}",function($id){
+Route::get("show/{id}", function ($id) {
  return "Coming soon";
-})->where('id','[0-9]+');
+})->where('id', '[0-9]+');
 
 Route::get('test', function () {
 
     $regions=new \App\Region();
-    $regions=$regions->where('id','>',0)->get();
+    $regions=$regions->where('id', '>', 0)->get();
     $data=$regions->toArray();
     $arr=[];
 
-    function buildTree($parent,$left,&$data){
+    function buildTree($parent, $left, &$data)
+    {
         $right=$left+1;
-        foreach($data as $k=>$v){
-            if($v['parent_id']==$parent){
-                $right=buildTree($v['id'],$right,$data);
+        foreach ($data as $k=>$v) {
+            if ($v['parent_id']==$parent) {
+                $right=buildTree($v['id'], $right, $data);
             }
         }
-        foreach($data as $k=>$v){
-            if($v['id']==$parent)
-            {
+        foreach ($data as $k=>$v) {
+            if ($v['id']==$parent) {
                 $data[$k]['lft']=$left;
                 $data[$k]['rgt']=$right;
             }
@@ -58,8 +60,8 @@ Route::get('test', function () {
         return $right+1;
     }
 
-    buildTree(0,0,$data);
-    foreach($data as $k=>$v){
+    buildTree(0, 0, $data);
+    foreach ($data as $k=>$v) {
         echo '["id"=>"'.$v['id'].'","parent_id"=>"'.$v['parent_id'].'","name"=>"'.$v['name'].'","lft"=>"'.$v['lft'].'","rgt"=>"'.$v['rgt'].'","level_id"=>"'.$v['level_id'].'"],<br/>';
     }
 
@@ -67,7 +69,6 @@ Route::get('test', function () {
     if (Input::get('clear')) {
         session()->forget('post_image_gallery');
         session()->save();
-
     }
     dd(session()->all());
     return session('image_gallery');
@@ -76,11 +77,29 @@ Route::get('test', function () {
 Route::get('/', function () {
 
     $regions=new \App\Region();
-    $regions=$regions->whereBetween('lft',[279,294])->orderBy('level_id','asc')->get();
+    $regions=$regions->whereBetween('lft', [279, 294])->orderBy('level_id', 'asc')->get();
     print_r($regions->toArray());
     die;
 
     return view('404');
+});
+
+Route::get('/oauth/{id}', function (\App\Services\WechatUserService $userService, \App\OauthUrl $url, $id) {
+    // 提供用户授权服务
+    $userService->loginFromWechat();
+    $url = $url->find($id);
+    if (!$url) {
+        $url = '404';
+    } else {
+        $url = $url->redirect_url;
+    }
+    return redirect($url);
+    // 用户登录
+})->name('oauth');
+
+Route::get('/test-oauth', function () {
+    $user = Auth::user();
+    dd($user);
 });
 
 
@@ -89,7 +108,7 @@ Route::get("404", function () {
 });
 
 
-Route::any('callback/{manager_id}', "WechatCallbackController@index");
+Route::any('callback/{manager_id?}', "WechatCallbackController@index");
 
 
 /* 微信菜单 */
@@ -101,7 +120,8 @@ Route::resources([
     'manager/article-type' => 'Manager\ArticleTypeController',
     'manager/good' => 'Manager\GoodController',
     'manager/express' => 'Manager\ExpressController',
-    'manager/good-type' => 'Manager\GoodTypeController'
+    'manager/good-type' => 'Manager\GoodTypeController',
+    'manager/oauth-list' => 'Manager\OAuthUrlController',
 ]);
 
 
@@ -109,5 +129,3 @@ Route::Controllers([
     'tool' => 'ToolController',
     'manager' => 'Manager\ManagerController'
 ]);
-
-

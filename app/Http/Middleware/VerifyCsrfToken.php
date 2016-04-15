@@ -13,6 +13,7 @@
          * @var array
          */
         protected $except = [
-            'callback/*'
+            'callback/*',
+            'callback',
         ];
     }

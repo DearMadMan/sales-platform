@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/datatables/dataTables.bootstrap.css">
 @stop
 
 
@@ -105,5 +105,5 @@
 
 
 @section('js')
-    <script src="{{url()}}/js/tool.js"></script>
+    <script src="{{url('')}}/js/tool.js"></script>
 @stop

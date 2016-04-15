@@ -28,7 +28,7 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-		dd(Session::all());
+		
 	}
 
 	/**

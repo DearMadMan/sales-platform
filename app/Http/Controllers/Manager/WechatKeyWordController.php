@@ -85,7 +85,7 @@ class WechatKeyWordController extends BaseManagerController
                     ->where('manager_id', "<>", $request->user()->manager_id)
                     ->get();
                 if (!empty($articles->toArray())) {
-                    dd($articles->toArray());
+                    // dd($articles->toArray());
                     return redirect('404');
                 }
 
@@ -129,6 +129,7 @@ class WechatKeyWordController extends BaseManagerController
         }
         $keyword->key = $key;
         $keyword->type = 0;
+        $keyword->contents = '';
         $keyword->manager_id = $user->manager_id;
         $keyword->save();
         return redirect('manager/keyword/' . $keyword->id);

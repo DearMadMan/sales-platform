@@ -23,7 +23,8 @@
             }
             $keys = $this->get ();
             foreach ($keys as $key) {
-                property_exists ($config , $key['key']) ? 0 : $config->$key['key'] = $key['default_value'];
+                $property = $key['key'];
+                property_exists ($config , $key['key']) ? 0 : $config->$property = $key['default_value'];
             }
 
             return $config;

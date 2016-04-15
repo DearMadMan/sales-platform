@@ -2,6 +2,7 @@
     namespace App\Http\Middleware\Manager;
 
     use Closure;
+    use Auth;
 
     class Authenticate
     {
@@ -20,7 +21,7 @@
             if ($user && $user->isManager () || $request->is ('manager/login')) {
                 return $next($request);
             }
-
+            Auth::logout();
             return redirect ('manager/login');
         }
 

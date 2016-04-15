@@ -16,7 +16,7 @@ class CreateWechatConfigsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('manager_id')->unsigned()->default(0);
-			$table->text('configs')->default('');
+			$table->text('configs');
 			//$table->timestamps();
 		});
 	}

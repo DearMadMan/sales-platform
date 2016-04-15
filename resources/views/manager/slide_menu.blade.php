@@ -20,19 +20,19 @@
 
             <!-- This will toggle the mobile menu and will be visible only on mobile devices -->
             <div class="mobile-menu-toggle visible-xs">
-                <a href="#" data-toggle="user-info-menu">
+                <a href="javascript:void(0);" data-toggle="user-info-menu">
                     <i class="fa-bell-o"></i>
                     <span class="badge badge-success">7</span>
                 </a>
 
-                <a href="#" data-toggle="mobile-menu">
+                <a href="javascript:void(0);" data-toggle="mobile-menu">
                     <i class="fa-bars"></i>
                 </a>
             </div>
 
             <!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
             <div class="settings-icon">
-                <a href="#" data-toggle="settings-pane" data-animate="true">
+                <a href="javascript:void(0);" data-toggle="settings-pane" data-animate="true">
                     <i class="linecons-cog"></i>
                 </a>
             </div>
@@ -180,7 +180,7 @@
                 </ul>
             </li>
             <li>
-                <a href="{{url('manager/article')}}">
+                <a href="javascript:void(0);">
                     <i class="fa-mortar-board"></i>
                     <span class="title">文章中心</span>
                   {{--  <span class="label label-success pull-right">3</span>--}}
@@ -215,7 +215,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="javascript:void(0);">
                     <i class="linecons-money"></i>
                     <span class="title">提现管理</span>
                 </a>
@@ -227,7 +227,7 @@
 
 
             <li>
-                <a href="#">
+                <a href="javascript:void(0);">
                     <i class="fa-line-chart"></i>
                     <span class="title">数据统计</span>
                 </a>

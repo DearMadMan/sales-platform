@@ -12,7 +12,7 @@
     body{
         width: 100%;
         height: 100%;
-        background: url({{url()}}/images/404.jpg) no-repeat center center;
+        background: url({{url('')}}/images/404.jpg) no-repeat center center;
     }
     *{
         padding: 0;

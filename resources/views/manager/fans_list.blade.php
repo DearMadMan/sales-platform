@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/datatables/dataTables.bootstrap.css">
 @stop
 
 
@@ -30,50 +30,37 @@
                             <th class="no-sorting">头像</th>
                             <th class="no-sorting">昵称</th>
                             <th class="no-sorting">性别</th>
+                            <th class="no-sorting">关注状态</th>
                             <th class="no-sorting">关注时间</th>
 
                         </tr>
                         </thead>
                         <tbody class="middle-align">
-
+                        @foreach($users as $v)
                         <tr>
                             <td>
                                 <input type="checkbox" class="cbr">
                             </td>
-                            <td>1</td>
-                            <td>Guerisson奇迹马油霜企划套组   Guerisson奇迹马油霜企划套组</td>
-                            <td>100</td>
+                            <td>{{$v->id}}</td>
                             <td>
-                                <input type="checkbox" checked="" class="iswitch iswitch-turquoise">
+                               @if($v->image_url != '') 
+                               <img class="header-img" src="{{$v->image_url}}" alt="">
+                               @endif 
+                            </td>
+                            <td>{{$v->nick_name}}</td>
+                            <td>
+                                <input type="checkbox" @if($v->sex) checked="" @endif disabled class="iswitch iswitch-turquoise">
                             </td>
                             <td>
-                                <a href="#" class="btn btn-secondary btn-sm btn-icon icon-left">
-                                    Edit
-                                </a>
-
-                                <a href="#" class="btn btn-danger btn-sm btn-icon icon-left">
-                                    Delete
-                                </a>
-
-                                <a href="#" class="btn btn-info btn-sm btn-icon icon-left">
-                                    Profile
-                                </a>
+                            <input type="checkbox" @if($v->subscribe_status) checked="" @endif disabled class="iswitch iswitch-turquoise">
                             </td>
+                            <td>{{$v->subscribe_time}}</td>
                         </tr>
-
+                        @endforeach
                         </tbody>
                     </table>
 
-                    <ul class="pagination text-center">
-                        <li><a href="#"><i class="fa-angle-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li class="disabled"><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#"><i class="fa-angle-right"></i></a></li>
-                    </ul>
+                    {!!$users->render()!!}
 
 
                 </div>
@@ -92,10 +79,10 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="{{url()}}/assets/js/datatables/dataTables.bootstrap.js"></script>
-    <script src="{{url()}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
-    <script src="{{url()}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/dataTables.bootstrap.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
 
 
 @stop

@@ -12,10 +12,11 @@ return [
     'compress_rate' => 80,   //压缩比率
     'compress_cover' => true,  //压缩后覆盖原文件
     'compress_config_enable' => true,
+    'watermark' => false, // 开启水印
     'compress_config' => [
         'thumb' => [
-            'width' => 100,
-            'height' => 100
+            'width' => 200,
+            'height' => 200
         ],
         'img' => [
             'width' => 300,

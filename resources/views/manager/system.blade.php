@@ -2,8 +2,8 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
-    <link rel="stylesheet" href="{{url()}}/assets/js/dropzone/css/dropzone.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/dropzone/css/dropzone.css">
 
 
 @stop

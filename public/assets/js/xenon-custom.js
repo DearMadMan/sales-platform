@@ -1186,8 +1186,15 @@ var public_vars = public_vars || {};
 
 })(jQuery, window);
 
+function addMenuActive() {
+	var $a = $(".sidebar-menu a[href='"+ window.location.origin + window.location.pathname+"']")
+	console.log($a)
+	$li = $a.parents('li').addClass('active')
+	$a.parents('ul').css('display', 'block')
+	console.log($li)
+}
 
-
+addMenuActive()
 // Sideber Menu Setup function
 var sm_duration = .2,
 	sm_transition_delay = 150;

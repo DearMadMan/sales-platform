@@ -130,8 +130,8 @@ class GoodTypeController extends BaseManagerController
         $type=new GoodType();
         $res=$type->DeleteType($this->manager_id,$id);
         if(!$res){
-            return redirect($this->breadcrumbs_url)->with('message',"Whoops, looks like something went wrong.");
+            return 'false';
         }
-        return redirect($this->breadcrumbs_url)->with('message',"Delete Type Success!");
+        return 'true';
     }
 }

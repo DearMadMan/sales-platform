@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/datatables/dataTables.bootstrap.css">
 @stop
 
 
@@ -137,10 +137,10 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="{{url()}}/assets/js/datatables/dataTables.bootstrap.js"></script>
-    <script src="{{url()}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
-    <script src="{{url()}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
-    <script src="{{url()}}/js/tool.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/dataTables.bootstrap.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+    <script src="{{url('')}}/js/tool.js"></script>
 
 @stop

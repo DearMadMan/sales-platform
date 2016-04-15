@@ -4,7 +4,7 @@
  * User: wang
  * Date: 2015/7/1
  * Time: 15:36
- * Email: 2034906607@qq.com
+ * Email: i@dearmadman.com
  */
 
 namespace App\Lib\Express;
@@ -19,7 +19,7 @@ abstract class Contracts
     protected $cod = false;
     protected $auth = "wang";
     protected $website = "https://github/Dearmadman";
-    protected $email = "2034906607@qq.com";
+    protected $email = "i@dearmadman.com";
     protected $config = [];
 
     abstract function settleAccount($amount, $number, $weight);

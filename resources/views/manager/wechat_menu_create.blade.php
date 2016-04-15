@@ -2,8 +2,8 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
-    <link rel="stylesheet" href="{{url()}}/assets/js/dropzone/css/dropzone.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/dropzone/css/dropzone.css">
 
 
 @stop
@@ -146,10 +146,10 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
-    <script src="{{url()}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
-    <script src="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
-    <script src="{{url()}}/assets/js/dropzone/dropzone.min.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="{{url('')}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    <script src="{{url('')}}/assets/js/dropzone/dropzone.min.js"></script>
 
 
 

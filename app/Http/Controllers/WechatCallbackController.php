@@ -15,7 +15,7 @@ class WechatCallbackController extends Controller
 {
 
 
-    public function index(Request $request, $manager_id)
+    public function index(Request $request, $manager_id = 1)
     {
         $manager_config = new WechatConfig();
         $manager_config = $manager_config->where("manager_id", $manager_id)->first();
@@ -32,9 +32,10 @@ class WechatCallbackController extends Controller
 
         $wechat_event=new WechatEventController($manager_id,$configs);
 
-        $server->on('event', 'subscribe',array($wechat_event,"subscribe"));
-        $server->on('event','click',array($wechat_event,'keyword'));
-        $server->on('message','text',array($wechat_event,'keyword'));
+        $server->on('event', 'subscribe',[$wechat_event,"initUser"]);
+        $server->on('event', 'subscribe',[$wechat_event,"subscribe"]);
+        $server->on('event','click',[$wechat_event,'keyword']);
+        $server->on('message','text',[$wechat_event,'keyword']);
         return $server->serve();
     }
 

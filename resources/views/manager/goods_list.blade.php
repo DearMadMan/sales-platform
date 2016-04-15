@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/datatables/dataTables.bootstrap.css">
 @stop
 
 
@@ -23,12 +23,7 @@
             </div>
             <input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
             <div class="panel-body">
-                @if(session('message'))
-                    <div class="alert alert-success">
-                        {{session('message')}}
-                    </div>
-                @endif
-
+            @include('manger.tips')
                 <table class="table table-bordered table-striped" >
                     <thead>
                     <tr>
@@ -96,11 +91,11 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="{{url()}}/assets/js/datatables/dataTables.bootstrap.js"></script>
-    <script src="{{url()}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
-    <script src="{{url()}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
-    <script src="{{url()}}/js/tool.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/dataTables.bootstrap.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+    <script src="{{url('')}}/js/tool.js"></script>
 
 
     @stop

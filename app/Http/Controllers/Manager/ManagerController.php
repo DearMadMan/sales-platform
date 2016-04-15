@@ -3,6 +3,7 @@
 use App\Breadcrumb;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
 
 use App\Http\Requests\Manager\WechatConfigUpdate;
 use App\Http\Requests\Manager\WechatNotifyUpdate;
@@ -220,8 +221,10 @@ class ManagerController extends Controller
             ['manager/fans-list', '微信中心', 0],
         ]);
 
-        return view('manager.fans_list')
-            ->with('breadcrumb', $breadcrumb);
+        $user = new User();
+        $users = $user->where('user_type_id', 1)
+                      ->paginate(config('page.paginate'));
+        return view('manager.fans_list',['users'=>$users, 'breadcrumb'=>$breadcrumb]);
     }
 
 

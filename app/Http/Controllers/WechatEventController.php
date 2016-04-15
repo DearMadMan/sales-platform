@@ -7,21 +7,40 @@ use App\WechatKeyword;
 use App\WechatKeywordArticle;
 use App\WechatNotify;
 use Illuminate\Http\Request;
-
+use App\Services\WechatUserService;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Overtrue\Wechat\Message;
+use App\User;
+use Log;
 
 class WechatEventController extends Controller
 {
-    protected $configs = null;
-    protected $manager_id = 0;
-    protected $temp_obj = null;
+    protected $configs;
+    protected $manager_id;
+    protected $temp_obj;
+    protected $userService;
 
-    public function  __construct($manager_id, $configs)
+    public function __construct($manager_id, $configs, WechatUserservice $userService)
     {
         $this->manager_id = $manager_id;
         $this->configs = $configs;
+        $this->userService = $userService;
+    }
+
+    /**
+     * [在用户关注时初始化用户信息，用户信息入库，改变用户关注状态]
+     * @param  [type] $event [description]
+     * @return [type]        [description]
+     */
+    public function initUser($event)
+    {
+        $open_id = $event['FromUserName'];
+        // 查询用户信息
+        $user = $this->userService->getUserFromOpenId($open_id);
+        if (!$user) {
+            $this->userService->createFansWithOpenId($open_id);
+        }
     }
 
     /**
@@ -32,6 +51,7 @@ class WechatEventController extends Controller
     public function subscribe($event)
     {
         if ($this->configs->subscribe) {
+            // 查询该公众号 是否开启关注回复功能
             $notify = WechatNotify::where('event', 'subscribe')
                 ->where('enabled', 1)
                 ->where('manager_id', $this->manager_id)
@@ -55,12 +75,16 @@ class WechatEventController extends Controller
                     });
                     return $news;
                 }
-
             }
         }
         return false;
     }
 
+    /**
+     * [关键字回复]
+     * @param  [type] $message [Message]
+     * @return [type]          [description]
+     */
     public function keyword($message)
     {
         $key = $message->Content;
@@ -102,6 +126,4 @@ class WechatEventController extends Controller
         }
         return '';
     }
-
-
 }

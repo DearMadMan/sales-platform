@@ -2,8 +2,8 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
-    <link rel="stylesheet" href="{{url()}}/assets/js/dropzone/css/dropzone.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/dropzone/css/dropzone.css">
 @stop
 
 
@@ -106,7 +106,7 @@
                                     <input name="type" value="text" type="hidden"/>
                                     <input name="event" value="subscribe" type="hidden"/>
                                     <textarea class="form-control wysihtml5"
-                                              data-stylesheet-url="{{url()}}/assets/js/wysihtml5/lib/css/wysiwyg-color.css"
+                                              data-stylesheet-url="{{url('')}}/assets/js/wysihtml5/lib/css/wysiwyg-color.css"
                                               name="contents">{{$text_model->contents}}</textarea>
                                 </div>
                                 <div class="form-group">
@@ -162,7 +162,7 @@
 
                                 <div class="form-group">
                                     <textarea class="form-control wysihtml5"
-                                              data-stylesheet-url="{{url()}}/assets/js/wysihtml5/lib/css/wysiwyg-color.css"
+                                              data-stylesheet-url="{{url('')}}/assets/js/wysihtml5/lib/css/wysiwyg-color.css"
                                               name="contents">{{$text_image_model->contents}}</textarea>
                                 </div>
                                 <div class="form-group">
@@ -196,10 +196,10 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
-    <script src="{{url()}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
-    <script src="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
-    <script src="{{url()}}/assets/js/dropzone/dropzone.min.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="{{url('')}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    <script src="{{url('')}}/assets/js/dropzone/dropzone.min.js"></script>
 
 
 @stop

@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/datatables/dataTables.bootstrap.css">
 @stop
 
 
@@ -257,13 +257,13 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="{{url()}}/assets/js/datatables/dataTables.bootstrap.js"></script>
-    <script src="{{url()}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
-    <script src="{{url()}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
-    <script src="{{url()}}/assets/js/underscore-min.js"></script>
-    <script src="{{url()}}/assets/js/backbone-min.js"></script>
-    <script src="{{url()}}/assets/js/city.js"></script>
-    <script src="{{url()}}/assets/js/express-edit.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/dataTables.bootstrap.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+    <script src="{{url('')}}/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+    <script src="{{url('')}}/assets/js/underscore-min.js"></script>
+    <script src="{{url('')}}/assets/js/backbone-min.js"></script>
+    <script src="{{url('')}}/assets/js/city.js"></script>
+    <script src="{{url('')}}/assets/js/express-edit.js"></script>
 
 @stop

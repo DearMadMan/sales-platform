@@ -2,8 +2,8 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
-    <link rel="stylesheet" href="{{url()}}/assets/js/dropzone/css/dropzone.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/dropzone/css/dropzone.css">
 
 
 @stop
@@ -74,9 +74,9 @@
                             <label class="col-sm-2 control-label" for="goods_weight">商品重量：</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" type="text" value="{{$good->goods_weight}}" name="goods_weight"
+                                <input class="form-control" type="text" value="{{$good->goods_weight or 0}}" name="goods_weight"
                                        id="goods_weight"
-                                       placeholder=" example: ST000001"/>
+                                       placeholder="500"/>
                             </div>
 
                         </div>
@@ -106,8 +106,8 @@
 											<i class="linecons-money"></i>
 										</span>
                                 <input type="text" id="cost" name="cost" class="form-control"
-                                       value="{{$good->cost}}"
-                                       data-mask="fdecimal" placeholder=" example: 9.9" data-rad="." data-digits="2"
+                                       value="{{$good->cost or 9.9}}"
+                                       data-mask="fdecimal" placeholder="9.9" data-rad="." data-digits="2"
                                        maxlength="10">
                             </div>
 
@@ -125,8 +125,8 @@
 											<i class="linecons-money"></i>
 										</span>
                                 <input type="text" id="shop_price" name="shop_price" class="form-control"
-                                       value="{{$good->shop_price}}"
-                                       data-mask="fdecimal" placeholder=" example: 9.9" data-rad="." data-digits="2"
+                                       value="{{$good->shop_price or 9.9}}"
+                                       data-mask="fdecimal" placeholder="9.9" data-rad="." data-digits="2"
                                        maxlength="10">
                             </div>
 
@@ -143,8 +143,8 @@
 											<i class="linecons-money"></i>
 										</span>
                                 <input type="text" id="market_price" name="market_price" class="form-control"
-                                       value="{{$good->market_price}}"
-                                       data-mask="fdecimal" placeholder=" example: 9.9" data-rad="." data-digits="2"
+                                       value="{{$good->market_price or 9.9}}"
+                                       data-mask="fdecimal" placeholder="9.9" data-rad="." data-digits="2"
                                        maxlength="10">
                             </div>
 
@@ -157,8 +157,8 @@
 
                             <div class="col-sm-10">
                                 <input class="form-control" type="text" name="goods_number" id="goods_number"
-                                       value="{{$good->goods_number}}"
-                                       placeholder=" example: 99999"/>
+                                       value="{{$good->goods_number or 99999}}"
+                                       placeholder="99999"/>
                             </div>
 
                         </div>
@@ -310,12 +310,12 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
 
-    <script src="{{url()}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
-    <script src="{{url()}}/assets/js/ckeditor/ckeditor.js"></script>
-    <script src="{{url()}}/assets/js/dropzone/dropzone.min.js"></script>
-    <script src="{{url()}}/assets/js//good.js"></script>
+    <script src="{{url('')}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="{{url('')}}/assets/js/ckeditor/ckeditor.js"></script>
+    <script src="{{url('')}}/assets/js/dropzone/dropzone.min.js"></script>
+    <script src="{{url('')}}/assets/js//good.js"></script>
 
 
 

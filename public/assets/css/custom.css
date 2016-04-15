@@ -100,3 +100,7 @@ a {
 .tool-btn{
     margin-bottom: -30px;
 }
+.header-img {
+    width: 80px;
+    height: auto;
+}

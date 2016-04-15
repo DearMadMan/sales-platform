@@ -1,27 +1,55 @@
-## Laravel PHP Framework
+# 微信三级分销
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+**微信三级分销**是用于商家便捷接入微信的独立公众号管理系统、集成了微信商店系统。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## 功能需求
 
-## Official Documentation
+## 后台管理中心
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+### 订单管理
 
-## Contributing
+#### 订单列表
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+**订单列表** 展示商城订单信息，具有订单编辑功能：
+- 可以修改订单状态 （付款、发货、取消）
+- 可以放入回收站
+- 具有分页功能
 
-## Security Vulnerabilities
+#### 订单回收站
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+#### 发货单列表
 
-### License
+### 微信中心
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+#### 粉丝管理
+
+**粉丝管理** 用于展示公众号下粉丝信息，展示如下信息：
+- 昵称
+- 头像
+- 性别
+- 关注状态 （有些用户可能取消了关注 但还在数据库中）
+
+所需功能： 
+- 关注时入库
+- 取消关注时设置关注状态为false
+
+#### 微信OAuth
+
+**微信OAuth** 用于网页静默授权获取当前微信用户的信息
+
+该功能其实是为了兼容多平台，比如说，微信端可以免登录（其实是程序自主识别后登录）， 而使用手机浏览器也可以手动登录。
+
+需求：我们有时候会在微信菜单中导入链接到商城，而在商城中我们需要知道当前是哪位用户，这时候我们就需要静默授权与登录。 避免了用户名密码的登录方式。
+也就是说，我么需要一个中转路由来做授权与登录及登录后跳转到目标地址.
+
+功能分析： 管理员在网站后台填入要跳转的URL, 自动生成微信OAuth的链接， 用户填写OAuth的链接到微信菜单。
+
+需求功能： 生成OAuth链接，在访问OAuth的链接之后进行静默授权并获取用户信息，登录，跳转到生成前的URL地址。
+
+生成OAuth链接的时序：
+- 填写URL
+- 提交生成
+- URL入库 返回 ID
+- 返回生成后的完整授权链接

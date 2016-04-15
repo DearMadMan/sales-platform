@@ -97,7 +97,9 @@ class UploadController extends Controller
                     'width' => $v['width'],
                     'height' => $v['height'],
                     'cover_img' => false,
-                    'jpeg_quality' => config('image.compress_rate')
+                    'jpeg_quality' => config('image.compress_rate'),
+                    'watermark' => config('image.watermark'),
+                    'watermark_path' => public_path().'/watermark.png',
                 ];
                 $image_tool->SetConfig($arr);
                 $res = $image_tool->GetImageFromString($target, $k);

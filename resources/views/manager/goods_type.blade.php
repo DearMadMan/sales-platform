@@ -49,7 +49,7 @@
                                         Edit
                                     </a>
 
-                                    <a href="{{url('manager/good-type').'/'.$v->id.'/delete'}}" class="btn btn-danger btn-sm btn-icon icon-left">
+                                    <a href="javascript: void(0);" data="{{$v->id}}" class="btn btn-danger btn-sm btn-icon icon-left">
                                         Delete
                                     </a>
 
@@ -69,5 +69,12 @@
 
         </div>
     </div>
-
+<script>
+    var post_url="{{url('manager/good-type')}}"+"/";
+</script>
 @stop
+
+@section('js')
+    @parent
+    <script src="{{url('')}}/js/tool.js"></script>
+@endsection

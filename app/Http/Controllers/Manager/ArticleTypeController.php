@@ -123,6 +123,10 @@ class ArticleTypeController extends BaseManagerController
      */
     public function destroy($id)
     {
-        //
+        $res = ArticleType::destroy($id);
+        if ($res) {
+            return 'true';
+        }
+        return 'false';
     }
 }

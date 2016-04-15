@@ -109,13 +109,18 @@ $(function () {
             if (confirm('确认要进行删除操作吗 ?')) {
                 $.ajax({
                     url: post_url + $(this).attr("data"),
-                    type: 'delete',
+                    type: 'post',
                     dataType: "text",
                     context: this,
-                    data: {_token: $("#_token").val(), _method: 'delete'},
+                    headers: {
+                        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
+                    },
+                    data: {_method: 'delete'},
                     success: function (res) {
                         if (res == "true") {
                             $(this).parents('tr').eq(0).remove();
+                        } else {
+                            alert('删除失败!');
                         }
 
                     },
@@ -139,10 +144,13 @@ $(function () {
             if ($(this).is(":checked")) {
                 $.ajax({
                     url: post_url + $(this).attr("data"),
-                    type: 'delete',
+                    type: 'post',
                     dataType: "text",
                     context: this,
-                    data: {_token: $("#_token").val(), _method: 'delete'},
+                    headers: {
+                        'X-XSRF-TOKEN': getCookie('XSRF-TOKEN'),
+                    },
+                    data: {_method: 'delete'},
                     success: function (res) {
                         if (res == "true") {
                             $(this).parents('tr').eq(0).remove();
@@ -158,3 +166,18 @@ $(function () {
     });
 
 });
+
+function getCookie($key) {
+    var cookies = document.cookie ? document.cookie.split('; ') : [],
+        i = 0,
+        l = cookies.length
+    for (; i< l; i++) {
+        var parts = cookies[i].split('='),
+            name = parts.shift(),
+            cookie = parts.shift()
+            if (name = $key) {
+                return decodeURIComponent(cookie)
+            }
+    }
+    return ''
+}

@@ -32,7 +32,7 @@ class TableInitSeeder extends Seeder
             [
                 'user_type_id' => '3',
                 'name' => 'wang',
-                'email' => '2034906607@qq.com',
+                'email' => 'i@dearmadman.com',
                 'password' => Hash::make('wang'),
                 'nick_name' => 'wang',
                 'manager_id' => 1

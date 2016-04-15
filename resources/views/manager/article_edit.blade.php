@@ -2,8 +2,8 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
-    <link rel="stylesheet" href="{{url()}}/assets/js/dropzone/css/dropzone.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.css">
+    <link rel="stylesheet" href="{{url('')}}/assets/js/dropzone/css/dropzone.css">
 
 
 @stop
@@ -25,17 +25,7 @@
 
                     </div>
                     <div class="panel-body">
-                        @if(count($errors)>0)
-
-                            <div class="alert alert-danger">
-                                <strong>提示!</strong> 这里有一些输入错误.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                      @include('manager.tips') 
                         {{-- 商品基本信息 --}}
 
                         <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
@@ -140,12 +130,12 @@
 
 
 @section('js')
-    <script src="{{url()}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
 
-    <script src="{{url()}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
-    <script src="{{url()}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
-    <script src="{{url()}}/assets/js/ckeditor/ckeditor.js"></script>
-    <script src="{{url()}}/assets/js/dropzone/dropzone.min.js"></script>
+    <script src="{{url('')}}/assets/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="{{url('')}}/assets/js/wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    <script src="{{url('')}}/assets/js/ckeditor/ckeditor.js"></script>
+    <script src="{{url('')}}/assets/js/dropzone/dropzone.min.js"></script>
 
 
 

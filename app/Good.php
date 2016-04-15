@@ -74,7 +74,7 @@ class Good extends Model
             return false;
         }
         /* Insert GoodGallery */
-        $image_gallery = session('post_image_gallery');
+        $image_gallery = session('post_image_gallery') ?: [];
         $galleries = [];
         foreach ($image_gallery as $k => $v) {
             $arr = explode('/', $k);
